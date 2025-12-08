@@ -2,244 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UrbanBrief | Planning Reality Report & Pre-Application Advice</title>
+  <title>UrbanBrief | Planning Reality Report & Planning Strategy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="UrbanBrief provides fast, practical planning advice for UK homes and developments. Order a Planning Reality Report or progress to pre-app and full plans.">
+  <meta name="description" content="UrbanBrief provides fast, commercially realistic planning advice for UK property and development.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #020617;
-      --surface: #0f172a;
-      --border: #1f2937;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --accent: #2563eb;
-      --accent-soft: #38bdf8;
-      --radius: 18px;
-      --shadow: 0 20px 50px rgba(0,0,0,.6);
-    }
+<style>
+:root {
+  --bg:#020617;
+  --panel:#0f172a;
+  --panel2:#111827;
+  --border:#1f2937;
+  --text:#f9fafb;
+  --muted:#9ca3af;
+  --accent:#2563eb;
+  --accent2:#38bdf8;
+  --radius:18px;
+  --shadow:0 20px 50px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Inter",sans-serif;
+  background:radial-gradient(circle at top left,#1e293b,#020617 50%);
+  color:var(--text);
+  line-height:1.6;
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+a{text-decoration:none;color:inherit;}
+.container{max-width:1150px;margin:0 auto;padding:1.2rem;}
 
-    body {
-      font-family: "Inter", sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at top left, #1e293b, #020617 50%);
-    }
+header{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(12px);
+  background:rgba(2,6,23,.9);
+  border-bottom:1px solid var(--border);
+  z-index:99;
+}
 
-    a { color: inherit; text-decoration: none; }
+.nav{display:flex;justify-content:space-between;align-items:center;}
+.logo img{height:32px;}
+.nav a{color:var(--muted);font-size:.9rem;margin-left:1.2rem;}
+.nav a:hover{color:white;}
 
-    .container { max-width: 1120px; margin: 0 auto; padding: 1.2rem; }
+.btn{
+  display:inline-block;
+  padding:.55rem 1.2rem;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:600;
+  transition:.15s;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 12px 30px rgba(37,99,235,.65);
+}
+.btn-outline{border:1px solid var(--border);}
+.disabled{opacity:.4;pointer-events:none;}
 
-    header {
-      position: sticky;
-      top:0;
-      backdrop-filter: blur(12px);
-      background: rgba(2,6,23,.9);
-      border-bottom: 1px solid var(--border);
-      z-index:50;
-    }
+.hero{
+  padding:3.2rem 0 2.3rem;
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+.hero h1{font-size:2.4rem;margin-bottom:.6rem;}
+.hero span{
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.hero p{color:var(--muted);max-width:40rem;margin-bottom:1rem;}
 
-    .nav { display:flex; justify-content:space-between; align-items:center; }
-    .logo img { height:32px; }
-    .nav a { color:var(--muted); font-size:.9rem; margin-left:1.2rem; }
-    .nav a:hover { color:white; }
+.hero-box{
+  background:linear-gradient(135deg,#020617,#0b1223);
+  border:1px solid var(--border);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:1.4rem;
+  text-align:center;
+}
+.hero-box img{width:155px;margin-bottom:.7rem;}
+.price{margin:.5rem 0;font-weight:600;}
+.mini{font-size:.75rem;color:var(--muted);}
 
-    .btn {
-      display:inline-block;
-      border-radius:999px;
-      padding:.55rem 1.25rem;
-      font-weight:600;
-      font-size:.85rem;
-      transition:.15s;
-    }
+.section{padding:2.2rem 0;}
+.section h2{margin-bottom:.5rem;}
 
-    .btn-primary {
-      background:linear-gradient(135deg,var(--accent),var(--accent-soft));
-      box-shadow:0 12px 35px rgba(37,99,235,.7);
-    }
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+}
 
-    .btn-outline { border:1px solid var(--border); }
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  font-size:.85rem;
+}
+.card h3{font-size:.95rem;}
+.card p{color:var(--muted);}
 
-    .hero {
-      padding:3rem 0 2.5rem;
-      display:grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap:2rem;
-      align-items:center;
-    }
+.process{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:.9rem;
+}
+.step{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:.8rem;
+  font-size:.8rem;
+}
 
-    .hero h1 { font-size:2.4rem; margin-bottom:.5rem; }
-    .hero span { background:linear-gradient(90deg,#38bdf8,#22c55e); -webkit-background-clip:text; color:transparent; }
-    .hero p { color:var(--muted); margin-bottom:1rem; }
+.cta{
+  background:linear-gradient(135deg,#1e40af,#2563eb);
+  border-radius:20px;
+  padding:1rem 1.3rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:1.8rem;
+}
 
-    .hero-logo {
-      background:linear-gradient(120deg,#020617,#0b1223);
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      border-radius:24px;
-      padding:1.4rem;
-      text-align:center;
-    }
+form{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:1.4rem;
+  box-shadow:var(--shadow);
+}
+label{font-size:.74rem;color:#d1d5db;}
+input,textarea,select{
+  width:100%;
+  margin-bottom:.7rem;
+  background:#020617;
+  color:white;
+  border:1px solid var(--border);
+  padding:.45rem;
+  border-radius:8px;
+}
+textarea{min-height:80px;}
 
-    .hero-logo img { width:150px; margin-bottom:.8rem; }
+footer{
+  font-size:.7rem;
+  color:var(--muted);
+  border-top:1px solid var(--border);
+  padding:1rem;
+  margin-top:2rem;
+  background:#020617;
+}
 
-    .price { margin:.6rem 0; font-weight:600; font-size:.95rem; }
+@media(max-width:900px){
+  .hero,.grid-4,.process{grid-template-columns:1fr;}
+}
 
-    section { padding:2.2rem 0; }
-
-    h2 { margin-bottom:.5rem; }
-
-    .grid-4 {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1rem;
-      margin-top:1.4rem;
-    }
-
-    .card {
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:1rem;
-      box-shadow:0 8px 30px rgba(0,0,0,.4);
-    }
-
-    .card h3 { font-size:.95rem; }
-    .card p { font-size:.82rem; color:var(--muted); }
-
-    .process { grid-template-columns:repeat(4,1fr); margin-top:1rem; }
-
-    .step {
-      background:var(--surface);
-      border:1px solid var(--border);
-      padding:.8rem;
-      border-radius:14px;
-      font-size:.8rem;
-    }
-
-    .cta {
-      background:linear-gradient(135deg,#1e40af,#2563eb);
-      border-radius:18px;
-      padding:1rem 1.3rem;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:1.5rem;
-    }
-
-    form {
-      background:var(--surface);
-      border-radius:18px;
-      border:1px solid var(--border);
-      padding:1.4rem;
-      box-shadow:var(--shadow);
-    }
-
-    label { font-size:.75rem; color:#d1d5db; margin-bottom:.2rem; display:block; }
-    input,textarea,select {
-      width:100%;
-      background:#020617;
-      border:1px solid var(--border);
-      color:white;
-      border-radius:8px;
-      padding:.45rem;
-      margin-bottom:.7rem;
-    }
-
-    footer {
-      border-top:1px solid var(--border);
-      font-size:.7rem;
-      color:var(--muted);
-      padding:1rem;
-      margin-top:2rem;
-    }
-
-    @media(max-width:900px){
-      .hero,.grid-4,.process { grid-template-columns:1fr; }
-    }
-
-    .disabled { opacity:.4; pointer-events:none; }
-  </style>
+</style>
 </head>
 <body>
 
 <header>
-  <div class="container nav">
-    <div class="logo">
-      <img src="UB-mono.png" alt="UrbanBrief">
-    </div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Enquiry</a>
-      <a href="developers.html">Developers</a>
-    </nav>
-  </div>
+<div class="container nav">
+<div class="logo">
+<img src="UB-mono.png" alt="UrbanBrief">
+</div>
+<nav>
+<a href="#services">Services</a>
+<a href="#process">Process</a>
+<a href="#contact">Enquiry</a>
+<a href="developers.html">Developers</a>
+</nav>
+</div>
 </header>
 
 <main class="container">
 
+<!-- HERO -->
 <section class="hero">
-
 <div>
-  <h1>Know where you stand <span>before you build.</span></h1>
-  <p>Fast, practical planning advice for UK homes and small, large and technical developments – from a £145 Planning Reality Report to pre-app strategy and full plans via partners.</p>
-  <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-primary" target="_blank">Order a Planning Reality Report</a>
+<h1>Know where you stand <span>before you build.</span></h1>
+<p>
+Fast, practical planning advice for UK homes and small, large and technical developments – from a £145 Planning Reality Report to pre-app strategy and full plans via partners.
+</p>
+<a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-primary" target="_blank">
+Order a Planning Reality Report
+</a>
 </div>
 
-<div class="hero-logo">
-  <img src="UB-mono.png">
-  <div class="price">£145 · 24-hour turnaround</div>
-  <p style="font-size:.8rem;color:var(--muted)">
-    Desktop assessment against planning policy, constraints & PD rights.
-  </p>
-  <a href="example-prr.pdf" target="_blank" style="font-size:.75rem;opacity:.6">View example report</a>
+<div class="hero-box">
+<img src="UB-mono.png">
+<div class="price">£145 · 24hr turnaround</div>
+<p class="mini">
+Desktop planning analysis against policy, constraints and PD rights.
+</p>
+<a href="example-prr.pdf" target="_blank" class="mini">View example report</a>
 </div>
-
 </section>
 
 <!-- SERVICES -->
-<section id="services">
+<section id="services" class="section">
 <h2>Four ways to use UrbanBrief.</h2>
-
 <div class="grid-4">
+
 <div class="card">
 <h3>Planning Reality Report</h3>
-<p>Fast desktop study. Policy analysis, constraints & likelihood score.</p>
+<p>Fast desktop planning insight with likelihood scoring.</p>
 <p><strong>£145</strong></p>
 </div>
 
 <div class="card">
 <h3>Formal Planning Review</h3>
-<p>Official guidance call with structured questions and written summary.</p>
+<p>Official guidance call with structured brief and follow-up summary.</p>
 <p><strong>£335</strong></p>
 </div>
 
 <div class="card">
 <h3>Pre-Application</h3>
-<p>Formal submission route with desktop study & sketches as needed.</p>
+<p>Formal submission route with desktop study and sketches as needed.</p>
 <p><strong>£285 + council fee</strong></p>
 </div>
 
 <div class="card">
 <h3>Full Plans Application</h3>
-<p>Design & submission via partners where you are ready to proceed.</p>
+<p>Design and submission via experienced partners.</p>
 <p><strong>POA</strong></p>
 </div>
+
 </div>
 </section>
 
 <!-- PROCESS -->
-<section id="process">
+<section id="process" class="section">
 <h2>How it works.</h2>
-<div class="process grid-4">
-<div class="step">Send property details</div>
-<div class="step">We suggest best route</div>
-<div class="step">Planning assessment</div>
+<div class="process">
+<div class="step">Submit the property</div>
+<div class="step">We assess the route</div>
+<div class="step">Planning review</div>
 <div class="step">Decide or proceed</div>
 </div>
 </section>
@@ -247,8 +252,8 @@
 <!-- CTA -->
 <section class="cta">
 <div>
-<strong>Need a quick steer?</strong><br>
-Order a Planning Reality Report and get clarity in 24 hours.
+<strong>Just want clarity?</strong><br>
+Order a Planning Reality Report and get a professional steer within 24 hours.
 </div>
 <a href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-primary" target="_blank">
 Order PRR – £145
@@ -256,41 +261,66 @@ Order PRR – £145
 </section>
 
 <!-- FORM -->
-<section id="contact">
+<section id="contact" class="section">
 
 <h2>Project enquiry</h2>
-<p style="color:var(--muted);font-size:.85rem">Submit your details and we’ll advise on the best path forward.</p>
+<p style="color:var(--muted);font-size:.85rem">
+Choose a service and we’ll guide you forward.
+</p>
 
-<form action="mailto:enquiries@urbanbrief.co.uk" method="post" enctype="text/plain">
+<form id="enquiryForm" action="mailto:enquiries@urbanbrief.co.uk" method="post" enctype="text/plain">
 
 <label>Required service</label>
-<select id="service" name="Service" onchange="toggleForm()">
-  <option value="">Select…</option>
-  <option value="PRR">Planning Reality Report</option>
-  <option>Formal Review</option>
-  <option>Pre-Application</option>
-  <option>Full Plans</option>
+<select id="service" name="Service" onchange="toggleForm()" required>
+<option value="">Select…</option>
+<option value="PRR">Planning Reality Report</option>
+<option>Formal Planning Review</option>
+<option>Pre-Application</option>
+<option>Full Plans</option>
 </select>
 
 <label>Name</label>
 <input name="Name" required>
 
 <label>Email</label>
-<input name="Email" type="email" required>
+<input type="email" name="Email" required>
 
 <div id="extraFields">
-<label>Property address</label><input name="Address">
-<label>Postcode</label><input name="Postcode">
-<label>what3words</label><input name="w3w">
-<label>Description</label><textarea name="Description"></textarea>
+
+<label>Property address</label>
+<input name="Address">
+
+<label>Postcode</label>
+<input name="Postcode">
+
+<label>what3words</label>
+<input name="what3words">
+
+<label>Brief description</label>
+<textarea name="Description"></textarea>
+
 </div>
 
-<a id="orderBtn" href="https://buy.stripe.com/YOUR_STRIPE_LINK" class="btn btn-outline disabled" target="_blank">
+<div style="margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap">
+
+<!-- Stripe -->
+<a id="prrBtn"
+   href="https://buy.stripe.com/YOUR_STRIPE_LINK"
+   class="btn btn-outline disabled"
+   target="_blank">
 Order Planning Reality Report
 </a>
 
-<p style="font-size:.75rem;color:var(--muted);margin-top:.5rem">
-Or email: <a href="mailto:enquiries@urbanbrief.co.uk">enquiries@urbanbrief.co.uk</a>
+<!-- Mailto -->
+<button id="submitBtn" type="submit" class="btn btn-outline disabled">
+Submit project request
+</button>
+
+</div>
+
+<p class="mini" style="margin-top:.6rem">
+Or email directly:
+<a href="mailto:enquiries@urbanbrief.co.uk">enquiries@urbanbrief.co.uk</a>
 </p>
 
 </form>
@@ -300,25 +330,41 @@ Or email: <a href="mailto:enquiries@urbanbrief.co.uk">enquiries@urbanbrief.co.uk
 
 <footer>
 <div class="container">
-UrbanBrief provides independent planning interpretation and desktop advice based on over 20 years' experience in UK construction and planning-related fields. We are not a local planning authority, planner of record or legal advisor. Advice is informal and non-binding and does not constitute a guarantee of planning permission.
+UrbanBrief provides independent interpretation of planning policy informed by long-standing experience in UK construction and development. We are not a local planning authority, planner of record or legal advisor. Advice is informal and non-binding and does not constitute a guarantee of planning permission.
 </div>
 </footer>
 
 <script>
-function toggleForm(){
-  let service = document.getElementById("service").value;
-  let extra = document.getElementById("extraFields");
-  let btn = document.getElementById("orderBtn");
+function toggleForm() {
 
-  if(service === "PRR"){
-    extra.classList.add("disabled");
-    btn.classList.remove("disabled");
-    btn.classList.add("btn-primary");
-  } else {
-    extra.classList.remove("disabled");
-    btn.classList.add("disabled");
-    btn.classList.remove("btn-primary");
-  }
+let service = document.getElementById("service").value;
+let fields = document.getElementById("extraFields");
+let prr = document.getElementById("prrBtn");
+let submit = document.getElementById("submitBtn");
+
+if(service === "PRR") {
+fields.classList.add("disabled");
+prr.classList.remove("disabled");
+prr.classList.add("btn-primary");
+submit.classList.add("disabled");
+submit.classList.remove("btn-primary");
+}
+
+else if(service !== "") {
+fields.classList.remove("disabled");
+submit.classList.remove("disabled");
+submit.classList.add("btn-primary");
+prr.classList.add("disabled");
+prr.classList.remove("btn-primary");
+}
+
+else {
+fields.classList.remove("disabled");
+submit.classList.add("disabled");
+prr.classList.add("disabled");
+submit.classList.remove("btn-primary");
+prr.classList.remove("btn-primary");
+}
 }
 </script>
 
