@@ -2,39 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UrbanBrief | Clarity before commitment</title>
+  <title>UrbanBrief | Planning Reality Check & Pre-App Advice</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="UrbanBrief provides professional planning clarity for residential and commercial property projects across the UK.">
-  <!-- Font -->
+  <meta name="description" content="UrbanBrief gives fast, clear planning advice for UK residential and commercial projects – from a £135 Planning Reality Check to pre-app strategy.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* Brand palette: deep navy + mint accent */
-      --primary: #16324f;
-      --primary-soft: #1d3b60;
-      --primary-light: #2c4f78;
-      --accent: #5fd8c8;
-      --accent-soft: #e6fbf7;
+      --navy: #16324f;
+      --navy-soft: #1d3b60;
+      --navy-dark: #020617;
+      --blue: #2563eb;
+      --blue-soft: #38bdf8;
+      --mint: #5fd8c8;
       --bg: #020617;
-      --bg-soft: #0f172a;
+      --bg-soft: #0b1120;
       --surface: #0f172a;
       --surface-alt: #111827;
+      --border: #1f2937;
       --text: #f9fafb;
       --muted: #9ca3af;
-      --border: #1f2937;
-      --white: #ffffff;
       --radius-lg: 18px;
-      --radius-md: 12px;
-      --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.5);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -43,15 +36,9 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
 
     .container {
       max-width: 1120px;
@@ -59,20 +46,22 @@
       padding: 0 1.5rem;
     }
 
+    /* HEADER */
+
     header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.95), rgba(2, 6, 23, 0.7));
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.78));
       border-bottom: 1px solid rgba(31, 41, 55, 0.85);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(16px);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.85rem 0;
+      padding: 0.7rem 0;
     }
 
     .logo {
@@ -81,16 +70,23 @@
       gap: 0.4rem;
     }
 
+    /* Small logo in header – keep this modest for sharpness */
     .logo-img {
-      height: 40px;
+      height: 32px;
       width: auto;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.4rem;
+      gap: 1.3rem;
       align-items: center;
-      font-size: 0.94rem;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
@@ -98,15 +94,13 @@
       font-weight: 500;
     }
 
-    .nav-links a:hover {
-      color: #e5e7eb;
-    }
+    .nav-links a:hover { color: #e5e7eb; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0.6rem 1.25rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 999px;
       border: 1px solid transparent;
       font-size: 0.9rem;
@@ -118,14 +112,14 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #2563eb, #0ea5e9);
-      color: var(--white);
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.55);
+      background: linear-gradient(135deg, var(--blue), var(--blue-soft));
+      color: #f9fafb;
+      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.55);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.7);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.75);
     }
 
     .btn-outline {
@@ -136,69 +130,69 @@
 
     .btn-outline:hover {
       border-color: #60a5fa;
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.9);
     }
 
-    /* HERO WITH VIDEO */
+    /* HERO */
+
     .hero {
-      padding: 3.3rem 0 3rem;
-    }
-
-    .hero-with-video {
       position: relative;
-      padding-top: 4rem;
-      padding-bottom: 3rem;
+      padding: 3.5rem 0 2.8rem;
       overflow: hidden;
     }
 
-    .hero-video-wrap {
+    .hero-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
-      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), transparent 55%),
+        linear-gradient(to bottom, #020617, #020617 60%, #020617 100%);
+      opacity: 0.9;
     }
 
-    .hero-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: saturate(1.1) contrast(1.05);
-    }
-
-    .hero-video-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.4), transparent 45%),
-                  linear-gradient(to bottom, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
-      pointer-events: none;
-    }
-
-    .hero-grid {
+    .hero-inner {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 2.75rem;
+      gap: 2.4rem;
       align-items: center;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
+    /* Large logo block in hero */
+    .hero-logo-panel {
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border-radius: 22px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.6rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.7rem;
+    }
+
+    .hero-logo-img {
+      width: 140px;           /* big, but not huge – helps crispness */
+      max-width: 60vw;
+      height: auto;
     }
 
     .hero-kicker {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       color: #9ca3af;
       font-weight: 600;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.6rem;
     }
 
     .hero-title {
-      font-size: clamp(2rem, 3.2vw, 2.7rem);
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
       font-weight: 700;
-      margin-bottom: 0.7rem;
-      color: #f9fafb;
+      margin-bottom: 0.4rem;
     }
 
     .hero-highlight {
@@ -209,491 +203,280 @@
     }
 
     .hero-subtitle {
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--muted);
-      margin-bottom: 1.4rem;
-      max-width: 34rem;
+      max-width: 30rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .badge {
+      font-size: 0.76rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: rgba(15, 23, 42, 0.95);
+      color: #d1d5db;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-meta {
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-    }
-
-    .hero-chip {
-      padding: 0.22rem 0.65rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
-    .hero-right {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, #111827 0, #020617 60%);
-      border-radius: 22px;
-      padding: 1.4rem 1.4rem 1.2rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.18), transparent 70%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
+      gap: 0.7rem;
       margin-bottom: 0.7rem;
     }
 
-    .hero-card-title {
-      font-weight: 600;
-      font-size: 0.96rem;
-      color: #e5e7eb;
-    }
-
-    .hero-card-tag {
-      font-size: 0.74rem;
-      padding: 0.18rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.1);
-      color: #bbf7d0;
-      border: 1px solid rgba(74, 222, 128, 0.4);
-    }
-
-    .hero-card-sub {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-list {
-      list-style: none;
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: grid;
-      gap: 0.3rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.35rem;
-    }
-
-    .hero-list li::before {
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      margin-top: 0.18rem;
-      background: radial-gradient(circle, #38bdf8, #0ea5e9);
-    }
-
-    .hero-price-tag {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.35rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
+    .hero-note {
       font-size: 0.78rem;
-      font-weight: 500;
-      border: 1px solid rgba(55, 65, 81, 0.9);
+      color: var(--muted);
+    }
+
+    .hero-right-card {
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border-radius: 22px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.3rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-right-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-right-tag {
+      font-size: 0.78rem;
+      display: inline-flex;
+      padding: 0.16rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #bbf7d0;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-right-list {
+      list-style: none;
+      margin: 0.4rem 0 0.9rem;
+      padding: 0;
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .hero-right-list li::before {
+      content: "•";
+      margin-right: 0.3rem;
+      color: var(--blue-soft);
+    }
+
+    .price-chip {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+      background: rgba(15, 23, 42, 0.96);
+      font-size: 0.8rem;
       margin-bottom: 0.7rem;
     }
 
-    .hero-price-tag span {
+    .price-main {
+      font-weight: 600;
+    }
+
+    .price-sub {
       color: var(--muted);
       font-weight: 400;
     }
 
-    .mini-steps {
-      margin-top: 0.3rem;
-      border-radius: 16px;
-      border: 1px dashed rgba(75, 85, 99, 0.8);
-      padding: 0.7rem 0.8rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.85);
-    }
+    /* SERVICES (short + visual) */
 
-    .mini-steps strong {
-      color: #e5e7eb;
-    }
-
-    .mini-steps-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.4rem;
-    }
-
-    .mini-step-pill {
-      padding: 0.2rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(31, 41, 55, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      font-size: 0.75rem;
-    }
-
-    .hero-cta-strip {
-      margin-top: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .hero-cta-strip .btn-primary {
-      width: 100%;
-      justify-content: center;
-      font-size: 0.86rem;
-    }
-
-    /* Visual strip */
-    .visual-strip {
-      padding: 0 0 0.5rem;
-    }
-
-    .image-row {
-      display: grid;
-      grid-template-columns: 2fr 1.5fr 1.5fr;
-      gap: 0.8rem;
-      opacity: 0.95;
-    }
-
-    .image-row figure {
-      position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      background: #020617;
-    }
-
-    .image-row img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      transition: transform 0.35s ease, opacity 0.35s ease;
-    }
-
-    .image-row figure:hover img {
-      transform: scale(1.03);
-      opacity: 0.95;
-    }
-
-    .image-caption {
-      position: absolute;
-      left: 0.7rem;
-      bottom: 0.6rem;
-      font-size: 0.7rem;
-      color: #f9fafb;
-      background: rgba(15, 23, 42, 0.85);
-      padding: 0.2rem 0.45rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
-    /* Sections */
     section {
-      padding: 2.6rem 0;
+      padding: 2.4rem 0;
     }
 
     .section-header {
-      margin-bottom: 1.8rem;
-      text-align: left;
+      margin-bottom: 1.4rem;
     }
 
     .section-kicker {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: #9ca3af;
       font-weight: 600;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
     }
 
     .section-title {
       font-size: 1.35rem;
       font-weight: 700;
-      color: #e5e7eb;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.25rem;
     }
 
     .section-subtitle {
-      font-size: 0.93rem;
+      font-size: 0.9rem;
       color: var(--muted);
-      max-width: 38rem;
+      max-width: 34rem;
     }
 
-    /* Services cards */
     .cards {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.4rem;
+      gap: 1.2rem;
     }
 
     .card {
       background: radial-gradient(circle at top left, #111827, #020617);
       border-radius: var(--radius-lg);
-      padding: 1.3rem 1.3rem 1.1rem;
-      border: 1px solid rgba(55, 65, 81, 0.85);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      padding: 1.1rem 1.1rem 1rem;
+      font-size: 0.86rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      min-height: 230px;
-    }
-
-    .card-header {
-      margin-bottom: 0.6rem;
+      gap: 0.6rem;
     }
 
     .card-title {
-      font-size: 1rem;
+      font-size: 0.96rem;
       font-weight: 600;
-      color: #e5e7eb;
-      margin-bottom: 0.25rem;
     }
 
     .card-tag {
-      display: inline-flex;
-      font-size: 0.75rem;
-      padding: 0.17rem 0.55rem;
+      font-size: 0.74rem;
+      padding: 0.16rem 0.5rem;
       border-radius: 999px;
       background: rgba(56, 189, 248, 0.08);
-      color: #bae6fd;
       border: 1px solid rgba(56, 189, 248, 0.4);
+      color: #bae6fd;
+      display: inline-flex;
+      align-self: flex-start;
     }
 
     .card-body {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-    }
-
-    .card-list {
-      list-style: none;
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 0.7rem;
-      display: grid;
-      gap: 0.3rem;
-    }
-
-    .card-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.3rem;
-    }
-
-    .card-list li::before {
-      content: "✓";
-      font-size: 0.78rem;
-      margin-top: 0.1rem;
-      color: #22c55e;
-    }
-
-    .card-footer {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.8rem;
       color: var(--muted);
     }
 
-    .price {
-      font-weight: 600;
+    .card-price {
+      font-size: 0.84rem;
       color: #e5e7eb;
+      font-weight: 500;
     }
 
-    .price span {
-      font-weight: 400;
+    .card-price span {
       color: var(--muted);
-      font-size: 0.78rem;
+      font-weight: 400;
     }
 
-    /* Process */
-    .process-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 1.9rem;
-      align-items: start;
-    }
+    /* PROCESS – super short */
 
-    .steps-horizontal {
+    .process-row {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 0.8rem;
-      margin-bottom: 1.2rem;
+      font-size: 0.82rem;
     }
 
-    .step-card {
-      background: rgba(15, 23, 42, 0.95);
+    .step {
+      background: rgba(15, 23, 42, 0.96);
       border-radius: 14px;
-      padding: 0.85rem 0.8rem;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      font-size: 0.8rem;
-      position: relative;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 0.8rem 0.7rem;
     }
 
-    .step-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .step-num {
       width: 22px;
       height: 22px;
       border-radius: 999px;
-      background: radial-gradient(circle, #38bdf8, #0ea5e9);
+      background: radial-gradient(circle, #38bdf8, #2563eb);
       color: #f9fafb;
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 600;
-      margin-bottom: 0.35rem;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.3rem;
     }
 
-    .step-heading {
+    .step-title {
       font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: #e5e7eb;
+      margin-bottom: 0.15rem;
     }
 
-    .step-text {
-      color: var(--muted);
-    }
+    .step-text { color: var(--muted); }
 
-    .steps-legend {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
+    /* CTA BAND ABOVE FORM */
 
-    .pill-row {
+    .cta-band {
+      margin-bottom: 1.8rem;
+      border-radius: 18px;
+      border: 1px solid rgba(37, 99, 235, 0.6);
+      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), #020617);
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.8);
+      padding: 1rem 1.2rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      margin-top: 0.7rem;
+      gap: 0.7rem;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.86rem;
     }
 
-    .pill {
-      padding: 0.23rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.9);
+    .cta-band-main {
+      max-width: 26rem;
     }
 
-    .process-note {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 0.8rem;
+    .cta-band-title {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
     }
 
-    /* Payments / pricing */
-    .payments-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 1.9rem;
-      align-items: start;
-    }
-
-    .payment-options {
-      display: grid;
-      gap: 0.6rem;
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    .payment-option {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.45rem;
-    }
-
-    .payment-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      opacity: 0.9;
-      margin-top: 0.25rem;
-    }
-
-    .payment-card {
-      background: radial-gradient(circle at top left, #111827, #020617);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1.3rem;
-      border: 1px dashed rgba(75, 85, 99, 0.9);
-      font-size: 0.82rem;
-      color: var(--muted);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-    }
-
-    .payment-card strong {
+    .cta-band-text {
       color: #e5e7eb;
     }
 
-    .help-text {
-      font-size: 0.78rem;
+    .cta-band-sub {
       color: var(--muted);
-      margin-top: 0.3rem;
+      font-size: 0.78rem;
+      margin-top: 0.15rem;
     }
 
-    /* Contact / form */
+    /* CONTACT / FORM */
+
     .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
       gap: 1.8rem;
-      align-items: start;
     }
 
     form {
       background: rgba(15, 23, 42, 0.98);
-      padding: 1.35rem 1.4rem;
+      padding: 1.3rem 1.3rem;
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(55, 65, 81, 0.95);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.7);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
     }
 
-    .form-row {
-      margin-bottom: 0.9rem;
-    }
+    .form-row { margin-bottom: 0.85rem; }
 
     label {
       display: block;
       font-size: 0.8rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
-      color: #e5e7eb;
     }
 
     input[type="text"],
@@ -701,15 +484,15 @@
     textarea,
     select {
       width: 100%;
-      padding: 0.55rem 0.6rem;
-      border-radius: 9px;
+      padding: 0.5rem 0.55rem;
+      border-radius: 8px;
       border: 1px solid rgba(55, 65, 81, 0.95);
-      font-size: 0.88rem;
-      font-family: inherit;
-      outline: none;
       background: #020617;
       color: #e5e7eb;
-      transition: border 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      font-family: inherit;
+      font-size: 0.86rem;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease;
     }
 
     input::placeholder,
@@ -721,40 +504,44 @@
     textarea:focus,
     select:focus {
       border-color: #60a5fa;
-      background: #020617;
       box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
     }
 
     textarea {
-      min-height: 90px;
+      min-height: 80px;
       resize: vertical;
     }
 
     .checkbox-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem 1rem;
-      font-size: 0.82rem;
+      gap: 0.35rem 0.9rem;
+      font-size: 0.8rem;
       color: var(--muted);
     }
 
     .checkbox-row label {
-      font-weight: 500;
-      color: var(--muted);
       display: flex;
       align-items: center;
       gap: 0.25rem;
+      font-weight: 500;
     }
 
     input[type="checkbox"] {
       width: 14px;
       height: 14px;
-      accent-color: #3b82f6;
+      accent-color: var(--blue);
+    }
+
+    .help-text {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
     }
 
     footer {
       border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 1.1rem 0 1.4rem;
+      padding: 1rem 0 1.4rem;
       font-size: 0.78rem;
       color: var(--muted);
       background: #020617;
@@ -762,60 +549,36 @@
 
     .footer-grid {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
       gap: 0.8rem;
       align-items: flex-start;
-    }
-
-    footer a {
-      color: var(--muted);
-    }
-
-    footer a:hover {
-      color: #e5e7eb;
+      justify-content: space-between;
     }
 
     .footer-disclaimer {
-      max-width: 620px;
+      max-width: 600px;
       font-size: 0.7rem;
       line-height: 1.4;
     }
 
-    /* Responsive */
+    /* RESPONSIVE */
+
     @media (max-width: 900px) {
-      .hero-grid,
+      .nav-links { display: none; }
+
+      .hero-inner,
       .cards,
-      .process-grid,
-      .payments-grid,
+      .process-row,
       .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .cards {
-        gap: 1rem;
+      .hero {
+        padding-top: 2.8rem;
       }
 
-      .nav-links {
-        display: none;
-      }
-
-      .hero-with-video {
-        padding-top: 3rem;
-        padding-bottom: 2.6rem;
-      }
-
-      .steps-horizontal {
-        grid-template-columns: repeat(2, minmax(0,1fr));
-      }
-
-      .image-row {
-        grid-template-columns: 1.5fr 1.5fr;
-      }
-
-      .image-row figure:nth-child(1) {
-        grid-column: span 2;
-        max-height: 220px;
+      .hero-logo-panel {
+        margin-bottom: 1.5rem;
       }
     }
 
@@ -825,12 +588,8 @@
         align-items: stretch;
       }
 
-      .steps-horizontal {
-        grid-template-columns: 1fr;
-      }
-
-      .image-row {
-        grid-template-columns: 1fr;
+      .cta-band {
+        align-items: flex-start;
       }
     }
   </style>
@@ -839,334 +598,171 @@
   <header>
     <div class="container nav">
       <a href="#top" class="logo">
-        <img src="UB.png" alt="UrbanBrief" class="logo-img">
+        <img src="UB.png" alt="UrbanBrief logo" class="logo-img">
+        <span class="logo-text">UrbanBrief</span>
       </a>
       <nav class="nav-links">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
+        <a href="#contact">Enquiry</a>
         <a href="developers.html">For agents &amp; developers</a>
-        <a href="#contact" class="btn btn-outline">Start enquiry</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <!-- HERO WITH VIDEO -->
-    <section class="hero hero-with-video">
-      <div class="hero-video-wrap" aria-hidden="true">
-        <!-- Replace src/poster when you have your video -->
-        <video class="hero-video" autoplay muted loop playsinline poster="assets/video/hero-poster.jpg">
-          <source src="assets/video/hero.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="hero-video-overlay"></div>
-      </div>
-
-      <div class="container hero-grid hero-content">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="container hero-inner">
         <div>
-          <div class="hero-kicker">Planning for real projects</div>
+          <div class="hero-kicker">Planning clarity</div>
           <h1 class="hero-title">
-            Clarity before commitment.<br>
-            <span class="hero-highlight">Planning insight for property decisions.</span>
+            Know where you stand<br>
+            <span class="hero-highlight">before you spend.</span>
           </h1>
           <p class="hero-subtitle">
-            UrbanBrief gives clear, professional planning advice for residential and commercial property across the UK – before you spend thousands on drawings or applications.
+            Fast, practical planning advice for UK homes and small developments – from a £135 Planning Reality Check to pre-app strategy and full plans via partners.
           </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Start a planning enquiry</a>
-            <a href="#services" class="btn btn-outline">Explore services</a>
+          <div class="hero-badges">
+            <span class="badge">Homeowners &amp; investors</span>
+            <span class="badge">Residential &amp; commercial</span>
+            <span class="badge">24-hour Reality Check option</span>
           </div>
-          <div class="hero-meta">
-            <span class="hero-chip">Homeowners &amp; investors</span>
-            <span class="hero-chip">Uses official UK planning guidance tools</span>
-            <span class="hero-chip">Independent, practical advice</span>
+          <div class="hero-actions">
+            <!-- Stripe link placeholder -->
+            <a href="https://buy.stripe.com/YOUR-REALITY-CHECK-LINK" class="btn btn-primary" target="_blank" rel="noopener">
+              Get a Planning Reality Check – £135
+            </a>
+            <a href="#contact" class="btn btn-outline">Send a project enquiry</a>
+          </div>
+          <div class="hero-note">
+            No obligation. We’ll suggest the simplest route first – often a quick Reality Check, not full drawings.
           </div>
         </div>
-        <aside class="hero-right">
-          <div class="hero-card" aria-label="Planning Reality Check summary">
-            <div class="hero-card-header">
-              <div class="hero-card-title">Planning Reality Check</div>
-              <div class="hero-card-tag">24 hour turnaround</div>
-            </div>
-            <div class="hero-card-sub">
-              A fast desktop review of your project using local policies, mapping and publicly available data – ideal when you want a quick, honest view of what’s likely.
-            </div>
-            <ul class="hero-list">
-              <li>We review planning policy, constraints &amp; permitted development rights</li>
-              <li>Suitable for extensions, conversions &amp; change of use</li>
-              <li>Clear written summary with a likelihood score – not a legal decision</li>
-            </ul>
-            <div class="hero-price-tag">
-              £135
-              <span>desktop study, delivered within 24 hours</span>
-            </div>
-            <div class="mini-steps">
-              <strong>Typical use cases:</strong>
-              <div class="mini-steps-row">
-                <span class="mini-step-pill">Two-storey rear extensions</span>
-                <span class="mini-step-pill">Loft &amp; garage conversions</span>
-                <span class="mini-step-pill">Residential above shops</span>
-                <span class="mini-step-pill">Office-to-residential checks</span>
-              </div>
-            </div>
-            <div class="hero-cta-strip">
-              <!-- TODO: replace href with your real Stripe Payment Link -->
-              <a href="https://buy.stripe.com/YOUR-REALITY-CHECK-LINK" class="btn btn-primary" target="_blank" rel="noopener">
-                Get a Planning Reality Check now – £135 (24hr turnaround)
-              </a>
-              <span class="help-text">
-                You’ll be taken to a secure Stripe checkout to pay by card and provide the property address and a short description.
-              </span>
-            </div>
+
+        <aside class="hero-logo-panel">
+          <!-- big logo -->
+          <img src="UB.png" alt="UrbanBrief" class="hero-logo-img">
+          <div class="hero-right-tag">Planning Reality Check</div>
+          <p class="hero-right-title">Is this worth pursuing?</p>
+          <p style="font-size:0.86rem;color:var(--muted);">
+            A 24-hour desktop study of your idea using local policy, constraints and permitted development rules.
+          </p>
+          <ul class="hero-right-list">
+            <li>Ideal for extensions, lofts, conversions &amp; HMOs</li>
+            <li>We check local policies, mapping and PD rights</li>
+            <li>Short written summary + simple likelihood score</li>
+          </ul>
+          <div class="price-chip">
+            <span class="price-main">£135</span>
+            <span class="price-sub">per property · 24-hour turnaround</span>
           </div>
+          <a href="https://buy.stripe.com/YOUR-REALITY-CHECK-LINK" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+            Book a Reality Check
+          </a>
         </aside>
       </div>
     </section>
 
-    <!-- VISUAL STRIP -->
-    <section class="visual-strip">
-      <div class="container">
-        <div class="image-row">
-          <figure>
-            <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1000&q=80" alt="High street properties at dusk">
-            <div class="image-caption">High street &amp; mixed-use opportunities</div>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80" alt="Architect reviewing plans">
-            <div class="image-caption">Plans only when they’re actually needed</div>
-          </figure>
-          <figure>
-            <img src="https://images.unsplash.com/photo-1512914890250-353c97c9e7e2?auto=format&fit=crop&w=800&q=80" alt="Residential building">
-            <div class="image-caption">Residential, commercial &amp; conversions</div>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
+    <!-- SERVICES (SHORT) -->
     <section id="services">
       <div class="container">
         <div class="section-header">
           <div class="section-kicker">Services</div>
-          <h2 class="section-title">Planning clarity, productised.</h2>
+          <h2 class="section-title">Three simple ways to use UrbanBrief.</h2>
           <p class="section-subtitle">
-            From a quick reality check to formal pre-app strategy and full plans via partners, UrbanBrief breaks planning into clear, bookable services.
+            Start light with a Reality Check, then step up to formal guidance and pre-app when it makes sense.
           </p>
         </div>
 
         <div class="cards">
-          <!-- Reality Check -->
           <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Planning Reality Check</div>
-                <div class="card-tag">Best starting point</div>
-              </div>
-              <p class="card-body">
-                A 24-hour desktop review of your proposal using local policy, constraints and permitted development rules – ideal when you need fast clarity.
-              </p>
-              <ul class="card-list">
-                <li>Independent judgement based on experience and published policy</li>
-                <li>Uses publicly available planning data and documents</li>
-                <li>Written summary with a simple likelihood score and next steps</li>
-              </ul>
-            </div>
-            <div class="card-footer">
-              <div class="price">£135 <span>(desktop study, 24hr turnaround)</span></div>
-              <div>Pay securely by card via Stripe. Discounted upgrades to more detailed services may be offered after this stage.</div>
-            </div>
+            <div class="card-tag">Most popular</div>
+            <div class="card-title">Planning Reality Check</div>
+            <p class="card-body">
+              Fast desktop review of your idea. We check local policy, constraints and permitted development rules, then give you a plain-English view on how realistic it is.
+            </p>
+            <p class="card-price">£135 <span>per property, 24-hour turnaround</span></p>
           </article>
 
-          <!-- Formal Planning Review -->
           <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Formal Planning Review</div>
-              </div>
-              <p class="card-body">
-                A structured call with a planning professional through an official guidance service, with UrbanBrief preparing the questions and summarising the advice.
-              </p>
-              <ul class="card-list">
-                <li>We arrange the call and prepare the brief</li>
-                <li>We attend, capture key points and clarify constraints</li>
-                <li>Written report within around 3 working days</li>
-              </ul>
-            </div>
-            <div class="card-footer">
-              <div class="price">£285 <span>(including guidance call fee)</span></div>
-              <div>Ideal when you need to hear what the system is likely to support in more detail than a desktop check.</div>
-            </div>
+            <div class="card-tag">Deeper guidance</div>
+            <div class="card-title">Formal Planning Review</div>
+            <p class="card-body">
+              For bigger or trickier schemes, we prepare a brief and arrange a structured call via an official guidance service, then summarise what’s been said and what it means.
+            </p>
+            <p class="card-price">£285 <span>including guidance call fee</span></p>
           </article>
 
-          <!-- Pre-app & full plans -->
           <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Pre-Application &amp; Full Plans</div>
-              </div>
-              <p class="card-body">
-                When you’re ready to move forward, we can prepare a formal pre-application enquiry and introduce trusted partners to deliver full plans and applications.
-              </p>
-              <ul class="card-list">
-                <li>Pre-app advice: preparation, desktop study &amp; sketch proposal</li>
-                <li>Typical timeframe 4–6 weeks for council response</li>
-                <li>Full plans via partners once you’re confident to proceed</li>
-              </ul>
-            </div>
-            <div class="card-footer">
-              <div class="price">From £400 <span>+ council fee (pre-app stage)</span></div>
-              <div>Full plans pricing is bespoke and agreed once scope and planning strategy are clear.</div>
-            </div>
+            <div class="card-tag">Moving forward</div>
+            <div class="card-title">Pre-App &amp; Full Plans</div>
+            <p class="card-body">
+              Once you’re confident the direction is right, we can help shape a pre-application enquiry and introduce partners for full plans and applications.
+            </p>
+            <p class="card-price">From £400 <span>+ council fee for pre-app</span></p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
+    <!-- PROCESS – SHORT -->
     <section id="process">
       <div class="container">
         <div class="section-header">
-          <div class="section-kicker">Process</div>
-          <h2 class="section-title">Step by step, from idea to application.</h2>
-          <p class="section-subtitle">
-            Whether it’s a rear extension or apartments in a former office building, UrbanBrief follows a simple, repeatable process designed to give you clarity early.
-          </p>
+          <div class="section-kicker">How it works</div>
+          <h2 class="section-title">From idea to informed decision in four steps.</h2>
         </div>
 
-        <div class="process-grid">
-          <div>
-            <div class="steps-horizontal">
-              <div class="step-card">
-                <div class="step-index">1</div>
-                <div class="step-heading">Submit the property</div>
-                <p class="step-text">
-                  Tell us what’s there now, where it is, and what you’re hoping to do. Attach any agent details, plans or photos you have.
-                </p>
-              </div>
-              <div class="step-card">
-                <div class="step-index">2</div>
-                <div class="step-heading">We triage &amp; propose a route</div>
-                <p class="step-text">
-                  We review the basics and suggest the right first step – most often a £135 Planning Reality Check, or a more detailed Formal Planning Review.
-                </p>
-              </div>
-              <div class="step-card">
-                <div class="step-index">3</div>
-                <div class="step-heading">We review policy &amp; guidance</div>
-                <p class="step-text">
-                  For Reality Checks, we carry out a desktop study using local policy, mapping and permitted development rules. For deeper work, we also use official UK planning guidance channels where appropriate.
-                </p>
-              </div>
-              <div class="step-card">
-                <div class="step-index">4</div>
-                <div class="step-heading">You receive clear advice</div>
-                <p class="step-text">
-                  You get a written summary, a simple likelihood score (for Reality Checks), and our view on whether to proceed to pre-app, full plans or to walk away.
-                </p>
-              </div>
-            </div>
-            <p class="steps-legend">
-              UrbanBrief provides independent professional interpretation of planning policy, guidance and informal advice. Nothing we provide is a guarantee of permission or a substitute for a formal council decision.
-            </p>
+        <div class="process-row">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-title">Tell us the property</div>
+            <div class="step-text">Where it is, what it is now, and what you’re hoping to do.</div>
           </div>
-
-          <div>
-            <h3 class="section-title" style="font-size:1.02rem;">Who this is for</h3>
-            <p class="section-subtitle" style="margin-bottom:0.7rem;">
-              UrbanBrief is built for people who need planning clarity before making decisions:
-            </p>
-            <div class="pill-row">
-              <span class="pill">Homeowners</span>
-              <span class="pill">Property investors</span>
-              <span class="pill">Developers</span>
-              <span class="pill">Commercial agents</span>
-              <span class="pill">Auction houses</span>
-              <span class="pill">Landlords</span>
-            </div>
-            <p class="section-subtitle" style="margin-top:0.9rem;">
-              Typical projects:
-            </p>
-            <div class="pill-row">
-              <span class="pill">Two-storey rear extensions</span>
-              <span class="pill">Loft &amp; garage conversions</span>
-              <span class="pill">Residential above retail</span>
-              <span class="pill">Office-to-residential</span>
-              <span class="pill">Small mixed-use schemes</span>
-              <span class="pill">HMOs and unit splits</span>
-            </div>
-            <p class="process-note">
-              You don’t need to own the property to make an initial enquiry – many clients are exploring options before purchase or auction.
-            </p>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-title">We suggest the route</div>
+            <div class="step-text">Often a £135 Reality Check first, not full drawings.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-title">We review policy</div>
+            <div class="step-text">Desktop study +, where needed, official guidance channels.</div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-title">You decide</div>
+            <div class="step-text">Proceed to pre-app / full plans – or walk away with confidence.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRICING + PAYMENTS -->
-    <section id="pricing">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Pricing &amp; payments</div>
-          <h2 class="section-title">Transparent fees, card payments up front.</h2>
-          <p class="section-subtitle">
-            The aim is simple: give you enough clarity to make a decision, at a fixed cost, paid securely by card before work starts.
-          </p>
-        </div>
-
-        <div class="payments-grid" id="payments">
-          <div>
-            <div class="payment-options">
-              <div class="payment-option">
-                <div class="payment-dot"></div>
-                <div>
-                  <strong>Planning Reality Check – £135</strong> – pay online by card via a secure Stripe checkout and receive a written desktop review within 24 hours.
-                </div>
-              </div>
-              <div class="payment-option">
-                <div class="payment-dot"></div>
-                <div>
-                  <strong>Formal Planning Review – £285</strong> – we’ll confirm suitability from your enquiry and send a Stripe payment link before arranging the call.
-                </div>
-              </div>
-              <div class="payment-option">
-                <div class="payment-dot"></div>
-                <div>
-                  <strong>Pre-Application advice – from £400 + council fee</strong> – once we’ve agreed scope, we’ll invoice or send a Stripe payment link and then prepare the pre-app submission.
-                </div>
-              </div>
-              <div class="payment-option">
-                <div class="payment-dot"></div>
-                <div>
-                  <strong>Full plans &amp; applications</strong> – pricing is bespoke and agreed with our design partners once planning strategy is clear.
-                </div>
-              </div>
-            </div>
-          </div>
-          <aside class="payment-card">
-            <strong>How payments work</strong><br><br>
-            UrbanBrief uses Stripe to handle card payments securely. For the £135 Planning Reality Check you can use the direct “Pay now” button. For all other services, we will:<br><br>
-            <ul class="hero-list">
-              <li>Review your enquiry and confirm the right service</li>
-              <li>Send a fixed fee proposal by email</li>
-              <li>Provide a Stripe payment link for card payment in advance</li>
-            </ul>
-            <p class="help-text">
-              Bank transfer can also be arranged on request if you prefer to pay on invoice.
-            </p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT / ENQUIRY FORM -->
+    <!-- CTA BAND RIGHT ABOVE FORM -->
     <section id="contact">
       <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Start your enquiry</div>
-          <h2 class="section-title">Tell UrbanBrief about your project.</h2>
+        <div class="cta-band">
+          <div class="cta-band-main">
+            <div class="cta-band-title">Just want a quick yes/no feel?</div>
+            <div class="cta-band-text">
+              Use the Planning Reality Check for a fast steer, then we’ll talk about pre-apps or full plans if it still stacks.
+            </div>
+            <div class="cta-band-sub">
+              Suitable for extensions, lofts, conversions, HMOs and “subject to planning” deals.
+            </div>
+          </div>
+          <a href="https://buy.stripe.com/YOUR-REALITY-CHECK-LINK" class="btn btn-primary" target="_blank" rel="noopener">
+            Get a Reality Check – £135
+          </a>
+        </div>
+
+        <div class="section-header" style="margin-bottom:1.2rem;">
+          <div class="section-kicker">Enquiry</div>
+          <h2 class="section-title">Send UrbanBrief your project.</h2>
           <p class="section-subtitle">
-            Share a few details about the property and what you’re trying to achieve. We’ll reply with the most suitable route and a clear fee proposal, with a card payment link where needed.
+            Use the form below if you’d like us to look at a specific property or idea. We’ll reply by email, suggest the best route and send a card payment link if needed.
           </p>
         </div>
 
@@ -1198,7 +794,7 @@
 
             <div class="form-row">
               <label for="address">Property address</label>
-              <input id="address" name="Property address" type="text" placeholder="Street, town" required>
+              <input id="address" name="Property address" type="text" required>
             </div>
 
             <div class="form-row">
@@ -1209,7 +805,6 @@
             <div class="form-row">
               <label for="w3w">what3words (optional)</label>
               <input id="w3w" name="what3words" type="text" placeholder="e.g. ///edge.roof.brick">
-              <p class="help-text">If you know the what3words location, it can help us pinpoint the site quickly.</p>
             </div>
 
             <div class="form-row">
@@ -1231,53 +826,38 @@
 
             <div class="form-row">
               <label for="description">Brief description</label>
-              <textarea id="description" name="Project description" placeholder="e.g. Two-storey rear extension; convert office to 4 flats; check if HMO is viable under local policy."></textarea>
-            </div>
-
-            <div class="form-row">
-              <label for="service">Preferred service level (if you know)</label>
-              <select id="service" name="Preferred service">
-                <option value="">Please select</option>
-                <option>Planning Reality Check (£135)</option>
-                <option>Formal Planning Review (£285)</option>
-                <option>Pre-application strategy</option>
-                <option>Full plans &amp; application</option>
-                <option>Not sure – please advise</option>
-              </select>
+              <textarea id="description" name="Project description" placeholder="One or two sentences is fine for now."></textarea>
             </div>
 
             <div class="form-row">
               <label for="timeline">Rough timeline</label>
-              <input id="timeline" name="Timeline" type="text" placeholder="e.g. Considering purchase; under offer; already own – aiming for 3–6 months">
+              <input id="timeline" name="Timeline" type="text" placeholder="e.g. considering purchase / under offer / already own">
             </div>
 
             <div class="form-row">
-              <button class="btn btn-primary" type="submit">Send enquiry</button>
+              <button class="btn btn-primary" type="submit">Send enquiry by email</button>
               <p class="help-text">
-                This form will open your email client with the details pre-filled. Later, you can switch this to a hosted form service such as Formspree if you prefer submissions to go directly into your inbox without opening a mail client.
+                This will open your email client with the details pre-filled. Later, you can swap this to a hosted form service if you prefer.
               </p>
             </div>
           </form>
 
           <div>
-            <h3 class="section-title" style="font-size:1.02rem;">Prefer email or a quick outline?</h3>
-            <p class="section-subtitle" style="margin-bottom:0.8rem;">
-              You can also email UrbanBrief directly with a short outline of your project:
+            <p style="font-size:0.9rem;color:var(--muted);margin-bottom:0.7rem;">
+              You can also email directly:
             </p>
-            <p class="section-subtitle">
+            <p style="font-size:0.9rem;">
               <strong>Email:</strong> <a href="mailto:enquiries@urbanbrief.co.uk">enquiries@urbanbrief.co.uk</a>
             </p>
-            <p class="section-subtitle" style="margin-top:0.9rem;">
-              After reviewing your enquiry, we will:
-            </p>
-            <ul class="hero-list">
-              <li>Confirm if the project is suitable for UrbanBrief</li>
-              <li>Recommend the right service level and timing</li>
-              <li>Provide a fixed fee and a secure card payment link</li>
-            </ul>
-            <p class="help-text" style="margin-top:0.7rem;">
-              We normally recommend starting with a £135 Planning Reality Check for most small-scale or early-stage ideas.
-            </p>
+            <div style="margin-top:1.2rem;font-size:0.86rem;color:var(--muted);">
+              <strong>Good projects for UrbanBrief:</strong>
+              <ul style="margin-top:0.4rem;list-style:disc;padding-left:1.1rem;">
+                <li>Two-storey rear and side extensions</li>
+                <li>Loft and garage conversions</li>
+                <li>Residential above shops and small mixed-use schemes</li>
+                <li>Office-to-residential and smaller HMOs</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -1290,9 +870,7 @@
       <div class="footer-disclaimer">
         UrbanBrief draws on over 20 years of experience in UK construction and planning-related work. We provide independent interpretation of planning policy, guidance and informal advice, but we are not a local planning authority, do not act as your legal advisor and do not issue formal planning decisions. All advice is informal and non-binding, and nothing on this site or in our reports should be taken as a guarantee of planning permission.
       </div>
-      <div>
-        <a href="#top">Back to top</a>
-      </div>
+      <div><a href="#top">Back to top</a></div>
     </div>
   </footer>
 
