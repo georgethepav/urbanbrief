@@ -1,212 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>UrbanBrief | For Agents & Developers</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="UrbanBrief planning clarity services for estate agents, developers and auction houses.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* COPY the same CSS from index.html here (exactly the <style> content) */
-    /* For brevity, I'm not pasting it twice – just duplicate it from index.html */
-  </style>
+<meta charset="UTF-8">
+<title>UrbanBrief | For Agents, Developers & Auction Houses</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="UrbanBrief provides planning clarity for agents, developers and auction houses across the UK. Add certainty to deals and development potential.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg:#020617;
+  --surface:#0f172a;
+  --border:#1f2937;
+  --text:#f9fafb;
+  --muted:#9ca3af;
+  --accent:#2563eb;
+  --accent-soft:#38bdf8;
+  --radius:18px;
+  --shadow:0 22px 55px rgba(0,0,0,.65);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  font-family:"Inter",sans-serif;
+  background:radial-gradient(circle at top left,#1e293b,#020617 45%);
+  color:var(--text);
+}
+
+a{text-decoration:none;color:inherit;}
+
+.container{max-width:1140px;margin:auto;padding:1.3rem;}
+
+header{
+  position:sticky;top:0;
+  backdrop-filter:blur(12px);
+  background:rgba(2,6,23,.9);
+  border-bottom:1px solid var(--border);
+  z-index:50;
+}
+
+.nav{display:flex;justify-content:space-between;align-items:center;}
+
+.logo img{height:32px;}
+
+.nav a{color:var(--muted);font-size:.9rem;margin-left:1.1rem;}
+.nav a:hover{color:white;}
+
+.btn{
+  display:inline-block;
+  padding:.55rem 1.3rem;
+  border-radius:999px;
+  font-weight:600;
+  font-size:.82rem;
+  transition:.15s;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent-soft));
+  box-shadow:0 10px 30px rgba(37,99,235,.6);
+}
+
+.btn-outline{border:1px solid var(--border);}
+
+.hero{
+  padding:3rem 0 2.2rem;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.hero h1{
+  font-size:2.2rem;
+  margin-bottom:.6rem;
+}
+
+.hero span{
+  background:linear-gradient(90deg,#38bdf8,#22c55e);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:38rem;
+}
+
+.hero-card{
+  background:linear-gradient(135deg,#020617,#0b1223);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:1.4rem;
+  box-shadow:var(--shadow);
+}
+
+.hero-card h3{
+  font-size:1rem;
+  margin-bottom:.3rem;
+}
+
+.hero-card ul{
+  list-style:none;
+  margin-top:.6rem;
+  font-size:.85rem;
+  color:var(--muted);
+}
+
+.hero-card li::before{
+  content:"•";
+  color:var(--accent-soft);
+  margin-right:.4rem;
+}
+
+section{
+  padding:2.1rem 0;
+}
+
+h2{margin-bottom:.4rem;}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.1rem;
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  padding:1rem;
+  font-size:.85rem;
+}
+
+.card h3{font-size:.95rem;margin-bottom:.2rem;}
+
+.card p{color:var(--muted);}
+
+.case{
+  background:linear-gradient(135deg,#020617,#0b1223);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:1.2rem;
+  box-shadow:var(--shadow);
+}
+
+.case strong{color:white;}
+
+.cta{
+  background:linear-gradient(135deg,#1e40af,#2563eb);
+  border-radius:20px;
+  padding:1.2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+footer{
+  border-top:1px solid var(--border);
+  padding:1rem;
+  color:var(--muted);
+  font-size:.7rem;
+  margin-top:2rem;
+  background:#020617;
+}
+
+@media(max-width:900px){
+  .hero,.grid-3{grid-template-columns:1fr;}
+}
+
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html#top" class="logo">
-        <img src="UB.png" alt="UrbanBrief" class="logo-img">
-      </a>
-      <nav class="nav-links">
-        <a href="index.html#services">Services</a>
-        <a href="index.html#process">Process</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="developers.html">For agents &amp; developers</a>
-        <a href="index.html#contact" class="btn btn-outline">Start enquiry</a>
-      </nav>
-    </div>
-  </header>
 
-  <main id="top">
-    <section class="hero" style="padding-top:3rem;padding-bottom:2.4rem;">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">For agents, developers &amp; auctioneers</div>
-          <h1 class="section-title">Planning clarity you can bolt onto your deals.</h1>
-          <p class="section-subtitle">
-            UrbanBrief helps you add realistic planning insight to residential and commercial opportunities – giving buyers more confidence and speeding up decisions, without you having to be a planning expert.
-          </p>
-        </div>
+<header>
+<div class="container nav">
+<div class="logo"><img src="UB-mono.png"></div>
+<nav>
+<a href="index.html">Home</a>
+<a href="index.html#services">Services</a>
+<a href="developers.html">Developers</a>
+<a href="index.html#contact">Enquiry</a>
+</nav>
+</div>
+</header>
 
-        <div class="cards" style="grid-template-columns: repeat(3,minmax(0,1fr));">
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Differentiate your listings</div>
-              </div>
-              <p class="card-body">
-                Offer a structured Planning Reality Check or Formal Planning Review alongside selected properties – especially “subject to planning” or “potential” stock.
-              </p>
-              <ul class="card-list">
-                <li>Add planning confidence to your particulars</li>
-                <li>Help buyers see what’s realistic, not just aspirational</li>
-                <li>Reduce time spent fielding speculative planning queries</li>
-              </ul>
-            </div>
-          </article>
+<main class="container">
 
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Support serious bidders</div>
-              </div>
-              <p class="card-body">
-                For auction and competitive bids, we can give bidders a fast planning steer, so they can bid with a clearer view of risk – and you can focus on running the sale.
-              </p>
-              <ul class="card-list">
-                <li>Ideal for lots marketed as “may suit conversion”</li>
-                <li>Helps filter time-wasters from serious players</li>
-                <li>Keeps you out of detailed planning opinion</li>
-              </ul>
-            </div>
-          </article>
+<section class="hero">
 
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Plug-in, not a new department</div>
-              </div>
-              <p class="card-body">
-                UrbanBrief sits alongside your existing service. You keep the client relationship, we provide the planning clarity and reporting behind the scenes.
-              </p>
-              <ul class="card-list">
-                <li>No retainers required to start</li>
-                <li>Use us case-by-case, then scale up</li>
-                <li>Optional lightly branded or white-label reports</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+<div>
+<h1>Add planning clarity <span>to your deals.</span></h1>
+<p>
+UrbanBrief exists to remove planning guesswork from sales, auctions and acquisitions.  
+We give buyers a professional view of what planning policy is likely to support — without you giving planning opinions or risking misrepresentation.
+</p>
+</div>
 
-    <!-- Example scenario -->
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Example scenario</div>
-          <h2 class="section-title">HMO that wasn’t viable – caught before purchase.</h2>
-          <p class="section-subtitle">
-            A classic pattern: a buyer sees a terraced house in a strong rental area and wants to convert it to an HMO. On paper the numbers look great – until local policy and Article 4 are checked properly.
-          </p>
-        </div>
+<div class="hero-card">
+<h3>Where we fit</h3>
+<ul>
+<li>Properties sold for development potential</li>
+<li>Auction lots needing quick planning clarity</li>
+<li>Residential / mixed-use conversions</li>
+<li>HMOs, office conversions, intensification</li>
+</ul>
+</div>
 
-        <div class="cards" style="grid-template-columns: minmax(0,1.3fr) minmax(0,1fr);">
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">What the buyer wanted</div>
-              </div>
-              <p class="card-body">
-                Prospective purchaser spots a 3-bed house on your books and wants to turn it into a 6-bed HMO. Quick back-of-the-envelope maths says it’s a great yield. They ask you:
-              </p>
-              <ul class="card-list">
-                <li>“Is this definitely fine under permitted development?”</li>
-                <li>“Any issues with Article 4 or local HMO caps?”</li>
-                <li>“Can I go bigger if the council allows it?”</li>
-              </ul>
-            </div>
-          </article>
+</section>
 
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">What UrbanBrief did</div>
-              </div>
-              <p class="card-body">
-                They booked a £135 Planning Reality Check through you. We:
-              </p>
-              <ul class="card-list">
-                <li>Checked local policies and SPD on HMOs</li>
-                <li>Reviewed the council’s Article 4 directions and mapping</li>
-                <li>Looked at nearby approvals and refusals for similar schemes</li>
-              </ul>
-              <p class="card-body" style="margin-top:0.4rem;">
-                Result: the property sat inside an Article 4 area with a high existing concentration of HMOs. Our view was that a new HMO was unlikely to be supported – and not PD.
-              </p>
-            </div>
-          </article>
-        </div>
+<section>
+<h2>Why UrbanBrief works for you</h2>
 
-        <p class="process-note">
-          The buyer didn’t proceed – but they avoided a bad purchase, and you avoided being blamed for “implying it would be fine”. Next time, the same buyer is more likely to come back to you with confidence.
-        </p>
-      </div>
-    </section>
+<div class="grid-3">
+<div class="card">
+<h3>De-risk your listings</h3>
+<p>
+Offer buyers a Planning Reality Report so they hear a professional planning view instead of guessing from listing text.
+</p>
+</div>
 
-    <!-- Partnership CTA -->
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Work with UrbanBrief</div>
-          <h2 class="section-title">Add planning clarity to your pipeline.</h2>
-          <p class="section-subtitle">
-            We can start with a simple arrangement: you introduce UrbanBrief as an optional planning clarity service to buyers and vendors, and we handle the rest.
-          </p>
-        </div>
+<div class="card">
+<h3>Qualify serious buyers</h3>
+<p>
+Buyers who order planning insight early are far more likely to transact. It cuts noise, not leads.
+</p>
+</div>
 
-        <div class="cards" style="grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);">
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">How it works</div>
-              </div>
-              <ul class="card-list">
-                <li>You flag suitable properties (development potential, “subject to planning”, HMOs, mixed-use, etc.).</li>
-                <li>We provide you with a short blurb you can drop into your marketing (“Planning Reality Check available via UrbanBrief”).</li>
-                <li>Interested buyers either contact us directly or you make an introduction.</li>
-                <li>We invoice buyers directly and keep you copied into high-level outcomes if you wish.</li>
-              </ul>
-            </div>
-          </article>
+<div class="card">
+<h3>Keep control of the relationship</h3>
+<p>
+We don’t compete with you. You keep the client. We provide planning intelligence behind the scenes.
+</p>
+</div>
+</div>
 
-          <article class="card">
-            <div>
-              <div class="card-header">
-                <div class="card-title">Next step</div>
-              </div>
-              <p class="card-body">
-                If you’d like to explore this for your branch, development business or auction room, send us a short message and we’ll arrange a quick call.
-              </p>
-              <p class="card-body">
-                Use the main enquiry form and select “Agent”, “Developer” or “Auction house” as your role.
-              </p>
-              <a href="index.html#contact" class="btn btn-primary" style="margin-top:0.6rem;">
-                Talk to UrbanBrief about a partnership
-              </a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
+</section>
 
-  <footer>
-    <div class="container footer-grid">
-      <div>© <span id="year"></span> UrbanBrief. All rights reserved.</div>
-      <div class="footer-disclaimer">
-        UrbanBrief draws on over 20 years of experience in UK construction and planning-related work. We provide independent interpretation of planning policy, guidance and informal advice, but we are not a local planning authority, do not act as your legal advisor and do not issue formal planning decisions. All advice is informal and non-binding, and nothing on this site or in our reports should be taken as a guarantee of planning permission.
-      </div>
-      <div>
-        <a href="#top">Back to top</a>
-      </div>
-    </div>
-  </footer>
+<section>
+<h2>Example – avoiding a bad deal</h2>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<div class="case">
+<p><strong>Scenario:</strong> Buyer wants to convert a house into an HMO before auction.</p>
+<p>UrbanBrief reviews local Article 4 direction, HMO saturation policy, recent refusals.</p>
+<p><strong>Outcome:</strong> PD not applicable. Policy strongly against further HMOs in that street.</p>
+<p>Buyer walks. You avoid a collapsed sale and professional embarrassment later.</p>
+</div>
+
+</section>
+
+<section class="cta">
+<div>
+<strong>Want to offer UrbanBrief to your clients?</strong><br>
+Use us on one deal first. No retainers, no long-term commitment.
+</div>
+<a href="index.html#contact" class="btn btn-primary">Talk to UrbanBrief</a>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+UrbanBrief provides independent interpretation of planning policy based on long-standing construction and development experience. We are not a local planning authority, lawyer or licensed planning consultancy and provide advisory insight only.
+</div>
+</footer>
+
 </body>
 </html>
