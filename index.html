@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UrbanBrief | Principal Designer (Building Regulations) – Online</title>
+  <meta name="description" content="UrbanBrief provides digitally delivered Principal Designer (Building Regulations) services under the Building Safety Act dutyholder regime—clear scope, proportionate process, and compliance leadership." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Keep the same logo asset already used on your site -->
+  <link rel="icon" href="/UB-mono.png" />
+
+  <!--
+    NOTE:
+    Your current site styling is very minimal. Because I can’t reliably read your existing CSS file name from the public HTML extract,
+    this page includes its own lightweight CSS to match the clean UrbanBrief aesthetic.
+    If you DO have a site-wide stylesheet (e.g. /style.css), you can add:
+    <link rel="stylesheet" href="/style.css" />
+  -->
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --soft:#f8fafc;
+      --accent:#0f172a;
+      --accent2:#111827;
+      --btn:#0f172a;
+      --btnText:#ffffff;
+      --warn:#0b1220;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 8px 0 18px;
+      border-bottom:1px solid var(--line);
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-width: 220px;
+    }
+    .brand img{
+      width: 54px;
+      height:auto;
+      display:block;
+    }
+    .brand strong{
+      letter-spacing: -0.02em;
+      font-size: 18px;
+    }
+    nav{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-size: 14px;
+      color:var(--muted);
+    }
+    nav a{padding:6px 8px;border-radius:8px}
+    nav a:hover{background:var(--soft);text-decoration:none;color:var(--text)}
+    .hero{
+      padding: 26px 0 14px;
+    }
+    h1{
+      font-size: clamp(28px, 4vw, 42px);
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .lede{
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 72ch;
+      margin: 0 0 18px;
+    }
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin: 12px 0 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--btn);
+      background: var(--btn);
+      color: var(--btnText);
+      font-weight: 600;
+      font-size: 14px;
+      cursor:pointer;
+    }
+    .btn:hover{filter:brightness(0.95);text-decoration:none}
+    .btn.secondary{
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line);
+    }
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: repeat(12, 1fr);
+      margin: 18px 0 10px;
+    }
+    .card{
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+    }
+    .card h3{
+      margin:0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .card p{margin:0;color:var(--muted);font-size: 14px}
+    .span4{grid-column: span 4;}
+    .span6{grid-column: span 6;}
+    .span12{grid-column: span 12;}
+    .soft{
+      background: var(--soft);
+    }
+    .section{
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing:-0.02em;
+    }
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    li{margin:6px 0}
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+    }
+    .note{
+      font-size: 13px;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    form{
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
+    }
+    label{
+      font-size: 13px;
+      color: var(--muted);
+      display:block;
+      margin-bottom:6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background:#fff;
+      font: inherit;
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color:#94a3b8;
+      box-shadow: 0 0 0 4px rgba(148,163,184,0.25);
+    }
+    textarea{min-height: 120px; resize: vertical;}
+    .formRow{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    footer{
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .tinyLinks{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+    .kicker{
+      font-weight:700;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    @media (max-width: 860px){
+      .span4,.span6{grid-column: span 12;}
+      .twoCol{grid-template-columns: 1fr;}
+      header{align-items:flex-start;flex-direction:column}
+      nav{justify-content:flex-start}
+      .formRow{grid-template-columns: 1fr;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <a class="brand" href="/" aria-label="UrbanBrief home">
+        <img src="/UB-mono.png" alt="UrbanBrief" />
+        <strong>UrbanBrief</strong>
+      </a>
+
+      <nav aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#enquiry">Enquiry</a>
+        <a href="/developers.html">Partners</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Principal Designer (Building Regulations) — delivered online.</h1>
+        <p class="lede">
+          UrbanBrief has pivoted. We now provide <strong>digitally delivered Principal Designer (Building Regulations)</strong>
+          services under the Building Safety Act dutyholder regime — giving clients, designers and contractors
+          a clear, proportionate compliance lead on non-HRB projects across England.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn" href="#enquiry">Request an online PD quote</a>
+          <a class="btn secondary" href="mailto:enquiries@urbanbrief.co.uk">Email: enquiries@urbanbrief.co.uk</a>
+          <span class="pill">Clear scope · Proportionate process · Compliance leadership</span>
+        </div>
+
+        <div class="grid">
+          <div class="card span4">
+            <h3>Take PD liability off the client</h3>
+            <p>If a PD isn’t appointed, the client can inherit the role by default. We formalise and discharge it properly.</p>
+          </div>
+          <div class="card span4">
+            <h3>Support architects & designers</h3>
+            <p>Independent PD leadership, without stepping on design authorship. We coordinate Building Regs risk and evidence.</p>
+          </div>
+          <div class="card span4">
+            <h3>Reduce site surprises</h3>
+            <p>Identify foreseeable Building Regs issues early — fewer redesigns, fewer variations, fewer arguments later.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <h2>What UrbanBrief does now</h2>
+
+        <div class="grid">
+          <div class="card span6">
+            <div class="kicker">Service 01</div>
+            <h3>Named Principal Designer (Building Regulations)</h3>
+            <p>
+              We act as the appointed PD (BR) and provide the “plan, manage, monitor & coordinate” function for Building Regulations
+              compliance on non-HRB projects — delivered digitally with a clear scope.
+            </p>
+          </div>
+
+          <div class="card span6">
+            <div class="kicker">Service 02</div>
+            <h3>Building Regulations drawings + PD (BR)</h3>
+            <p>
+              For domestic and small works, we can produce Building Regulations drawings and specifications
+              <em>and</em> act as the named PD (BR) — one compliance-led route, one accountable point of contact.
+            </p>
+          </div>
+
+          <div class="card span6">
+            <div class="kicker">Service 03</div>
+            <h3>PD (BR) Advisory / Shadow PD</h3>
+            <p>
+              Where another party is named PD, UrbanBrief can provide structured compliance reviews,
+              risk register input, and dutyholder support — ideal for architects and contractors who want a second set of eyes.
+            </p>
+          </div>
+
+          <div class="card span6">
+            <div class="kicker">Service 04</div>
+            <h3>Commercial fit-out compliance coordination</h3>
+            <p>
+              Fast-track retail, hospitality, healthcare and similar projects often fail at coordination.
+              We keep Building Regs risk visible, evidenced, and properly managed through design changes.
+            </p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>Important:</strong> UrbanBrief is not Building Control and cannot “approve” works.
+          We lead and coordinate compliance activity under the dutyholder regime, proportionate to the project’s scale and complexity.
+        </div>
+      </section>
+
+      <section id="process" class="section">
+        <h2>How the online PD (BR) service works</h2>
+
+        <div class="twoCol">
+          <div class="card">
+            <h3>1) Scope & appointment</h3>
+            <ul>
+              <li>Confirm project type and whether a named PD (BR) is required for your team structure.</li>
+              <li>Agree boundaries: what’s included, what’s excluded, and where specialist input is needed.</li>
+              <li>Appointment issued with proportionate duties and deliverables.</li>
+            </ul>
+
+            <h3 style="margin-top:14px;">2) Compliance leadership</h3>
+            <ul>
+              <li>Create / maintain a live <strong>Design Risk Register</strong> focused on Building Regulations risk.</li>
+              <li>Coordinate designers, contractor and client actions around compliance-critical decisions.</li>
+              <li>Track and evidence how risks are eliminated, reduced or controlled.</li>
+            </ul>
+
+            <h3 style="margin-top:14px;">3) Outputs that stand up</h3>
+            <ul>
+              <li>Compliance strategy narrative and signposting (not “box ticking”).</li>
+              <li>Clear information handover points as the design develops.</li>
+              <li>A tidy audit trail that reduces disputes and ambiguity.</li>
+            </ul>
+          </div>
+
+          <div class="card soft">
+            <h3>What we typically ask for</h3>
+            <ul>
+              <li>Existing plans / survey (if available)</li>
+              <li>Proposed drawings (any stage)</li>
+              <li>Scope of works / brief</li>
+              <li>Known constraints (fire strategy, structure, drainage, access)</li>
+              <li>Project team list (designer(s), contractor(s), consultants)</li>
+            </ul>
+
+            <h3 style="margin-top:14px;">What we don’t do (unless agreed)</h3>
+            <ul>
+              <li>Clerk of Works / site supervision</li>
+              <li>Warranties or certification of construction</li>
+              <li>Replace Building Control inspection or approval</li>
+              <li>Act as PD on HRB projects (special arrangements required)</li>
+            </ul>
+
+            <div class="note" style="margin-top:12px;">
+              If you’re unsure where responsibility sits, that’s exactly the point of this service — we make it explicit.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Where the real gap is</h2>
+        <div class="grid">
+          <div class="card span4">
+            <h3>Domestic clients</h3>
+            <p>
+              Most homeowners don’t realise dutyholder roles exist. When a PD isn’t appointed, the client can unknowingly carry the burden.
+              UrbanBrief formalises the role and keeps it proportionate.
+            </p>
+          </div>
+          <div class="card span4">
+            <h3>Architect-led projects</h3>
+            <p>
+              Many practices “cover it” implicitly, but the PD (BR) role is rarely priced, clearly scoped, or robustly evidenced.
+              We can take the PD function independently.
+            </p>
+          </div>
+          <div class="card span4">
+            <h3>Fast-track fit-outs</h3>
+            <p>
+              The issue isn’t intent — it’s coordination under time pressure. A clean risk register and compliance trail prevents last-minute panic.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="enquiry" class="section">
+        <h2>Project enquiry</h2>
+        <p class="lede" style="margin-bottom:10px;">
+          Tell us what you’re doing and we’ll advise the best route (named PD, PD advisory, or PD + Building Regs drawings).
+        </p>
+
+        <!-- Simple HTML form (static). If you use Formspree, Netlify forms, or a backend handler, wire the action/method accordingly. -->
+        <form action="#" method="post">
+          <div>
+            <label for="service">Required service</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Select…</option>
+              <option>Named Principal Designer (Building Regulations)</option>
+              <option>Building Regs drawings + Named PD (BR)</option>
+              <option>PD (BR) Advisory / Shadow PD</option>
+              <option>Commercial fit-out compliance coordination</option>
+              <option>Not sure — recommend a route</option>
+            </select>
+          </div>
+
+          <div class="formRow">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="formRow">
+            <div>
+              <label for="postcode">Postcode</label>
+              <input id="postcode" name="postcode" type="text" placeholder="e.g. NG1 1AA" />
+            </div>
+            <div>
+              <label for="w3w">what3words (optional)</label>
+              <input id="w3w" name="w3w" type="text" placeholder="e.g. ///rivers.bright.slate" />
+            </div>
+          </div>
+
+          <div>
+            <label for="address">Property / site address (if known)</label>
+            <input id="address" name="address" type="text" placeholder="Address line (optional)" />
+          </div>
+
+          <div>
+            <label for="brief">Brief description</label>
+            <textarea id="brief" name="brief" placeholder="What are you building? Who is on the project team? Any known constraints (fire, structure, drainage, access, programme)?" required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Submit project request</button>
+
+          <div class="note">
+            Prefer email? Send details to <a href="mailto:enquiries@urbanbrief.co.uk"><strong>enquiries@urbanbrief.co.uk</strong></a>.
+          </div>
+        </form>
+      </section>
+
+      <section class="section">
+        <h2>Scope & limitations (read this)</h2>
+        <div class="card">
+          <ul>
+            <li>UrbanBrief provides Principal Designer (Building Regulations) services on a <strong>proportionate basis</strong> to the project’s scale and complexity.</li>
+            <li>We do not act as Building Control, do not certify construction, and cannot guarantee approval or outcomes.</li>
+            <li>Where specialist design is required (e.g. fire engineering, complex structure), we will recommend appropriate consultant input.</li>
+            <li>Unless expressly agreed, our service is delivered digitally and does not include site inspections or clerk-of-works duties.</li>
+            <li>Higher-risk buildings (HRB) and regulated regimes may require separate scoping and specialist arrangements.</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          UrbanBrief provides compliance leadership and coordination informed by long-standing UK construction and technical design experience.
+          We are not a local authority, Building Control body, or legal adviser. Our role is to manage and coordinate Building Regulations compliance risk
+          under the dutyholder regime, proportionate to project needs.
+        </div>
+
+        <div class="tinyLinks">
+          <a href="/terms.html">Terms of Service</a>
+          <a href="mailto:enquiries@urbanbrief.co.uk">enquiries@urbanbrief.co.uk</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
