@@ -149,6 +149,101 @@
     .tab-btn{padding:0.5rem 0.85rem;font-size:0.74rem;}
     .est-range{font-size:1.55rem;}
   }
+
+  /* ── EXTRA QUESTIONS MODAL ─────────────────────────── */
+  .extra-modal {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.75);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 24px 16px; overflow-y: auto;
+    backdrop-filter: blur(4px);
+  }
+  .extra-modal.hidden { display: none; }
+  .extra-panel {
+    background: var(--c1); border: 1px solid var(--bdr);
+    border-radius: 16px; width: 100%; max-width: 640px;
+    padding: 0; overflow: hidden;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    margin: auto;
+  }
+  .extra-header {
+    background: var(--c2); padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--bdr);
+  }
+  .extra-header .extra-tag {
+    display: inline-block; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal);
+    background: rgba(79,195,195,0.12); border: 1px solid rgba(79,195,195,0.28);
+    border-radius: 20px; padding: 3px 10px; margin-bottom: 10px;
+  }
+  .extra-header h2 {
+    margin: 0 0 6px; font-size: 1.25rem; font-weight: 700; color: var(--t1);
+  }
+  .extra-header p {
+    margin: 0; font-size: 0.8rem; color: var(--t2); font-weight: 300;
+  }
+  .eq-section {
+    padding: 20px 28px 0;
+  }
+  .eq-section:last-of-type { padding-bottom: 4px; }
+  .eq-section-title {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--t3); margin-bottom: 12px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--bdr);
+  }
+  .eq-field { margin-bottom: 16px; }
+  .eq-label {
+    display: block; font-size: 0.8rem; font-weight: 500; color: var(--t1);
+    margin-bottom: 8px;
+  }
+  .eq-req { color: var(--teal); }
+  .eq-input {
+    width: 100%; background: var(--c2); border: 1px solid var(--bdr);
+    border-radius: 8px; padding: 10px 14px; color: var(--t1);
+    font-size: 0.85rem; font-family: inherit; outline: none;
+    transition: border-color 0.2s; box-sizing: border-box;
+  }
+  .eq-input:focus { border-color: var(--teal); }
+  .eq-input.error { border-color: #e05252; }
+  .eq-opts {
+    display: flex; flex-wrap: wrap; gap: 7px;
+  }
+  .eq-opt {
+    background: var(--c2); border: 1px solid var(--bdr); border-radius: 8px;
+    padding: 7px 13px; font-size: 0.8rem; color: var(--t2); font-family: inherit;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+  }
+  .eq-opt:hover { border-color: var(--teal); color: var(--teal); }
+  .eq-opt.sel {
+    background: rgba(79,195,195,0.12); border-color: var(--teal);
+    color: var(--teal); font-weight: 600;
+  }
+  .eq-opt.err-ring { border-color: #e05252; }
+  .eq-err {
+    display: none; font-size: 0.72rem; color: #e05252; margin-top: 5px;
+  }
+  .eq-err.show { display: block; }
+  .eq-actions {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 28px 28px; gap: 12px;
+    border-top: 1px solid var(--bdr); margin-top: 20px;
+  }
+  .eq-back {
+    background: none; border: 1px solid var(--bdr); border-radius: 8px;
+    padding: 10px 16px; color: var(--t2); font-size: 0.8rem;
+    font-family: inherit; cursor: pointer; transition: all 0.15s;
+  }
+  .eq-back:hover { border-color: var(--teal); color: var(--teal); }
+  .eq-pay {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--teal); color: #0d1117; border: none;
+    border-radius: 8px; padding: 12px 24px; font-size: 0.95rem;
+    font-weight: 700; font-family: inherit; cursor: pointer;
+    transition: opacity 0.2s; flex: 1; justify-content: center;
+  }
+  .eq-pay:hover { opacity: 0.9; }
+  .eq-pay:disabled { opacity: 0.6; cursor: not-allowed; }
+
 </style>
 </head>
 <body>
@@ -352,11 +447,11 @@
           <span class="chip">📅 Timeline</span>
           <span class="chip">📄 PDF export</span>
         </div>
-        <a id="r-stripe-btn" href="https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04" target="_blank" class="btn-stripe">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          Get my report <span class="ptag">£19</span>
-        </a>
-        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Secure payment via Stripe. Your report will be emailed within minutes.</p>
+        <button class="btn-stripe" onclick="showRenoExtra()" id="r-open-extra-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Refine my report &amp; pay <span class="ptag">£19</span>
+        </button>
+        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Answer a few more questions to personalise your report — then pay securely via Stripe.</p>
       </div>
       <button class="btn-restart" onclick="resetReno()">← Start a new calculation</button>
     </div>
@@ -494,11 +589,11 @@
           <span class="chip">📅 Timeline</span>
           <span class="chip">📄 PDF export</span>
         </div>
-        <a id="e-stripe-btn" href="https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03" target="_blank" class="btn-stripe">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          Get my report <span class="ptag">£19</span>
-        </a>
-        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Secure payment via Stripe. Your report will be emailed within minutes.</p>
+        <button class="btn-stripe" onclick="showExtExtra()" id="e-open-extra-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Refine my report &amp; pay <span class="ptag">£19</span>
+        </button>
+        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Answer a few more questions to personalise your report — then pay securely via Stripe.</p>
       </div>
       <button class="btn-restart" onclick="resetExt()">← Start a new calculation</button>
     </div>
@@ -515,7 +610,7 @@
 // ═══════════════════════════════════════════════
 // CONFIGURATION — paste your values here
 // ═══════════════════════════════════════════════
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzboN2k1uRQjOrPVCGEnMvacesPy-xH_j6p3uB3YWWzxBi2_mgacOT2V4n-V5iJL96J/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztbTIoykfO1BRB3wpJWdrCsWu_FvvllmIE5E6WkQnBp0K7g8KvD9Pc7K2HDmNM69XP/exec';
 
 // Stripe Payment Links — create these in your Stripe dashboard
 // Products → Add Product → "Renovation Intelligence Report" £19
@@ -580,7 +675,7 @@ function submitEstimate(payload) {
 
       const form = document.createElement('form');
       form.method = 'POST';
-      form.action = 'https://script.google.com/macros/s/AKfycbzboN2k1uRQjOrPVCGEnMvacesPy-xH_j6p3uB3YWWzxBi2_mgacOT2V4n-V5iJL96J/exec';
+      form.action = 'https://script.google.com/macros/s/AKfycbztbTIoykfO1BRB3wpJWdrCsWu_FvvllmIE5E6WkQnBp0K7g8KvD9Pc7K2HDmNM69XP/exec';
       form.target = iframe.name;
       form.style.display = 'none';
 
@@ -819,7 +914,11 @@ async function calcExt() {
   ];
 
   const stripeLink = 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03?prefilled_email=' + encodeURIComponent(email);
-  document.getElementById('e-stripe-btn').href = stripeLink;
+  document.getElementById('e-stripe-btn') && (document.getElementById('e-stripe-btn').href = stripeLink);
+  // Store for extra questions modal
+  window._extEmail = email;
+  window._extLow   = fmt(tLo);
+  window._extHigh  = fmt(tHi);
 
   document.getElementById('eform').classList.add('hidden');
   document.getElementById('epw').style.display = 'none';
@@ -866,6 +965,414 @@ function resetExt() {
   document.querySelectorAll('#tool-ext .field-err, #tool-ext .og-err').forEach(e => e.classList.remove('show'));
   ego(1);
 }
+
+  // ── EXTRA QUESTIONS: shared helpers ──────────────────
+  function eqGet(groupId) {
+    const sel = document.querySelector(`#${groupId} .eq-opt.sel`);
+    return sel ? sel.dataset.val : null;
+  }
+  function eqErr(id, show) {
+    const el = document.getElementById(id + '-err');
+    if (el) { if (show) el.classList.add('show'); else el.classList.remove('show'); }
+  }
+  function eqRingErr(groupId, show) {
+    document.querySelectorAll(`#${groupId} .eq-opt`).forEach(b => {
+      if (show) b.classList.add('err-ring'); else b.classList.remove('err-ring');
+    });
+  }
+
+  // Opt button click handler (works for both modals)
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('eq-opt')) return;
+    const group = e.target.dataset.group;
+    document.querySelectorAll(`#${group} .eq-opt`).forEach(b => {
+      b.classList.remove('sel', 'err-ring');
+    });
+    e.target.classList.add('sel');
+    // Hide error on selection
+    eqErr(group, false);
+    eqRingErr(group, false);
+  });
+
+  // ── RENOVATION EXTRA ──────────────────────────────────
+  function showRenoExtra() {
+    document.getElementById('reno-extra-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeRenoExtra() {
+    document.getElementById('reno-extra-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function submitRenoExtra(e) {
+    e.preventDefault();
+    const fields = [
+      { id: 'rex-postcode', type: 'input', label: 'Postcode' },
+      { id: 'rex-area',    type: 'opts',  label: 'Floor area' },
+      { id: 'rex-elec',   type: 'opts',  label: 'Electrical' },
+      { id: 'rex-heat',   type: 'opts',  label: 'Heating' },
+      { id: 'rex-plumb',  type: 'opts',  label: 'Plumbing' },
+      { id: 'rex-win',    type: 'opts',  label: 'Windows' },
+      { id: 'rex-struct', type: 'opts',  label: 'Structural' },
+      { id: 'rex-ext',    type: 'opts',  label: 'External works' },
+    ];
+    let ok = true;
+    const extra = {};
+    fields.forEach(f => {
+      let val;
+      if (f.type === 'input') {
+        val = document.getElementById(f.id).value.trim();
+        const el = document.getElementById(f.id);
+        if (!val) { el.classList.add('error'); eqErr(f.id, true); ok = false; }
+        else { el.classList.remove('error'); eqErr(f.id, false); }
+      } else {
+        val = eqGet(f.id);
+        if (!val) { eqRingErr(f.id, true); eqErr(f.id, true); ok = false; }
+        else { eqRingErr(f.id, false); eqErr(f.id, false); }
+      }
+      extra[f.id] = val;
+    });
+    if (!ok) return;
+
+    // Build payload for sheet logging (even if they don't pay)
+    const btn = document.getElementById('rex-pay-btn');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    // Grab base estimate data stored on window
+    const payload = {
+      type: 'extra_questions',
+      tool: 'renovation',
+      email: window._renoEmail || '',
+      estimateLow: window._renoLow || '',
+      estimateHigh: window._renoHigh || '',
+      postcode:      extra['rex-postcode'],
+      floorArea:     extra['rex-area'],
+      electrical:    extra['rex-elec'],
+      heating:       extra['rex-heat'],
+      plumbing:      extra['rex-plumb'],
+      windows:       extra['rex-win'],
+      structural:    extra['rex-struct'],
+      externalWorks: extra['rex-ext'],
+      paidIntent:    'pending',
+    };
+
+    submitEstimate(payload).then(() => {
+      // Log done — now redirect to Stripe
+      const stripeUrl = 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04?prefilled_email=' + encodeURIComponent(window._renoEmail || '');
+      window.open(stripeUrl, '_blank');
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
+      closeRenoExtra();
+    });
+  }
+
+  // ── EXTENSION EXTRA ───────────────────────────────────
+  function showExtExtra() {
+    document.getElementById('ext-extra-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeExtExtra() {
+    document.getElementById('ext-extra-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function submitExtExtra(e) {
+    e.preventDefault();
+    const fields = [
+      { id: 'eex-age',    type: 'opts', label: 'Property age' },
+      { id: 'eex-ground', type: 'opts', label: 'Ground conditions' },
+      { id: 'eex-plan',   type: 'opts', label: 'Planning' },
+      { id: 'eex-access', type: 'opts', label: 'Site access' },
+      { id: 'eex-party',  type: 'opts', label: 'Party wall' },
+      { id: 'eex-glaze',  type: 'opts', label: 'Glazing' },
+      { id: 'eex-finish', type: 'opts', label: 'Interior finish' },
+    ];
+    let ok = true;
+    const extra = {};
+    fields.forEach(f => {
+      const val = eqGet(f.id);
+      if (!val) { eqRingErr(f.id, true); eqErr(f.id, true); ok = false; }
+      else { eqRingErr(f.id, false); eqErr(f.id, false); }
+      extra[f.id] = val;
+    });
+    if (!ok) return;
+
+    const btn = document.getElementById('eex-pay-btn');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    const payload = {
+      type: 'extra_questions',
+      tool: 'extension',
+      email: window._extEmail || '',
+      estimateLow: window._extLow || '',
+      estimateHigh: window._extHigh || '',
+      propertyAge:    extra['eex-age'],
+      groundConditions: extra['eex-ground'],
+      planningSituation: extra['eex-plan'],
+      siteAccess:     extra['eex-access'],
+      partyWall:      extra['eex-party'],
+      glazingSpec:    extra['eex-glaze'],
+      interiorFinish: extra['eex-finish'],
+      paidIntent:     'pending',
+    };
+
+    submitEstimate(payload).then(() => {
+      const stripeUrl = 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03?prefilled_email=' + encodeURIComponent(window._extEmail || '');
+      window.open(stripeUrl, '_blank');
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
+      closeExtExtra();
+    });
+  }
+
 </script>
+
+<!-- ═══════════════════════════════════════════════════
+     RENOVATION EXTRA QUESTIONS MODAL
+═══════════════════════════════════════════════════ -->
+<div id="reno-extra-modal" class="extra-modal hidden">
+  <div class="extra-panel">
+    <div class="extra-header">
+      <div class="extra-tag">Intelligence Report — £19</div>
+      <h2>Refine your Renovation Report</h2>
+      <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
+    </div>
+
+    <form id="reno-extra-form" onsubmit="submitRenoExtra(event)">
+
+      <div class="eq-section">
+        <div class="eq-section-title">🏠 Property Details</div>
+        <div class="eq-field">
+          <label class="eq-label">Postcode <span class="eq-req">*</span></label>
+          <input type="text" id="rex-postcode" class="eq-input" placeholder="e.g. SW1A 1AA" maxlength="8">
+          <span class="eq-err" id="rex-postcode-err">Please enter your postcode</span>
+        </div>
+        <div class="eq-field">
+          <label class="eq-label">Approximate total floor area <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-area">
+            <button type="button" class="eq-opt" data-group="rex-area" data-val="<80m²">Under 80m²</button>
+            <button type="button" class="eq-opt" data-group="rex-area" data-val="80–120m²">80–120m²</button>
+            <button type="button" class="eq-opt" data-group="rex-area" data-val="120–160m²">120–160m²</button>
+            <button type="button" class="eq-opt" data-group="rex-area" data-val="160m²+">160m² +</button>
+          </div>
+          <span class="eq-err" id="rex-area-err">Please select a floor area</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">⚡ Electrical</div>
+        <div class="eq-field">
+          <label class="eq-label">Electrical work expected <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-elec">
+            <button type="button" class="eq-opt" data-group="rex-elec" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="rex-elec" data-val="Minor upgrades">Minor upgrades</button>
+            <button type="button" class="eq-opt" data-group="rex-elec" data-val="Partial rewire">Partial rewire</button>
+            <button type="button" class="eq-opt" data-group="rex-elec" data-val="Full rewire">Full rewire</button>
+          </div>
+          <span class="eq-err" id="rex-elec-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🔥 Heating</div>
+        <div class="eq-field">
+          <label class="eq-label">Heating upgrades planned <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-heat">
+            <button type="button" class="eq-opt" data-group="rex-heat" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="rex-heat" data-val="Boiler replacement">Boiler replacement</button>
+            <button type="button" class="eq-opt" data-group="rex-heat" data-val="Full heating system">Full heating system</button>
+            <button type="button" class="eq-opt" data-group="rex-heat" data-val="Underfloor heating">Underfloor heating</button>
+          </div>
+          <span class="eq-err" id="rex-heat-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🚿 Plumbing</div>
+        <div class="eq-field">
+          <label class="eq-label">Plumbing upgrades required <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-plumb">
+            <button type="button" class="eq-opt" data-group="rex-plumb" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="rex-plumb" data-val="Partial plumbing upgrade">Partial upgrade</button>
+            <button type="button" class="eq-opt" data-group="rex-plumb" data-val="Full replumbing">Full replumbing</button>
+          </div>
+          <span class="eq-err" id="rex-plumb-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🪟 Windows</div>
+        <div class="eq-field">
+          <label class="eq-label">Window replacement planned <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-win">
+            <button type="button" class="eq-opt" data-group="rex-win" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="rex-win" data-val="Some windows">Some windows</button>
+            <button type="button" class="eq-opt" data-group="rex-win" data-val="Most windows">Most windows</button>
+            <button type="button" class="eq-opt" data-group="rex-win" data-val="All windows">All windows</button>
+          </div>
+          <span class="eq-err" id="rex-win-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🏗️ Structural</div>
+        <div class="eq-field">
+          <label class="eq-label">Structural alterations expected <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-struct">
+            <button type="button" class="eq-opt" data-group="rex-struct" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="rex-struct" data-val="Internal wall removal">Internal wall removal</button>
+            <button type="button" class="eq-opt" data-group="rex-struct" data-val="Steel beams required">Steel beams required</button>
+            <button type="button" class="eq-opt" data-group="rex-struct" data-val="Major structural alterations">Major structural</button>
+          </div>
+          <span class="eq-err" id="rex-struct-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🏚️ External Works</div>
+        <div class="eq-field">
+          <label class="eq-label">External upgrades planned <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="rex-ext">
+            <button type="button" class="eq-opt" data-group="rex-ext" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="rex-ext" data-val="Roof repairs">Roof repairs</button>
+            <button type="button" class="eq-opt" data-group="rex-ext" data-val="New roof">New roof</button>
+            <button type="button" class="eq-opt" data-group="rex-ext" data-val="Insulation / façade upgrades">Insulation / façade</button>
+          </div>
+          <span class="eq-err" id="rex-ext-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-actions">
+        <button type="button" class="eq-back" onclick="closeRenoExtra()">← Back to estimate</button>
+        <button type="submit" class="eq-pay" id="rex-pay-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Pay now · £19
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     EXTENSION EXTRA QUESTIONS MODAL
+═══════════════════════════════════════════════════ -->
+<div id="ext-extra-modal" class="extra-modal hidden">
+  <div class="extra-panel">
+    <div class="extra-header">
+      <div class="extra-tag">Intelligence Report — £19</div>
+      <h2>Refine your Extension Report</h2>
+      <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
+    </div>
+
+    <form id="ext-extra-form" onsubmit="submitExtExtra(event)">
+
+      <div class="eq-section">
+        <div class="eq-section-title">🏠 Property Age</div>
+        <div class="eq-field">
+          <label class="eq-label">Property age band <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-age">
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="Pre-1920">Pre-1920</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="1920–1960">1920–1960</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="1960–1990">1960–1990</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="1990–2010">1990–2010</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="2010+">2010+</button>
+          </div>
+          <span class="eq-err" id="eex-age-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🪨 Ground Conditions</div>
+        <div class="eq-field">
+          <label class="eq-label">Ground conditions known <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-ground">
+            <button type="button" class="eq-opt" data-group="eex-ground" data-val="Unknown">Unknown</button>
+            <button type="button" class="eq-opt" data-group="eex-ground" data-val="Clay soil">Clay soil</button>
+            <button type="button" class="eq-opt" data-group="eex-ground" data-val="Sandy soil">Sandy soil</button>
+            <button type="button" class="eq-opt" data-group="eex-ground" data-val="Rock / difficult ground">Rock / difficult</button>
+          </div>
+          <span class="eq-err" id="eex-ground-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">📋 Planning</div>
+        <div class="eq-field">
+          <label class="eq-label">Planning situation <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-plan">
+            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Not checked yet">Not checked yet</button>
+            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Likely permitted development">Likely permitted dev.</button>
+            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Planning permission required">Planning required</button>
+            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Already approved">Already approved</button>
+          </div>
+          <span class="eq-err" id="eex-plan-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🚛 Site Access</div>
+        <div class="eq-field">
+          <label class="eq-label">Construction access <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-access">
+            <button type="button" class="eq-opt" data-group="eex-access" data-val="Easy access">Easy access</button>
+            <button type="button" class="eq-opt" data-group="eex-access" data-val="Moderate access">Moderate access</button>
+            <button type="button" class="eq-opt" data-group="eex-access" data-val="Difficult access">Difficult access</button>
+          </div>
+          <span class="eq-err" id="eex-access-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🧱 Neighbour Constraints</div>
+        <div class="eq-field">
+          <label class="eq-label">Party wall or shared boundary <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-party">
+            <button type="button" class="eq-opt" data-group="eex-party" data-val="No">No</button>
+            <button type="button" class="eq-opt" data-group="eex-party" data-val="Possible">Possible</button>
+            <button type="button" class="eq-opt" data-group="eex-party" data-val="Likely required">Likely required</button>
+          </div>
+          <span class="eq-err" id="eex-party-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🪟 Glazing</div>
+        <div class="eq-field">
+          <label class="eq-label">Doors / windows for extension <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-glaze">
+            <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Standard patio doors">Standard patio doors</button>
+            <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Bi-fold doors">Bi-fold doors</button>
+            <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Large glazing / sliding systems">Large glazing</button>
+          </div>
+          <span class="eq-err" id="eex-glaze-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🎨 Interior Finish</div>
+        <div class="eq-field">
+          <label class="eq-label">Interior finish level <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-finish">
+            <button type="button" class="eq-opt" data-group="eex-finish" data-val="Basic shell">Basic shell</button>
+            <button type="button" class="eq-opt" data-group="eex-finish" data-val="Standard finish">Standard finish</button>
+            <button type="button" class="eq-opt" data-group="eex-finish" data-val="High specification finish">High spec finish</button>
+          </div>
+          <span class="eq-err" id="eex-finish-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-actions">
+        <button type="button" class="eq-back" onclick="closeExtExtra()">← Back to estimate</button>
+        <button type="submit" class="eq-pay" id="eex-pay-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Pay now · £19
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 </body>
 </html>
