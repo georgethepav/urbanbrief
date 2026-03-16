@@ -569,23 +569,42 @@ function switchTool(t) {
 // ═══════════════════════════════════════════════
 // SUBMIT TO GOOGLE APPS SCRIPT
 // ═══════════════════════════════════════════════
-async function submitEstimate(payload) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
-    console.warn('Apps Script URL not configured yet');
-    return false;
-  }
-  try {
-    const res = await fetch(APPS_SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors', // Google Apps Script requires no-cors
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    return true;
-  } catch (err) {
-    console.error('Submit error:', err);
-    return false;
-  }
+function submitEstimate(payload) {
+  // Uses hidden iframe form POST to bypass CORS on static hosting
+  return new Promise((resolve) => {
+    try {
+      const iframe = document.createElement('iframe');
+      iframe.name = 'ub_submit_' + Date.now();
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://script.google.com/macros/s/AKfycbx7ZON-dzUpJXReHnAx2P26EGlkFs2FieTo44FZ6zqptMg-0G4UNW6FhttBl2a2leNS/exec';
+      form.target = iframe.name;
+      form.style.display = 'none';
+
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'payload';
+      input.value = JSON.stringify(payload);
+      form.appendChild(input);
+
+      document.body.appendChild(form);
+      form.submit();
+
+      // Clean up after 5 seconds
+      setTimeout(() => {
+        try { document.body.removeChild(form); } catch(e) {}
+        try { document.body.removeChild(iframe); } catch(e) {}
+      }, 5000);
+
+      resolve(true);
+    } catch(err) {
+      console.error('Submit error:', err);
+      resolve(false);
+    }
+  });
 }
 
 // ═══════════════════════════════════════════════
@@ -715,9 +734,7 @@ async function calcReno() {
   ].filter(Boolean);
 
   // Update Stripe link with customer email pre-filled
-  const stripeLink = STRIPE.renovation !== 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04'
-    ? STRIPE.renovation + '?prefilled_email=' + encodeURIComponent(email)
-    : '#';
+  const stripeLink = 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04?prefilled_email=' + encodeURIComponent(email);
   document.getElementById('r-stripe-btn').href = stripeLink;
 
   // Show results
@@ -801,9 +818,7 @@ async function calcExt() {
     { label: 'Total inc. contingency',  value: fmt(tLo+cont)+' – '+fmt(tHi+cont) },
   ];
 
-  const stripeLink = STRIPE.extension !== 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03'
-    ? STRIPE.extension + '?prefilled_email=' + encodeURIComponent(email)
-    : '#';
+  const stripeLink = 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03?prefilled_email=' + encodeURIComponent(email);
   document.getElementById('e-stripe-btn').href = stripeLink;
 
   document.getElementById('eform').classList.add('hidden');
