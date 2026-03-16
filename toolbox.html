@@ -9,17 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:      #0d1117;
-    --bg-mid:  #151c26;
-    --bg-card: #1a2235;
-    --bg-card2:#1e2840;
-    --border:  rgba(255,255,255,0.09);
-    --border-hi:rgba(255,255,255,0.18);
-    --teal:    #4fc3c3;
-    --teal-dim:rgba(79,195,195,0.12);
-    --teal-glow:rgba(79,195,195,0.22);
+    --bg:#0d1117; --bg-mid:#151c26; --bg-card:#1a2235; --bg-card2:#1e2840;
+    --border:rgba(255,255,255,0.09); --border-hi:rgba(255,255,255,0.18);
+    --teal:#4fc3c3; --teal-dim:rgba(79,195,195,0.12); --teal-glow:rgba(79,195,195,0.22);
     --t1:#e8edf4; --t2:#8a97aa; --t3:#556070;
-    --white:#ffffff; --success:#3ecf8e;
+    --white:#ffffff; --success:#3ecf8e; --error:#e57373;
     --r:12px; --rb:8px;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -76,8 +70,8 @@
   .finput{width:100%;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.87rem;color:var(--t1);outline:none;transition:border-color 0.2s,background 0.2s;}
   .finput::placeholder{color:var(--t3);}
   .finput:focus{border-color:rgba(79,195,195,0.45);background:var(--bg-card2);}
-  .finput.error{border-color:rgba(220,80,80,0.6);}
-  .field-err{font-size:0.72rem;color:#e57373;margin-top:0.3rem;display:none;}
+  .finput.error{border-color:rgba(229,115,115,0.7);}
+  .field-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
   .field-err.show{display:block;}
 
   .og{margin-bottom:1.3rem;}
@@ -89,7 +83,7 @@
   .ob{padding:0.58rem 0.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:400;color:var(--t2);cursor:pointer;text-align:center;transition:all 0.15s;line-height:1.3;}
   .ob:hover{border-color:var(--border-hi);color:var(--t1);background:var(--bg-card2);}
   .ob.sel{border-color:rgba(79,195,195,0.45);background:var(--teal-dim);color:var(--teal);font-weight:500;}
-  .og-err{font-size:0.72rem;color:#e57373;margin-top:0.3rem;display:none;}
+  .og-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
   .og-err.show{display:block;}
 
   .fnav{display:flex;justify-content:space-between;align-items:center;padding-top:1.35rem;border-top:1px solid var(--border);margin-top:0.1rem;}
@@ -99,16 +93,28 @@
   .btn-next:hover{background:var(--teal-dim);border-color:rgba(79,195,195,0.38);color:var(--teal);}
   .btn-calc{padding:0.7rem 1.85rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.86rem;font-weight:600;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;}
   .btn-calc:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 4px 16px var(--teal-glow);}
+  .btn-calc:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+
+  /* SUBMISSION TOAST */
+  .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--bg-card2);border:1px solid rgba(79,195,195,0.3);border-radius:10px;padding:0.85rem 1.5rem;font-size:0.82rem;color:var(--t1);z-index:999;transition:transform 0.3s ease;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
+  .toast.show{transform:translateX(-50%) translateY(0);}
+  .toast.success{border-color:rgba(62,207,142,0.4);}
+  .toast.error-toast{border-color:rgba(229,115,115,0.4);}
 
   .res-panel{display:none;padding:1.75rem;animation:fadeUp 0.3s ease;}
   .res-panel.active{display:block;}
   .res-eye{font-size:0.64rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.32rem;}
   .res-title{font-size:1.08rem;font-weight:600;color:var(--white);margin-bottom:1.35rem;letter-spacing:-0.01em;}
+
   .est-band{background:var(--bg-card);border:1px solid rgba(79,195,195,0.18);border-radius:var(--r);padding:1.35rem 1.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
   .est-band::after{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:var(--teal-glow);filter:blur(40px);pointer-events:none;}
   .est-lbl{font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:0.35rem;}
   .est-range{font-size:1.85rem;font-weight:700;color:var(--teal);letter-spacing:-0.03em;line-height:1;margin-bottom:0.35rem;position:relative;z-index:1;}
   .est-note{font-size:0.73rem;color:var(--t2);font-weight:300;}
+
+  /* EMAIL SENT BADGE */
+  .email-sent{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--success);background:rgba(62,207,142,0.08);border:1px solid rgba(62,207,142,0.2);border-radius:8px;padding:0.55rem 0.85rem;margin-bottom:1rem;}
+
   .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:0.48rem;margin-bottom:1rem;}
   .bdi{background:var(--bg-card);border:1px solid var(--border);border-radius:9px;padding:0.82rem 0.95rem;}
   .bdl{font-size:0.63rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--t3);margin-bottom:0.25rem;}
@@ -122,17 +128,18 @@
   .up-box p{font-size:0.78rem;color:var(--t2);margin-bottom:1rem;line-height:1.65;font-weight:300;max-width:380px;margin-left:auto;margin-right:auto;}
   .chips{display:flex;flex-wrap:wrap;gap:0.38rem;justify-content:center;margin-bottom:1.25rem;}
   .chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--t2);font-size:0.68rem;padding:0.25rem 0.62rem;border-radius:20px;}
-  .btn-up{display:inline-block;padding:0.73rem 2rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.86rem;font-weight:600;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;text-decoration:none;}
-  .btn-up:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 6px 22px var(--teal-glow);}
-  .ptag{opacity:0.65;font-size:0.75rem;margin-left:0.4rem;}
+
+  .btn-stripe{display:inline-flex;align-items:center;gap:0.5rem;padding:0.82rem 2.2rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:700;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;text-decoration:none;}
+  .btn-stripe:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 6px 22px var(--teal-glow);}
+  .btn-stripe svg{flex-shrink:0;}
+  .ptag{opacity:0.65;font-size:0.75rem;margin-left:0.2rem;}
+
   .btn-restart{display:block;text-align:center;margin-top:0.85rem;font-size:0.74rem;color:var(--t3);cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;text-decoration:underline;text-underline-offset:3px;}
   .btn-restart:hover{color:var(--t2);}
 
   .hidden{display:none!important;}
-
   footer{border-top:1px solid var(--border);padding:1.4rem 2rem;text-align:center;font-size:0.68rem;color:var(--t3);}
-  footer a{color:var(--t3);text-decoration:none;}
-  footer a:hover{color:var(--teal);}
+  footer a{color:var(--t3);text-decoration:none;} footer a:hover{color:var(--teal);}
 
   @media(max-width:540px){
     .card-hdr,.form-body,.progress-wrap,.res-panel{padding-left:1.1rem;padding-right:1.1rem;}
@@ -145,6 +152,9 @@
 </style>
 </head>
 <body>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
 
 <nav>
   <a href="index.html" class="nav-logo">
@@ -189,14 +199,14 @@
 
       <div class="sp active" id="rs1">
         <div class="step-title">Let's get started</div>
-        <div class="step-sub">Enter your email and region. Your email is required to send your estimate.</div>
+        <div class="step-sub">Enter your email to receive your estimate. Your region helps us apply the right cost multiplier.</div>
         <div class="field">
-          <label class="flabel">Email address <span style="color:#e57373">*</span></label>
+          <label class="flabel">Email address <span style="color:var(--error)">*</span></label>
           <input type="email" class="finput" id="r-email" placeholder="you@example.com">
-          <div class="field-err" id="r-email-err">Please enter a valid email address to continue.</div>
+          <div class="field-err" id="r-email-err">Please enter a valid email address — we'll send your estimate here.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Region <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Region <span style="color:var(--error)">*</span></span>
           <div class="ogrid c3" id="rg-rgn">
             <button class="ob" data-val="london" onclick="pick(this,'rg-rgn')">London</button>
             <button class="ob" data-val="south_east" onclick="pick(this,'rg-rgn')">South East</button>
@@ -214,7 +224,7 @@
         <div class="step-title">Your property</div>
         <div class="step-sub">Tell us about the property being renovated.</div>
         <div class="og">
-          <span class="oglbl">Property type <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Property type <span style="color:var(--error)">*</span></span>
           <div class="ogrid ca" id="rg-pt">
             <button class="ob" data-val="flat" onclick="pick(this,'rg-pt')">Flat</button>
             <button class="ob" data-val="terrace" onclick="pick(this,'rg-pt')">Terrace</button>
@@ -225,7 +235,7 @@
           <div class="og-err" id="rg-pt-err">Please select a property type.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Number of bedrooms <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Number of bedrooms <span style="color:var(--error)">*</span></span>
           <div class="ogrid ca" id="rg-bd">
             <button class="ob" data-val="1" onclick="pick(this,'rg-bd')">1 bed</button>
             <button class="ob" data-val="2" onclick="pick(this,'rg-bd')">2 bed</button>
@@ -236,7 +246,7 @@
           <div class="og-err" id="rg-bd-err">Please select number of bedrooms.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Property age <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Property age <span style="color:var(--error)">*</span></span>
           <div class="ogrid ca" id="rg-ag">
             <button class="ob" data-val="pre1920" onclick="pick(this,'rg-ag')">Pre-1920</button>
             <button class="ob" data-val="1920_1960" onclick="pick(this,'rg-ag')">1920–1960</button>
@@ -256,7 +266,7 @@
         <div class="step-title">Scope & specification</div>
         <div class="step-sub">What level of renovation are you planning?</div>
         <div class="og">
-          <span class="oglbl">Renovation level <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Renovation level <span style="color:var(--error)">*</span></span>
           <div class="ogrid c2" id="rg-lv">
             <button class="ob" data-val="cosmetic" onclick="pick(this,'rg-lv')">Cosmetic refresh</button>
             <button class="ob" data-val="full" onclick="pick(this,'rg-lv')">Full renovation</button>
@@ -266,7 +276,7 @@
           <div class="og-err" id="rg-lv-err">Please select a renovation level.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Specification level <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Specification level <span style="color:var(--error)">*</span></span>
           <div class="ogrid ca" id="rg-sp">
             <button class="ob" data-val="basic" onclick="pick(this,'rg-sp')">Basic</button>
             <button class="ob" data-val="midrange" onclick="pick(this,'rg-sp')">Mid-range</button>
@@ -285,7 +295,7 @@
         <div class="step-title">Kitchen, bathrooms & extension</div>
         <div class="step-sub">Final details to sharpen your estimate.</div>
         <div class="og">
-          <span class="oglbl">Replace kitchen? <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Replace kitchen? <span style="color:var(--error)">*</span></span>
           <div class="ogrid c2" id="rg-kt">
             <button class="ob" data-val="yes" onclick="pick(this,'rg-kt')">Yes</button>
             <button class="ob" data-val="no" onclick="pick(this,'rg-kt')">No</button>
@@ -293,7 +303,7 @@
           <div class="og-err" id="rg-kt-err">Please select an option.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Bathrooms to renovate <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Bathrooms to renovate <span style="color:var(--error)">*</span></span>
           <div class="ogrid c3" id="rg-ba">
             <button class="ob" data-val="0" onclick="pick(this,'rg-ba')">None</button>
             <button class="ob" data-val="1" onclick="pick(this,'rg-ba')">1</button>
@@ -302,7 +312,7 @@
           <div class="og-err" id="rg-ba-err">Please select an option.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Extension planned? <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Extension planned? <span style="color:var(--error)">*</span></span>
           <div class="ogrid c2" id="rg-ex">
             <button class="ob" data-val="none" onclick="pick(this,'rg-ex')">No extension</button>
             <button class="ob" data-val="small" onclick="pick(this,'rg-ex')">Small (10–20m²)</button>
@@ -313,7 +323,7 @@
         </div>
         <div class="fnav">
           <button class="btn-back" onclick="rgo(3)">← Back</button>
-          <button class="btn-calc" onclick="calcReno()">Calculate my estimate →</button>
+          <button class="btn-calc" id="r-calc-btn" onclick="calcReno()">Calculate my estimate →</button>
         </div>
       </div>
     </div>
@@ -325,6 +335,9 @@
         <div class="est-lbl">Estimated total cost range</div>
         <div class="est-range" id="r-range">—</div>
         <div class="est-note" id="r-note"></div>
+      </div>
+      <div class="email-sent" id="r-email-sent" style="display:none">
+        <span>✉️</span> <span>We've emailed a copy of this estimate to <strong id="r-sent-addr"></strong></span>
       </div>
       <div class="breakdown" id="r-bd"></div>
       <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Actual costs vary significantly by contractor, site conditions and specification. Always obtain 3+ quotes before committing.</div>
@@ -339,9 +352,11 @@
           <span class="chip">📅 Timeline</span>
           <span class="chip">📄 PDF export</span>
         </div>
-        <button class="btn-up" onclick="alert('Stripe integration coming soon — add your key to activate.')">
+        <a id="r-stripe-btn" href="https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04" target="_blank" class="btn-stripe">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
           Get my report <span class="ptag">£19</span>
-        </button>
+        </a>
+        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Secure payment via Stripe. Your report will be emailed within minutes.</p>
       </div>
       <button class="btn-restart" onclick="resetReno()">← Start a new calculation</button>
     </div>
@@ -365,14 +380,14 @@
 
       <div class="sp active" id="es1">
         <div class="step-title">Let's get started</div>
-        <div class="step-sub">Enter your email and select your region.</div>
+        <div class="step-sub">Enter your email to receive your estimate. Your region helps us apply the right cost multiplier.</div>
         <div class="field">
-          <label class="flabel">Email address <span style="color:#e57373">*</span></label>
+          <label class="flabel">Email address <span style="color:var(--error)">*</span></label>
           <input type="email" class="finput" id="e-email" placeholder="you@example.com">
-          <div class="field-err" id="e-email-err">Please enter a valid email address to continue.</div>
+          <div class="field-err" id="e-email-err">Please enter a valid email address — we'll send your estimate here.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Region <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Region <span style="color:var(--error)">*</span></span>
           <div class="ogrid c3" id="eg-rgn">
             <button class="ob" data-val="london" onclick="pick(this,'eg-rgn')">London</button>
             <button class="ob" data-val="south_east" onclick="pick(this,'eg-rgn')">South East</button>
@@ -390,7 +405,7 @@
         <div class="step-title">Property & extension type</div>
         <div class="step-sub">Tell us about the property and the type of extension.</div>
         <div class="og">
-          <span class="oglbl">Property type <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Property type <span style="color:var(--error)">*</span></span>
           <div class="ogrid ca" id="eg-pt">
             <button class="ob" data-val="terrace" onclick="pick(this,'eg-pt')">Terrace</button>
             <button class="ob" data-val="semi" onclick="pick(this,'eg-pt')">Semi-detached</button>
@@ -400,7 +415,7 @@
           <div class="og-err" id="eg-pt-err">Please select a property type.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Extension type <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Extension type <span style="color:var(--error)">*</span></span>
           <div class="ogrid c2" id="eg-et">
             <button class="ob" data-val="rear" onclick="pick(this,'eg-et')">Rear extension</button>
             <button class="ob" data-val="side_return" onclick="pick(this,'eg-et')">Side return</button>
@@ -420,7 +435,7 @@
         <div class="step-title">Size, specification & complexity</div>
         <div class="step-sub">Final details to calculate your estimate.</div>
         <div class="og">
-          <span class="oglbl">Extension size <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Extension size <span style="color:var(--error)">*</span></span>
           <div class="ogrid c2" id="eg-sz">
             <button class="ob" data-val="small" onclick="pick(this,'eg-sz')">Small (10–20m²)</button>
             <button class="ob" data-val="medium" onclick="pick(this,'eg-sz')">Medium (20–40m²)</button>
@@ -430,7 +445,7 @@
           <div class="og-err" id="eg-sz-err">Please select an extension size.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Specification level <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Specification level <span style="color:var(--error)">*</span></span>
           <div class="ogrid ca" id="eg-sp">
             <button class="ob" data-val="basic" onclick="pick(this,'eg-sp')">Basic</button>
             <button class="ob" data-val="midrange" onclick="pick(this,'eg-sp')">Mid-range</button>
@@ -440,7 +455,7 @@
           <div class="og-err" id="eg-sp-err">Please select a specification level.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Structural complexity <span style="color:#e57373">*</span></span>
+          <span class="oglbl">Structural complexity <span style="color:var(--error)">*</span></span>
           <div class="ogrid c3" id="eg-cx">
             <button class="ob" data-val="low" onclick="pick(this,'eg-cx')">Low</button>
             <button class="ob" data-val="moderate" onclick="pick(this,'eg-cx')">Moderate</button>
@@ -450,7 +465,7 @@
         </div>
         <div class="fnav">
           <button class="btn-back" onclick="ego(2)">← Back</button>
-          <button class="btn-calc" onclick="calcExt()">Calculate my estimate →</button>
+          <button class="btn-calc" id="e-calc-btn" onclick="calcExt()">Calculate my estimate →</button>
         </div>
       </div>
     </div>
@@ -462,6 +477,9 @@
         <div class="est-lbl">Estimated total cost range</div>
         <div class="est-range" id="e-range">—</div>
         <div class="est-note" id="e-note"></div>
+      </div>
+      <div class="email-sent" id="e-email-sent" style="display:none">
+        <span>✉️</span> <span>We've emailed a copy of this estimate to <strong id="e-sent-addr"></strong></span>
       </div>
       <div class="breakdown" id="e-bd"></div>
       <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Actual costs vary significantly by contractor, site conditions and specification. Always obtain 3+ quotes before committing.</div>
@@ -476,9 +494,11 @@
           <span class="chip">📅 Timeline</span>
           <span class="chip">📄 PDF export</span>
         </div>
-        <button class="btn-up" onclick="alert('Stripe integration coming soon — add your key to activate.')">
+        <a id="e-stripe-btn" href="https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03" target="_blank" class="btn-stripe">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
           Get my report <span class="ptag">£19</span>
-        </button>
+        </a>
+        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Secure payment via Stripe. Your report will be emailed within minutes.</p>
       </div>
       <button class="btn-restart" onclick="resetExt()">← Start a new calculation</button>
     </div>
@@ -492,208 +512,343 @@
 </footer>
 
 <script>
-// EMAIL — stored for report sending
-let capturedEmails = {};
+// ═══════════════════════════════════════════════
+// CONFIGURATION — paste your values here
+// ═══════════════════════════════════════════════
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7ZON-dzUpJXReHnAx2P26EGlkFs2FieTo44FZ6zqptMg-0G4UNW6FhttBl2a2leNS/exec';
 
-function pick(btn,gid){
-  document.querySelectorAll('#'+gid+' .ob').forEach(b=>b.classList.remove('sel'));
+// Stripe Payment Links — create these in your Stripe dashboard
+// Products → Add Product → "Renovation Intelligence Report" £19
+// Then Payment Links → Create link → copy URL
+const STRIPE = {
+  renovation: 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04',
+  extension:  'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03',
+};
+
+// ═══════════════════════════════════════════════
+// TOAST NOTIFICATIONS
+// ═══════════════════════════════════════════════
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (type === 'success' ? 'success' : 'error-toast');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ═══════════════════════════════════════════════
+// FORM UTILITIES
+// ═══════════════════════════════════════════════
+function pick(btn, gid) {
+  document.querySelectorAll('#' + gid + ' .ob').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
-  // hide error on pick
-  const err=document.getElementById(gid+'-err');
-  if(err) err.classList.remove('show');
+  const err = document.getElementById(gid + '-err');
+  if (err) err.classList.remove('show');
 }
 
-function gv(gid){
-  const s=document.querySelector('#'+gid+' .ob.sel');
-  return s?s.dataset.val:null;
+function gv(gid) {
+  const s = document.querySelector('#' + gid + ' .ob.sel');
+  return s ? s.dataset.val : null;
 }
 
-function fmt(n){return '£'+Math.round(n).toLocaleString('en-GB');}
+function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
 
-function isValidEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());}
+function isEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim()); }
 
-function showErr(id){const el=document.getElementById(id);if(el)el.classList.add('show');}
-function hideErr(id){const el=document.getElementById(id);if(el)el.classList.remove('show');}
+function showErr(id) { const el = document.getElementById(id); if (el) el.classList.add('show'); }
+function hideErr(id) { const el = document.getElementById(id); if (el) el.classList.remove('show'); }
 
-// TOOL SWITCH
-function switchTool(t){
-  document.getElementById('tool-reno').classList.toggle('hidden',t!=='reno');
-  document.getElementById('tool-ext').classList.toggle('hidden',t!=='ext');
-  document.querySelectorAll('.tab-btn').forEach((b,i)=>{
-    b.classList.toggle('active',(i===0&&t==='reno')||(i===1&&t==='ext'));
+function switchTool(t) {
+  document.getElementById('tool-reno').classList.toggle('hidden', t !== 'reno');
+  document.getElementById('tool-ext').classList.toggle('hidden', t !== 'ext');
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', (i === 0 && t === 'reno') || (i === 1 && t === 'ext'));
   });
 }
 
-// RENO STEPS
-const RL=['About you','Your property','Scope & specification','Kitchen & bathrooms'];
-function rgo(n){
-  // Validate before advancing
-  if(n===2){
-    const email=document.getElementById('r-email').value.trim();
-    const rgn=gv('rg-rgn');
-    let ok=true;
-    if(!isValidEmail(email)){
+// ═══════════════════════════════════════════════
+// SUBMIT TO GOOGLE APPS SCRIPT
+// ═══════════════════════════════════════════════
+async function submitEstimate(payload) {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
+    console.warn('Apps Script URL not configured yet');
+    return false;
+  }
+  try {
+    const res = await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Google Apps Script requires no-cors
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    return true;
+  } catch (err) {
+    console.error('Submit error:', err);
+    return false;
+  }
+}
+
+// ═══════════════════════════════════════════════
+// RENO STEP NAVIGATION WITH VALIDATION
+// ═══════════════════════════════════════════════
+const RL = ['About you', 'Your property', 'Scope & specification', 'Kitchen & bathrooms'];
+
+function rgo(n) {
+  if (n === 2) {
+    const email = document.getElementById('r-email').value.trim();
+    let ok = true;
+    if (!isEmail(email)) {
       document.getElementById('r-email').classList.add('error');
-      showErr('r-email-err'); ok=false;
+      showErr('r-email-err'); ok = false;
     } else {
       document.getElementById('r-email').classList.remove('error');
       hideErr('r-email-err');
-      capturedEmails.reno=email;
     }
-    if(!rgn){showErr('rg-rgn-err');ok=false;} else hideErr('rg-rgn-err');
-    if(!ok) return;
+    if (!gv('rg-rgn')) { showErr('rg-rgn-err'); ok = false; } else hideErr('rg-rgn-err');
+    if (!ok) return;
   }
-  if(n===3){
-    let ok=true;
-    if(!gv('rg-pt')){showErr('rg-pt-err');ok=false;}else hideErr('rg-pt-err');
-    if(!gv('rg-bd')){showErr('rg-bd-err');ok=false;}else hideErr('rg-bd-err');
-    if(!gv('rg-ag')){showErr('rg-ag-err');ok=false;}else hideErr('rg-ag-err');
-    if(!ok) return;
+  if (n === 3) {
+    let ok = true;
+    if (!gv('rg-pt')) { showErr('rg-pt-err'); ok = false; } else hideErr('rg-pt-err');
+    if (!gv('rg-bd')) { showErr('rg-bd-err'); ok = false; } else hideErr('rg-bd-err');
+    if (!gv('rg-ag')) { showErr('rg-ag-err'); ok = false; } else hideErr('rg-ag-err');
+    if (!ok) return;
   }
-  if(n===4){
-    let ok=true;
-    if(!gv('rg-lv')){showErr('rg-lv-err');ok=false;}else hideErr('rg-lv-err');
-    if(!gv('rg-sp')){showErr('rg-sp-err');ok=false;}else hideErr('rg-sp-err');
-    if(!ok) return;
+  if (n === 4) {
+    let ok = true;
+    if (!gv('rg-lv')) { showErr('rg-lv-err'); ok = false; } else hideErr('rg-lv-err');
+    if (!gv('rg-sp')) { showErr('rg-sp-err'); ok = false; } else hideErr('rg-sp-err');
+    if (!ok) return;
   }
-  for(let i=1;i<=4;i++){
-    document.getElementById('rs'+i).classList.toggle('active',i===n);
-    const d=document.getElementById('rd'+i);
-    d.className=i<n?'s-dot done':i===n?'s-dot active':'s-dot';
-    d.innerHTML=i<n?'✓':i;
-    if(i<4) document.getElementById('rl'+i).className=i<n?'s-line done':'s-line';
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById('rs' + i).classList.toggle('active', i === n);
+    const d = document.getElementById('rd' + i);
+    d.className = i < n ? 's-dot done' : i === n ? 's-dot active' : 's-dot';
+    d.innerHTML = i < n ? '✓' : i;
+    if (i < 4) document.getElementById('rl' + i).className = i < n ? 's-line done' : 's-line';
   }
-  document.getElementById('rslbl').textContent='Step '+n+' of 4 — '+RL[n-1];
+  document.getElementById('rslbl').textContent = 'Step ' + n + ' of 4 — ' + RL[n - 1];
 }
 
-// EXT STEPS
-const EL=['About you','Property & extension','Size, spec & complexity'];
-function ego(n){
-  if(n===2){
-    const email=document.getElementById('e-email').value.trim();
-    const rgn=gv('eg-rgn');
-    let ok=true;
-    if(!isValidEmail(email)){
+// ═══════════════════════════════════════════════
+// EXT STEP NAVIGATION WITH VALIDATION
+// ═══════════════════════════════════════════════
+const EL = ['About you', 'Property & extension', 'Size, spec & complexity'];
+
+function ego(n) {
+  if (n === 2) {
+    const email = document.getElementById('e-email').value.trim();
+    let ok = true;
+    if (!isEmail(email)) {
       document.getElementById('e-email').classList.add('error');
-      showErr('e-email-err'); ok=false;
+      showErr('e-email-err'); ok = false;
     } else {
       document.getElementById('e-email').classList.remove('error');
       hideErr('e-email-err');
-      capturedEmails.ext=email;
     }
-    if(!rgn){showErr('eg-rgn-err');ok=false;}else hideErr('eg-rgn-err');
-    if(!ok) return;
+    if (!gv('eg-rgn')) { showErr('eg-rgn-err'); ok = false; } else hideErr('eg-rgn-err');
+    if (!ok) return;
   }
-  if(n===3){
-    let ok=true;
-    if(!gv('eg-pt')){showErr('eg-pt-err');ok=false;}else hideErr('eg-pt-err');
-    if(!gv('eg-et')){showErr('eg-et-err');ok=false;}else hideErr('eg-et-err');
-    if(!ok) return;
+  if (n === 3) {
+    let ok = true;
+    if (!gv('eg-pt')) { showErr('eg-pt-err'); ok = false; } else hideErr('eg-pt-err');
+    if (!gv('eg-et')) { showErr('eg-et-err'); ok = false; } else hideErr('eg-et-err');
+    if (!ok) return;
   }
-  for(let i=1;i<=3;i++){
-    document.getElementById('es'+i).classList.toggle('active',i===n);
-    const d=document.getElementById('ed'+i);
-    d.className=i<n?'s-dot done':i===n?'s-dot active':'s-dot';
-    d.innerHTML=i<n?'✓':i;
-    if(i<3) document.getElementById('el'+i).className=i<n?'s-line done':'s-line';
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById('es' + i).classList.toggle('active', i === n);
+    const d = document.getElementById('ed' + i);
+    d.className = i < n ? 's-dot done' : i === n ? 's-dot active' : 's-dot';
+    d.innerHTML = i < n ? '✓' : i;
+    if (i < 3) document.getElementById('el' + i).className = i < n ? 's-line done' : 's-line';
   }
-  document.getElementById('eslbl').textContent='Step '+n+' of 3 — '+EL[n-1];
+  document.getElementById('eslbl').textContent = 'Step ' + n + ' of 3 — ' + EL[n - 1];
 }
 
+// ═══════════════════════════════════════════════
 // COST DATA
-const RBASE={cosmetic:{lo:250,hi:400},full:{lo:600,hi:900},structural:{lo:900,hi:1400},extension:{lo:900,hi:1400}};
-const RM={london:1.25,south_east:1.15,midlands:1.00,north:0.90,scotland:0.95,wales:0.95};
-const SM={basic:0.85,midrange:1.00,highspec:1.20,luxury:1.50};
-const AREAS={'1':45,'2':65,'3':85,'4':115,'5':145};
-const KC={basic:8000,midrange:12000,highspec:18000,luxury:25000};
-const BC={basic:4000,midrange:6000,highspec:10000,luxury:15000};
-const EC={none:0,small:45000,medium:90000,large:140000};
-const ERATE={rear:{lo:2000,hi:2800},side_return:{lo:2200,hi:3000},wraparound:{lo:2400,hi:3200},two_storey:{lo:1800,hi:2400},loft:{lo:1500,hi:2500}};
-const ESIZ={small:{lo:10,hi:20,m:15},medium:{lo:20,hi:40,m:30},large:{lo:40,hi:60,m:50},xlarge:{lo:60,hi:80,m:70}};
-const CM={low:1.00,moderate:1.10,high:1.20};
+// ═══════════════════════════════════════════════
+const RBASE = { cosmetic:{lo:250,hi:400}, full:{lo:600,hi:900}, structural:{lo:900,hi:1400}, extension:{lo:900,hi:1400} };
+const RM    = { london:1.25, south_east:1.15, midlands:1.00, north:0.90, scotland:0.95, wales:0.95 };
+const SM    = { basic:0.85, midrange:1.00, highspec:1.20, luxury:1.50 };
+const AREAS = {'1':45,'2':65,'3':85,'4':115,'5':145};
+const KC    = { basic:8000, midrange:12000, highspec:18000, luxury:25000 };
+const BC    = { basic:4000, midrange:6000, highspec:10000, luxury:15000 };
+const EC    = { none:0, small:45000, medium:90000, large:140000 };
+const ERATE = { rear:{lo:2000,hi:2800}, side_return:{lo:2200,hi:3000}, wraparound:{lo:2400,hi:3200}, two_storey:{lo:1800,hi:2400}, loft:{lo:1500,hi:2500} };
+const ESIZ  = { small:{lo:10,hi:20,m:15}, medium:{lo:20,hi:40,m:30}, large:{lo:40,hi:60,m:50}, xlarge:{lo:60,hi:80,m:70} };
+const CM    = { low:1.00, moderate:1.10, high:1.20 };
 
-function calcReno(){
-  let ok=true;
-  if(!gv('rg-kt')){showErr('rg-kt-err');ok=false;}else hideErr('rg-kt-err');
-  if(!gv('rg-ba')){showErr('rg-ba-err');ok=false;}else hideErr('rg-ba-err');
-  if(!gv('rg-ex')){showErr('rg-ex-err');ok=false;}else hideErr('rg-ex-err');
-  if(!ok) return;
+// ═══════════════════════════════════════════════
+// RENOVATION CALCULATE + SUBMIT
+// ═══════════════════════════════════════════════
+async function calcReno() {
+  let ok = true;
+  if (!gv('rg-kt')) { showErr('rg-kt-err'); ok = false; } else hideErr('rg-kt-err');
+  if (!gv('rg-ba')) { showErr('rg-ba-err'); ok = false; } else hideErr('rg-ba-err');
+  if (!gv('rg-ex')) { showErr('rg-ex-err'); ok = false; } else hideErr('rg-ex-err');
+  if (!ok) return;
 
-  const rgn=gv('rg-rgn'),bd=gv('rg-bd'),ag=gv('rg-ag'),lv=gv('rg-lv'),
-        sp=gv('rg-sp'),kt=gv('rg-kt'),ba=gv('rg-ba'),ex=gv('rg-ex'),pt=gv('rg-pt');
-  const area=AREAS[bd]||85,base=RBASE[lv],rm=RM[rgn]||1,sm=SM[sp]||1;
-  const agM=ag==='pre1920'?1.12:ag==='1920_1960'?1.08:1.0;
-  const bLo=area*base.lo*rm*sm*agM,bHi=area*base.hi*rm*sm*agM;
-  const kc=kt==='yes'?(KC[sp]||12000)*rm:0;
-  const bn=ba==='2'?2:ba==='1'?1:0,bathC=bn*(BC[sp]||6000)*rm;
-  const extC=(EC[ex]||0)*rm;
-  const tLo=bLo+kc+bathC+extC,tHi=bHi+kc+bathC+extC,cont=tHi*0.15;
+  const btn = document.getElementById('r-calc-btn');
+  btn.disabled = true;
+  btn.textContent = 'Calculating…';
 
+  const rgn=gv('rg-rgn'), bd=gv('rg-bd'), ag=gv('rg-ag'), lv=gv('rg-lv'),
+        sp=gv('rg-sp'),   kt=gv('rg-kt'), ba=gv('rg-ba'), ex=gv('rg-ex'), pt=gv('rg-pt');
+  const email = document.getElementById('r-email').value.trim();
+
+  const area = AREAS[bd]||85, base=RBASE[lv], rm=RM[rgn]||1, sm=SM[sp]||1;
+  const agM  = ag==='pre1920'?1.12:ag==='1920_1960'?1.08:1.0;
+  const bLo=area*base.lo*rm*sm*agM, bHi=area*base.hi*rm*sm*agM;
+  const kc   = kt==='yes'?(KC[sp]||12000)*rm:0;
+  const bn   = ba==='2'?2:ba==='1'?1:0, bathC=bn*(BC[sp]||6000)*rm;
+  const extC = (EC[ex]||0)*rm;
+  const tLo=bLo+kc+bathC+extC, tHi=bHi+kc+bathC+extC, cont=tHi*0.15;
+
+  const bdRows = [
+    { label: 'Base works',           value: fmt(bLo)+' – '+fmt(bHi) },
+    kt==='yes' ? { label: 'Kitchen', value: fmt(kc) } : null,
+    bn>0       ? { label: 'Bathroom(s)', value: fmt(bathC) } : null,
+    ex!=='none'? { label: 'Extension',   value: fmt(extC)  } : null,
+    { label: 'Contingency (15%)',    value: fmt(cont) },
+    { label: 'Total inc. contingency', value: fmt(tLo+cont)+' – '+fmt(tHi+cont) },
+  ].filter(Boolean);
+
+  // Update Stripe link with customer email pre-filled
+  const stripeLink = STRIPE.renovation !== 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04'
+    ? STRIPE.renovation + '?prefilled_email=' + encodeURIComponent(email)
+    : '#';
+  document.getElementById('r-stripe-btn').href = stripeLink;
+
+  // Show results
   document.getElementById('rform').classList.add('hidden');
-  document.getElementById('rpw').style.display='none';
-  document.getElementById('r-range').textContent=fmt(tLo)+' – '+fmt(tHi);
-  document.getElementById('r-note').textContent=`${area}m² · ${pt||'property'} · ${rgn.replace('_',' ')} · ${lv} · ${sp} spec`;
+  document.getElementById('rpw').style.display = 'none';
+  document.getElementById('r-range').textContent = fmt(tLo) + ' – ' + fmt(tHi);
+  document.getElementById('r-note').textContent = `${area}m² · ${pt||'property'} · ${rgn.replace('_',' ')} · ${lv} · ${sp} spec`;
 
-  const el=document.getElementById('r-bd');el.innerHTML='';
-  [['Base works',fmt(bLo)+' – '+fmt(bHi)],
-   kt==='yes'?['Kitchen',fmt(kc)]:null,
-   bn>0?['Bathroom(s)',fmt(bathC)]:null,
-   ex!=='none'?['Extension',fmt(extC)]:null,
-   ['Contingency (15%)',fmt(cont)],
-   ['Total inc. contingency',fmt(tLo+cont)+' – '+fmt(tHi+cont)]
-  ].filter(Boolean).forEach(([l,v])=>{el.innerHTML+=`<div class="bdi"><div class="bdl">${l}</div><div class="bdv">${v}</div></div>`;});
+  const el = document.getElementById('r-bd'); el.innerHTML = '';
+  bdRows.forEach(({label,value}) => {
+    el.innerHTML += `<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;
+  });
   document.getElementById('r-res').classList.add('active');
-  // Log email capture — in production, POST to your backend/Zapier/Mailchimp
-  console.log('Reno estimate generated for:', capturedEmails.reno);
+
+  // Submit to Apps Script (send estimate email + log to sheet)
+  const submitted = await submitEstimate({
+    type:        'estimate',
+    tool:        'renovation',
+    email,
+    region:       rgn,
+    propertyType: pt,
+    bedrooms:     bd,
+    age:          ag,
+    levelOrType:  lv,
+    spec:         sp,
+    estimateLow:  fmt(tLo),
+    estimateHigh: fmt(tHi),
+    breakdown:    bdRows,
+    stripeLink,
+  });
+
+  if (submitted) {
+    document.getElementById('r-sent-addr').textContent = email;
+    document.getElementById('r-email-sent').style.display = 'flex';
+    showToast('✓ Estimate emailed to ' + email);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Calculate my estimate →';
 }
 
-function resetReno(){
+function resetReno() {
   document.getElementById('r-res').classList.remove('active');
   document.getElementById('rform').classList.remove('hidden');
-  document.getElementById('rpw').style.display='block';
-  document.querySelectorAll('#tool-reno .ob').forEach(b=>b.classList.remove('sel'));
-  document.querySelectorAll('#tool-reno .finput').forEach(i=>{i.value='';i.classList.remove('error');});
-  document.querySelectorAll('#tool-reno .field-err,.og-err').forEach(e=>e.classList.remove('show'));
+  document.getElementById('rpw').style.display = 'block';
+  document.getElementById('r-email-sent').style.display = 'none';
+  document.querySelectorAll('#tool-reno .ob').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('#tool-reno .finput').forEach(i => { i.value=''; i.classList.remove('error'); });
+  document.querySelectorAll('#tool-reno .field-err, #tool-reno .og-err').forEach(e => e.classList.remove('show'));
   rgo(1);
 }
 
-function calcExt(){
-  let ok=true;
-  if(!gv('eg-sz')){showErr('eg-sz-err');ok=false;}else hideErr('eg-sz-err');
-  if(!gv('eg-sp')){showErr('eg-sp-err');ok=false;}else hideErr('eg-sp-err');
-  if(!gv('eg-cx')){showErr('eg-cx-err');ok=false;}else hideErr('eg-cx-err');
-  if(!ok) return;
+// ═══════════════════════════════════════════════
+// EXTENSION CALCULATE + SUBMIT
+// ═══════════════════════════════════════════════
+async function calcExt() {
+  let ok = true;
+  if (!gv('eg-sz')) { showErr('eg-sz-err'); ok = false; } else hideErr('eg-sz-err');
+  if (!gv('eg-sp')) { showErr('eg-sp-err'); ok = false; } else hideErr('eg-sp-err');
+  if (!gv('eg-cx')) { showErr('eg-cx-err'); ok = false; } else hideErr('eg-cx-err');
+  if (!ok) return;
 
-  const rgn=gv('eg-rgn'),et=gv('eg-et'),sz=gv('eg-sz'),sp=gv('eg-sp'),cx=gv('eg-cx');
-  const r=ERATE[et],s=ESIZ[sz],rm=RM[rgn]||1,sm=SM[sp]||1,cm=CM[cx]||1;
-  const tLo=s.lo*r.lo*rm*sm*cm,tHi=s.hi*r.hi*rm*sm*cm,mid=s.m*((r.lo+r.hi)/2)*rm*sm*cm;
-  const str=mid*0.04,fee=mid*0.08,pln=250,cont=tHi*0.15;
+  const btn = document.getElementById('e-calc-btn');
+  btn.disabled = true;
+  btn.textContent = 'Calculating…';
+
+  const rgn=gv('eg-rgn'), et=gv('eg-et'), sz=gv('eg-sz'), sp=gv('eg-sp'), cx=gv('eg-cx');
+  const email = document.getElementById('e-email').value.trim();
+  const r=ERATE[et], s=ESIZ[sz], rm=RM[rgn]||1, sm=SM[sp]||1, cm=CM[cx]||1;
+  const tLo=s.lo*r.lo*rm*sm*cm, tHi=s.hi*r.hi*rm*sm*cm, mid=s.m*((r.lo+r.hi)/2)*rm*sm*cm;
+  const str=mid*0.04, fee=mid*0.08, pln=250, cont=tHi*0.15;
+  const pt = gv('eg-pt');
+
+  const bdRows = [
+    { label: 'Build cost (structural)', value: fmt(tLo*0.65)+' – '+fmt(tHi*0.65) },
+    { label: 'Finishes & fit-out',      value: fmt(tLo*0.25)+' – '+fmt(tHi*0.25) },
+    { label: 'Structural engineer',     value: fmt(str) },
+    { label: 'Professional fees (~8%)', value: fmt(fee) },
+    { label: 'Planning application',    value: fmt(pln) },
+    { label: 'Contingency (15%)',       value: fmt(cont) },
+    { label: 'Total inc. contingency',  value: fmt(tLo+cont)+' – '+fmt(tHi+cont) },
+  ];
+
+  const stripeLink = STRIPE.extension !== 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03'
+    ? STRIPE.extension + '?prefilled_email=' + encodeURIComponent(email)
+    : '#';
+  document.getElementById('e-stripe-btn').href = stripeLink;
 
   document.getElementById('eform').classList.add('hidden');
-  document.getElementById('epw').style.display='none';
-  document.getElementById('e-range').textContent=fmt(tLo)+' – '+fmt(tHi);
-  document.getElementById('e-note').textContent=`${et.replace('_',' ')} · ${sz} · ${rgn.replace('_',' ')} · ${sp} spec · ${cx} complexity`;
+  document.getElementById('epw').style.display = 'none';
+  document.getElementById('e-range').textContent = fmt(tLo) + ' – ' + fmt(tHi);
+  document.getElementById('e-note').textContent = `${et.replace('_',' ')} · ${sz} · ${rgn.replace('_',' ')} · ${sp} spec · ${cx} complexity`;
 
-  const el=document.getElementById('e-bd');el.innerHTML='';
-  [['Build cost (structural)',fmt(tLo*0.65)+' – '+fmt(tHi*0.65)],
-   ['Finishes & fit-out',fmt(tLo*0.25)+' – '+fmt(tHi*0.25)],
-   ['Structural engineer',fmt(str)],
-   ['Professional fees (~8%)',fmt(fee)],
-   ['Planning application',fmt(pln)],
-   ['Contingency (15%)',fmt(cont)],
-   ['Total inc. contingency',fmt(tLo+cont)+' – '+fmt(tHi+cont)]
-  ].forEach(([l,v])=>{el.innerHTML+=`<div class="bdi"><div class="bdl">${l}</div><div class="bdv">${v}</div></div>`;});
+  const el = document.getElementById('e-bd'); el.innerHTML = '';
+  bdRows.forEach(({label,value}) => {
+    el.innerHTML += `<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;
+  });
   document.getElementById('e-res').classList.add('active');
-  console.log('Ext estimate generated for:', capturedEmails.ext);
+
+  const submitted = await submitEstimate({
+    type:        'estimate',
+    tool:        'extension',
+    email,
+    region:       rgn,
+    propertyType: pt,
+    levelOrType:  et,
+    spec:         sp,
+    estimateLow:  fmt(tLo),
+    estimateHigh: fmt(tHi),
+    breakdown:    bdRows,
+    stripeLink,
+  });
+
+  if (submitted) {
+    document.getElementById('e-sent-addr').textContent = email;
+    document.getElementById('e-email-sent').style.display = 'flex';
+    showToast('✓ Estimate emailed to ' + email);
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Calculate my estimate →';
 }
 
-function resetExt(){
+function resetExt() {
   document.getElementById('e-res').classList.remove('active');
   document.getElementById('eform').classList.remove('hidden');
-  document.getElementById('epw').style.display='block';
-  document.querySelectorAll('#tool-ext .ob').forEach(b=>b.classList.remove('sel'));
-  document.querySelectorAll('#tool-ext .finput').forEach(i=>{i.value='';i.classList.remove('error');});
-  document.querySelectorAll('#tool-ext .field-err,.og-err').forEach(e=>e.classList.remove('show'));
+  document.getElementById('epw').style.display = 'block';
+  document.getElementById('e-email-sent').style.display = 'none';
+  document.querySelectorAll('#tool-ext .ob').forEach(b => b.classList.remove('sel'));
+  document.querySelectorAll('#tool-ext .finput').forEach(i => { i.value=''; i.classList.remove('error'); });
+  document.querySelectorAll('#tool-ext .field-err, #tool-ext .og-err').forEach(e => e.classList.remove('show'));
   ego(1);
 }
 </script>
