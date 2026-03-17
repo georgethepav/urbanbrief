@@ -796,7 +796,7 @@ const CM    = { low:1.00, moderate:1.10, high:1.20 };
 // ═══════════════════════════════════════════════
 // RENOVATION CALCULATE + SUBMIT
 // ═══════════════════════════════════════════════
-async async function calcReno() {
+async function calcReno() {
   let ok = true;
   if (!gv('rg-kt')) { showErr('rg-kt-err'); ok = false; } else hideErr('rg-kt-err');
   if (!gv('rg-ba')) { showErr('rg-ba-err'); ok = false; } else hideErr('rg-ba-err');
