@@ -610,7 +610,7 @@
 // ═══════════════════════════════════════════════
 // CONFIGURATION — paste your values here
 // ═══════════════════════════════════════════════
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbztbTIoykfO1BRB3wpJWdrCsWu_FvvllmIE5E6WkQnBp0K7g8KvD9Pc7K2HDmNM69XP/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmGjE-anEzYx2T0dKH3ShqriZtaiwFn5PILbN2MQLX8aQTHwSVo1_ALxghRYXE-K16/exec';
 
 // Stripe Payment Links — create these in your Stripe dashboard
 // Products → Add Product → "Renovation Intelligence Report" £19
@@ -675,7 +675,7 @@ function submitEstimate(payload) {
 
       const form = document.createElement('form');
       form.method = 'POST';
-      form.action = 'https://script.google.com/macros/s/AKfycbztbTIoykfO1BRB3wpJWdrCsWu_FvvllmIE5E6WkQnBp0K7g8KvD9Pc7K2HDmNM69XP/exec';
+      form.action = 'https://script.google.com/macros/s/AKfycbxmGjE-anEzYx2T0dKH3ShqriZtaiwFn5PILbN2MQLX8aQTHwSVo1_ALxghRYXE-K16/exec';
       form.target = iframe.name;
       form.style.display = 'none';
 
@@ -796,7 +796,7 @@ const CM    = { low:1.00, moderate:1.10, high:1.20 };
 // ═══════════════════════════════════════════════
 // RENOVATION CALCULATE + SUBMIT
 // ═══════════════════════════════════════════════
-async function calcReno() {
+async async function calcReno() {
   let ok = true;
   if (!gv('rg-kt')) { showErr('rg-kt-err'); ok = false; } else hideErr('rg-kt-err');
   if (!gv('rg-ba')) { showErr('rg-ba-err'); ok = false; } else hideErr('rg-ba-err');
@@ -830,7 +830,6 @@ async function calcReno() {
 
   // Update Stripe link with customer email pre-filled
   const stripeLink = 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04?prefilled_email=' + encodeURIComponent(email);
-  document.getElementById('r-stripe-btn').href = stripeLink;
 
   // Show results
   document.getElementById('rform').classList.add('hidden');
@@ -914,7 +913,6 @@ async function calcExt() {
   ];
 
   const stripeLink = 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03?prefilled_email=' + encodeURIComponent(email);
-  document.getElementById('e-stripe-btn') && (document.getElementById('e-stripe-btn').href = stripeLink);
   // Store for extra questions modal
   window._extEmail = email;
   window._extLow   = fmt(tLo);
@@ -1126,6 +1124,59 @@ function resetExt() {
       closeExtExtra();
     });
   }
+
+
+  // ── RESTORE FROM EMAIL LINK (Option A — URL params) ──────────
+  (function() {
+    const p = new URLSearchParams(window.location.search);
+    if (p.get('ref') !== 'email') return;
+
+    const tool  = p.get('tool')  || '';
+    const email = p.get('email') || '';
+    const lo    = p.get('lo')    || '';
+    const hi    = p.get('hi')    || '';
+    const rgn   = p.get('rgn')   || '';
+    const pt    = p.get('pt')    || '';
+    const lv    = p.get('lv')    || '';
+    const sp    = p.get('sp')    || '';
+
+    if (!tool || !email) return;
+
+    // Store on window for the extra questions modal to use
+    if (tool === 'renovation') {
+      window._renoEmail = email;
+      window._renoLow   = lo;
+      window._renoHigh  = hi;
+    } else {
+      window._extEmail = email;
+      window._extLow   = lo;
+      window._extHigh  = hi;
+    }
+
+    // Wait for DOM then open the right modal with a brief summary banner
+    window.addEventListener('DOMContentLoaded', function() {
+      // Small delay so page renders first
+      setTimeout(function() {
+
+        // Show a "welcome back" toast
+        showToast('Welcome back — your estimate was ' + lo + ' – ' + hi + '. Complete your report details below.');
+
+        // Scroll to the right calculator section
+        const toolEl = document.getElementById(tool === 'renovation' ? 'tool-reno' : 'tool-ext');
+        if (toolEl) toolEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Open the extra questions modal after a short pause
+        setTimeout(function() {
+          if (tool === 'renovation') {
+            showRenoExtra();
+          } else {
+            showExtExtra();
+          }
+        }, 600);
+
+      }, 300);
+    });
+  })();
 
 </script>
 
