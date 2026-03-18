@@ -83,7 +83,8 @@
   .ob{padding:0.58rem 0.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:400;color:var(--t2);cursor:pointer;text-align:center;transition:all 0.15s;line-height:1.3;}
   .ob:hover{border-color:var(--border-hi);color:var(--t1);background:var(--bg-card2);}
   .ob.sel{border-color:rgba(79,195,195,0.45);background:var(--teal-dim);color:var(--teal);font-weight:500;}
-  .og-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
+  .hint-txt{font-size:0.75rem;color:var(--t3);line-height:1.5;margin-bottom:6px;}
+.og-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
   .og-err.show{display:block;}
 
   .fnav{display:flex;justify-content:space-between;align-items:center;padding-top:1.35rem;border-top:1px solid var(--border);margin-top:0.1rem;}
@@ -160,15 +161,15 @@
   }
   .extra-modal.hidden { display: none; }
   .extra-panel {
-    background: var(--c1); border: 1px solid var(--bdr);
+    background: var(--bg-card); border: 1px solid var(--border);
     border-radius: 16px; width: 100%; max-width: 640px;
     padding: 0; overflow: hidden;
     box-shadow: 0 24px 64px rgba(0,0,0,0.5);
     margin: auto;
   }
   .extra-header {
-    background: var(--c2); padding: 28px 28px 20px;
-    border-bottom: 1px solid var(--bdr);
+    background: var(--bg-card2); padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--border);
   }
   .extra-header .extra-tag {
     display: inline-block; font-size: 0.65rem; font-weight: 700;
@@ -187,21 +188,21 @@
   }
   .eq-section:last-of-type { padding-bottom: 4px; }
   .eq-section-title {
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--t3); margin-bottom: 12px;
-    padding-bottom: 6px; border-bottom: 1px solid var(--bdr);
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+    padding-bottom: 6px; border-bottom: 1px solid var(--border);
   }
   .eq-field { margin-bottom: 16px; }
   .eq-label {
-    display: block; font-size: 0.8rem; font-weight: 500; color: var(--t1);
-    margin-bottom: 8px;
+    display: block; font-size: 0.78rem; font-weight: 500; color: var(--t1);
+    margin-bottom: 8px; letter-spacing: -0.01em;
   }
   .eq-req { color: var(--teal); }
   .eq-input {
-    width: 100%; background: var(--c2); border: 1px solid var(--bdr);
-    border-radius: 8px; padding: 10px 14px; color: var(--t1);
-    font-size: 0.85rem; font-family: inherit; outline: none;
-    transition: border-color 0.2s; box-sizing: border-box;
+    width: 100%; background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--rb); padding: 0.6rem 0.75rem; color: var(--t1);
+    font-size: 0.82rem; font-family: 'Inter', sans-serif; font-weight: 400;
+    outline: none; transition: border-color 0.2s; box-sizing: border-box;
   }
   .eq-input:focus { border-color: var(--teal); }
   .eq-input.error { border-color: #e05252; }
@@ -209,16 +210,18 @@
     display: flex; flex-wrap: wrap; gap: 7px;
   }
   .eq-opt {
-    background: var(--c2); border: 1px solid var(--bdr); border-radius: 8px;
-    padding: 7px 13px; font-size: 0.8rem; color: var(--t2); font-family: inherit;
-    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    padding: 0.58rem 0.75rem; background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--rb); font-family: 'Inter', sans-serif; font-size: 0.78rem;
+    font-weight: 400; color: var(--t2); cursor: pointer; text-align: center;
+    transition: all 0.15s; line-height: 1.3; white-space: nowrap;
   }
-  .eq-opt:hover { border-color: var(--teal); color: var(--teal); }
+  .eq-opt:hover { border-color: var(--teal); color: var(--teal); background: var(--bg-card); }
   .eq-opt.sel {
     background: rgba(79,195,195,0.12); border-color: var(--teal);
     color: var(--teal); font-weight: 600;
   }
   .eq-opt.err-ring { border-color: #e05252; }
+  .eq-opt:hover.err-ring { border-color: #e05252; color: #e05252; }
   .eq-err {
     display: none; font-size: 0.72rem; color: #e05252; margin-top: 5px;
   }
@@ -229,17 +232,18 @@
     border-top: 1px solid var(--bdr); margin-top: 20px;
   }
   .eq-back {
-    background: none; border: 1px solid var(--bdr); border-radius: 8px;
-    padding: 10px 16px; color: var(--t2); font-size: 0.8rem;
-    font-family: inherit; cursor: pointer; transition: all 0.15s;
+    background: none; border: 1px solid var(--border); border-radius: var(--rb);
+    padding: 0.58rem 1rem; color: var(--t2); font-size: 0.78rem;
+    font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.15s;
   }
   .eq-back:hover { border-color: var(--teal); color: var(--teal); }
   .eq-pay {
     display: flex; align-items: center; gap: 8px;
     background: var(--teal); color: #0d1117; border: none;
-    border-radius: 8px; padding: 12px 24px; font-size: 0.95rem;
-    font-weight: 700; font-family: inherit; cursor: pointer;
+    border-radius: var(--rb); padding: 0.65rem 1.5rem; font-size: 0.9rem;
+    font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer;
     transition: opacity 0.2s; flex: 1; justify-content: center;
+    letter-spacing: -0.01em;
   }
   .eq-pay:hover { opacity: 0.9; }
   .eq-pay:disabled { opacity: 0.6; cursor: not-allowed; }
@@ -301,243 +305,13 @@
           <div class="field-err" id="r-email-err">Please enter a valid email address — we'll send your estimate here.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Region <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c3" id="rg-rgn">
-            <button class="ob" data-val="london" onclick="pick(this,'rg-rgn')">London</button>
-            <button class="ob" data-val="south_east" onclick="pick(this,'rg-rgn')">South East</button>
-            <button class="ob" data-val="midlands" onclick="pick(this,'rg-rgn')">Midlands</button>
-            <button class="ob" data-val="north" onclick="pick(this,'rg-rgn')">North England</button>
-            <button class="ob" data-val="scotland" onclick="pick(this,'rg-rgn')">Scotland</button>
-            <button class="ob" data-val="wales" onclick="pick(this,'rg-rgn')">Wales</button>
+          <span class="oglbl">Approximate size <span style="color:var(--error)">*</span></span>
+          <div class="hint-txt">Enter total floor area in m² — e.g. a 4m × 5m single-storey rear extension = 20 m². A two-storey version of the same footprint = 40 m².</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
+            <input type="number" class="finput" id="eg-sz-inp" min="5" max="300" placeholder="e.g. 20" style="max-width:140px;" oninput="hideErr('eg-sz-err')">
+            <span style="color:var(--t2);font-size:0.82rem;">m²</span>
           </div>
-          <div class="og-err" id="rg-rgn-err">Please select your region.</div>
-        </div>
-        <div class="fnav"><span></span><button class="btn-next" onclick="rgo(2)">Continue →</button></div>
-      </div>
-
-      <div class="sp" id="rs2">
-        <div class="step-title">Your property</div>
-        <div class="step-sub">Tell us about the property being renovated.</div>
-        <div class="og">
-          <span class="oglbl">Property type <span style="color:var(--error)">*</span></span>
-          <div class="ogrid ca" id="rg-pt">
-            <button class="ob" data-val="flat" onclick="pick(this,'rg-pt')">Flat</button>
-            <button class="ob" data-val="terrace" onclick="pick(this,'rg-pt')">Terrace</button>
-            <button class="ob" data-val="semi" onclick="pick(this,'rg-pt')">Semi-detached</button>
-            <button class="ob" data-val="detached" onclick="pick(this,'rg-pt')">Detached</button>
-            <button class="ob" data-val="bungalow" onclick="pick(this,'rg-pt')">Bungalow</button>
-          </div>
-          <div class="og-err" id="rg-pt-err">Please select a property type.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Number of bedrooms <span style="color:var(--error)">*</span></span>
-          <div class="ogrid ca" id="rg-bd">
-            <button class="ob" data-val="1" onclick="pick(this,'rg-bd')">1 bed</button>
-            <button class="ob" data-val="2" onclick="pick(this,'rg-bd')">2 bed</button>
-            <button class="ob" data-val="3" onclick="pick(this,'rg-bd')">3 bed</button>
-            <button class="ob" data-val="4" onclick="pick(this,'rg-bd')">4 bed</button>
-            <button class="ob" data-val="5" onclick="pick(this,'rg-bd')">5+ bed</button>
-          </div>
-          <div class="og-err" id="rg-bd-err">Please select number of bedrooms.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Property age <span style="color:var(--error)">*</span></span>
-          <div class="ogrid ca" id="rg-ag">
-            <button class="ob" data-val="pre1920" onclick="pick(this,'rg-ag')">Pre-1920</button>
-            <button class="ob" data-val="1920_1960" onclick="pick(this,'rg-ag')">1920–1960</button>
-            <button class="ob" data-val="1960_1990" onclick="pick(this,'rg-ag')">1960–1990</button>
-            <button class="ob" data-val="1990_2010" onclick="pick(this,'rg-ag')">1990–2010</button>
-            <button class="ob" data-val="2010plus" onclick="pick(this,'rg-ag')">2010+</button>
-          </div>
-          <div class="og-err" id="rg-ag-err">Please select property age.</div>
-        </div>
-        <div class="fnav">
-          <button class="btn-back" onclick="rgo(1)">← Back</button>
-          <button class="btn-next" onclick="rgo(3)">Continue →</button>
-        </div>
-      </div>
-
-      <div class="sp" id="rs3">
-        <div class="step-title">Scope & specification</div>
-        <div class="step-sub">What level of renovation are you planning?</div>
-        <div class="og">
-          <span class="oglbl">Renovation level <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c2" id="rg-lv">
-            <button class="ob" data-val="cosmetic" onclick="pick(this,'rg-lv')">Cosmetic refresh</button>
-            <button class="ob" data-val="full" onclick="pick(this,'rg-lv')">Full renovation</button>
-            <button class="ob" data-val="structural" onclick="pick(this,'rg-lv')">Full + layout changes</button>
-            <button class="ob" data-val="extension" onclick="pick(this,'rg-lv')">Full + extension</button>
-          </div>
-          <div class="og-err" id="rg-lv-err">Please select a renovation level.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Specification level <span style="color:var(--error)">*</span></span>
-          <div class="ogrid ca" id="rg-sp">
-            <button class="ob" data-val="basic" onclick="pick(this,'rg-sp')">Basic</button>
-            <button class="ob" data-val="midrange" onclick="pick(this,'rg-sp')">Mid-range</button>
-            <button class="ob" data-val="highspec" onclick="pick(this,'rg-sp')">High spec</button>
-            <button class="ob" data-val="luxury" onclick="pick(this,'rg-sp')">Luxury</button>
-          </div>
-          <div class="og-err" id="rg-sp-err">Please select a specification level.</div>
-        </div>
-        <div class="fnav">
-          <button class="btn-back" onclick="rgo(2)">← Back</button>
-          <button class="btn-next" onclick="rgo(4)">Continue →</button>
-        </div>
-      </div>
-
-      <div class="sp" id="rs4">
-        <div class="step-title">Kitchen, bathrooms & extension</div>
-        <div class="step-sub">Final details to sharpen your estimate.</div>
-        <div class="og">
-          <span class="oglbl">Replace kitchen? <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c2" id="rg-kt">
-            <button class="ob" data-val="yes" onclick="pick(this,'rg-kt')">Yes</button>
-            <button class="ob" data-val="no" onclick="pick(this,'rg-kt')">No</button>
-          </div>
-          <div class="og-err" id="rg-kt-err">Please select an option.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Bathrooms to renovate <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c3" id="rg-ba">
-            <button class="ob" data-val="0" onclick="pick(this,'rg-ba')">None</button>
-            <button class="ob" data-val="1" onclick="pick(this,'rg-ba')">1</button>
-            <button class="ob" data-val="2" onclick="pick(this,'rg-ba')">2+</button>
-          </div>
-          <div class="og-err" id="rg-ba-err">Please select an option.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Extension planned? <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c2" id="rg-ex">
-            <button class="ob" data-val="none" onclick="pick(this,'rg-ex')">No extension</button>
-            <button class="ob" data-val="small" onclick="pick(this,'rg-ex')">Small (10–20m²)</button>
-            <button class="ob" data-val="medium" onclick="pick(this,'rg-ex')">Medium (20–40m²)</button>
-            <button class="ob" data-val="large" onclick="pick(this,'rg-ex')">Large (40m²+)</button>
-          </div>
-          <div class="og-err" id="rg-ex-err">Please select an option.</div>
-        </div>
-        <div class="fnav">
-          <button class="btn-back" onclick="rgo(3)">← Back</button>
-          <button class="btn-calc" id="r-calc-btn" onclick="calcReno()">Calculate my estimate →</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="res-panel" id="r-res">
-      <p class="res-eye">Your estimate</p>
-      <p class="res-title">Renovation cost estimate</p>
-      <div class="est-band">
-        <div class="est-lbl">Estimated total cost range</div>
-        <div class="est-range" id="r-range">—</div>
-        <div class="est-note" id="r-note"></div>
-      </div>
-      <div class="email-sent" id="r-email-sent" style="display:none">
-        <span>✉️</span> <span>We've emailed a copy of this estimate to <strong id="r-sent-addr"></strong></span>
-      </div>
-      <div class="breakdown" id="r-bd"></div>
-      <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Actual costs vary significantly by contractor, site conditions and specification. Always obtain 3+ quotes before committing.</div>
-      <div class="up-box">
-        <div class="up-tag">Intelligence Report — £19</div>
-        <h3>Get a full Renovation Intelligence Report</h3>
-        <p>Accurate analysis with a detailed budget breakdown, risk factors, hidden costs, contingency guidance and a realistic project timeline.</p>
-        <div class="chips">
-          <span class="chip">📊 Budget breakdown</span>
-          <span class="chip">⚠️ Risk factors</span>
-          <span class="chip">🕳️ Hidden costs</span>
-          <span class="chip">📅 Timeline</span>
-          <span class="chip">📄 PDF export</span>
-        </div>
-        <button class="btn-stripe" onclick="showRenoExtra()" id="r-open-extra-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          Refine my report &amp; pay <span class="ptag">£19</span>
-        </button>
-        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Answer a few more questions to personalise your report — then pay securely via Stripe.</p>
-      </div>
-      <button class="btn-restart" onclick="resetReno()">← Start a new calculation</button>
-    </div>
-  </div>
-
-  <!-- EXTENSION CALCULATOR -->
-  <div id="tool-ext" class="calc-card hidden">
-    <div class="card-hdr">
-      <div class="card-icon">📐</div>
-      <div><h2>Extension Cost Calculator UK</h2><p>Rear, side return, wraparound, two-storey and loft conversions</p></div>
-    </div>
-    <div class="progress-wrap" id="epw">
-      <div class="step-row">
-        <div class="s-dot active" id="ed1">1</div><div class="s-line" id="el1"></div>
-        <div class="s-dot" id="ed2">2</div><div class="s-line" id="el2"></div>
-        <div class="s-dot" id="ed3">3</div>
-      </div>
-      <p class="step-lbl" id="eslbl">Step 1 of 3 — About you</p>
-    </div>
-    <div class="form-body" id="eform">
-
-      <div class="sp active" id="es1">
-        <div class="step-title">Let's get started</div>
-        <div class="step-sub">Enter your email to receive your estimate. Your region helps us apply the right cost multiplier.</div>
-        <div class="field">
-          <label class="flabel">Email address <span style="color:var(--error)">*</span></label>
-          <input type="email" class="finput" id="e-email" placeholder="you@example.com">
-          <div class="field-err" id="e-email-err">Please enter a valid email address — we'll send your estimate here.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Region <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c3" id="eg-rgn">
-            <button class="ob" data-val="london" onclick="pick(this,'eg-rgn')">London</button>
-            <button class="ob" data-val="south_east" onclick="pick(this,'eg-rgn')">South East</button>
-            <button class="ob" data-val="midlands" onclick="pick(this,'eg-rgn')">Midlands</button>
-            <button class="ob" data-val="north" onclick="pick(this,'eg-rgn')">North England</button>
-            <button class="ob" data-val="scotland" onclick="pick(this,'eg-rgn')">Scotland</button>
-            <button class="ob" data-val="wales" onclick="pick(this,'eg-rgn')">Wales</button>
-          </div>
-          <div class="og-err" id="eg-rgn-err">Please select your region.</div>
-        </div>
-        <div class="fnav"><span></span><button class="btn-next" onclick="ego(2)">Continue →</button></div>
-      </div>
-
-      <div class="sp" id="es2">
-        <div class="step-title">Property & extension type</div>
-        <div class="step-sub">Tell us about the property and the type of extension.</div>
-        <div class="og">
-          <span class="oglbl">Property type <span style="color:var(--error)">*</span></span>
-          <div class="ogrid ca" id="eg-pt">
-            <button class="ob" data-val="terrace" onclick="pick(this,'eg-pt')">Terrace</button>
-            <button class="ob" data-val="semi" onclick="pick(this,'eg-pt')">Semi-detached</button>
-            <button class="ob" data-val="detached" onclick="pick(this,'eg-pt')">Detached</button>
-            <button class="ob" data-val="bungalow" onclick="pick(this,'eg-pt')">Bungalow</button>
-          </div>
-          <div class="og-err" id="eg-pt-err">Please select a property type.</div>
-        </div>
-        <div class="og">
-          <span class="oglbl">Extension type <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c2" id="eg-et">
-            <button class="ob" data-val="rear" onclick="pick(this,'eg-et')">Rear extension</button>
-            <button class="ob" data-val="side_return" onclick="pick(this,'eg-et')">Side return</button>
-            <button class="ob" data-val="wraparound" onclick="pick(this,'eg-et')">Wraparound</button>
-            <button class="ob" data-val="two_storey" onclick="pick(this,'eg-et')">Two storey</button>
-            <button class="ob" data-val="loft" onclick="pick(this,'eg-et')">Loft conversion</button>
-          </div>
-          <div class="og-err" id="eg-et-err">Please select an extension type.</div>
-        </div>
-        <div class="fnav">
-          <button class="btn-back" onclick="ego(1)">← Back</button>
-          <button class="btn-next" onclick="ego(3)">Continue →</button>
-        </div>
-      </div>
-
-      <div class="sp" id="es3">
-        <div class="step-title">Size, specification & complexity</div>
-        <div class="step-sub">Final details to calculate your estimate.</div>
-        <div class="og">
-          <span class="oglbl">Extension size <span style="color:var(--error)">*</span></span>
-          <div class="ogrid c2" id="eg-sz">
-            <button class="ob" data-val="small" onclick="pick(this,'eg-sz')">Small (10–20m²)</button>
-            <button class="ob" data-val="medium" onclick="pick(this,'eg-sz')">Medium (20–40m²)</button>
-            <button class="ob" data-val="large" onclick="pick(this,'eg-sz')">Large (40–60m²)</button>
-            <button class="ob" data-val="xlarge" onclick="pick(this,'eg-sz')">Very large (60m²+)</button>
-          </div>
-          <div class="og-err" id="eg-sz-err">Please select an extension size.</div>
+          <div class="og-err" id="eg-sz-err">Please enter the approximate size in m².</div>
         </div>
         <div class="og">
           <span class="oglbl">Specification level <span style="color:var(--error)">*</span></span>
@@ -789,7 +563,7 @@ const AREAS = {'1':45,'2':65,'3':85,'4':115,'5':145};
 const KC    = { basic:8000, midrange:12000, highspec:18000, luxury:25000 };
 const BC    = { basic:4000, midrange:6000, highspec:10000, luxury:15000 };
 const EC    = { none:0, small:45000, medium:90000, large:140000 };
-const ERATE = { rear:{lo:2000,hi:2800}, side_return:{lo:2200,hi:3000}, wraparound:{lo:2400,hi:3200}, two_storey:{lo:1800,hi:2400}, loft:{lo:1500,hi:2500} };
+const ERATE = { rear_single:{lo:2000,hi:2800}, rear_two:{lo:1800,hi:2500}, sides_single:{lo:2400,hi:3200}, sides_two:{lo:2200,hi:3000}, loft:{lo:1500,hi:2500} }, side_return:{lo:2200,hi:3000}, wraparound:{lo:2400,hi:3200}, two_storey:{lo:1800,hi:2400}, loft:{lo:1500,hi:2500} };
 const ESIZ  = { small:{lo:10,hi:20,m:15}, medium:{lo:20,hi:40,m:30}, large:{lo:40,hi:60,m:50}, xlarge:{lo:60,hi:80,m:70} };
 const CM    = { low:1.00, moderate:1.10, high:1.20 };
 
@@ -798,20 +572,28 @@ const CM    = { low:1.00, moderate:1.10, high:1.20 };
 // ═══════════════════════════════════════════════
 async function calcReno() {
   let ok = true;
-  if (!gv('rg-kt')) { showErr('rg-kt-err'); ok = false; } else hideErr('rg-kt-err');
-  if (!gv('rg-ba')) { showErr('rg-ba-err'); ok = false; } else hideErr('rg-ba-err');
-  if (!gv('rg-ex')) { showErr('rg-ex-err'); ok = false; } else hideErr('rg-ex-err');
+  if (!gv('rg-rgn')) { showErr('rg-rgn-err'); ok = false; } else hideErr('rg-rgn-err');
+  if (!gv('rg-pt'))  { showErr('rg-pt-err');  ok = false; } else hideErr('rg-pt-err');
+  if (!gv('rg-fa'))  { showErr('rg-fa-err');  ok = false; } else hideErr('rg-fa-err');
+  if (!gv('rg-bd'))  { showErr('rg-bd-err');  ok = false; } else hideErr('rg-bd-err');
+  if (!gv('rg-ag'))  { showErr('rg-ag-err');  ok = false; } else hideErr('rg-ag-err');
+  if (!gv('rg-lv'))  { showErr('rg-lv-err');  ok = false; } else hideErr('rg-lv-err');
+  if (!gv('rg-sp'))  { showErr('rg-sp-err');  ok = false; } else hideErr('rg-sp-err');
+  if (!gv('rg-kt'))  { showErr('rg-kt-err');  ok = false; } else hideErr('rg-kt-err');
+  if (!gv('rg-ba'))  { showErr('rg-ba-err');  ok = false; } else hideErr('rg-ba-err');
+  if (!gv('rg-ex'))  { showErr('rg-ex-err');  ok = false; } else hideErr('rg-ex-err');
   if (!ok) return;
 
   const btn = document.getElementById('r-calc-btn');
   btn.disabled = true;
   btn.textContent = 'Calculating…';
 
-  const rgn=gv('rg-rgn'), bd=gv('rg-bd'), ag=gv('rg-ag'), lv=gv('rg-lv'),
+  const rgn=gv('rg-rgn'), fa=gv('rg-fa'), bd=gv('rg-bd'), ag=gv('rg-ag'), lv=gv('rg-lv'),
         sp=gv('rg-sp'),   kt=gv('rg-kt'), ba=gv('rg-ba'), ex=gv('rg-ex'), pt=gv('rg-pt');
   const email = document.getElementById('r-email').value.trim();
 
-  const area = AREAS[bd]||85, base=RBASE[lv], rm=RM[rgn]||1, sm=SM[sp]||1;
+  const FAM={'sub80':70,'80_120':100,'120_160':140,'160plus':175};
+  const area = FAM[fa]||100, base=RBASE[lv], rm=RM[rgn]||1, sm=SM[sp]||1;
   const agM  = ag==='pre1920'?1.12:ag==='1920_1960'?1.08:1.0;
   const bLo=area*base.lo*rm*sm*agM, bHi=area*base.hi*rm*sm*agM;
   const kc   = kt==='yes'?(KC[sp]||12000)*rm:0;
@@ -886,7 +668,12 @@ function resetReno() {
 // ═══════════════════════════════════════════════
 async function calcExt() {
   let ok = true;
-  if (!gv('eg-sz')) { showErr('eg-sz-err'); ok = false; } else hideErr('eg-sz-err');
+  if (!gv('eg-rgn')) { showErr('eg-rgn-err'); ok = false; } else hideErr('eg-rgn-err');
+  if (!gv('eg-pt'))  { showErr('eg-pt-err');  ok = false; } else hideErr('eg-pt-err');
+  if (!gv('eg-et'))  { showErr('eg-et-err');  ok = false; } else hideErr('eg-et-err');
+  const szRaw = document.getElementById('eg-sz-inp') ? document.getElementById('eg-sz-inp').value : gv('eg-sz');
+  const szNum = parseFloat(szRaw);
+  if (!szRaw || isNaN(szNum) || szNum < 5) { showErr('eg-sz-err'); ok = false; } else hideErr('eg-sz-err');
   if (!gv('eg-sp')) { showErr('eg-sp-err'); ok = false; } else hideErr('eg-sp-err');
   if (!gv('eg-cx')) { showErr('eg-cx-err'); ok = false; } else hideErr('eg-cx-err');
   if (!ok) return;
@@ -895,10 +682,12 @@ async function calcExt() {
   btn.disabled = true;
   btn.textContent = 'Calculating…';
 
-  const rgn=gv('eg-rgn'), et=gv('eg-et'), sz=gv('eg-sz'), sp=gv('eg-sp'), cx=gv('eg-cx');
+  const rgn=gv('eg-rgn'), et=gv('eg-et'), sp=gv('eg-sp'), cx=gv('eg-cx');
   const email = document.getElementById('e-email').value.trim();
-  const r=ERATE[et], s=ESIZ[sz], rm=RM[rgn]||1, sm=SM[sp]||1, cm=CM[cx]||1;
-  const tLo=s.lo*r.lo*rm*sm*cm, tHi=s.hi*r.hi*rm*sm*cm, mid=s.m*((r.lo+r.hi)/2)*rm*sm*cm;
+  const szEl = document.getElementById('eg-sz-inp') || document.querySelector('#eg-sz input') || {value: '30'};
+  const szM2 = parseFloat(szEl.value) || parseFloat(gv('eg-sz')) || 30;
+  const r=ERATE[et]||ERATE['rear_single'], rm=RM[rgn]||1, sm=SM[sp]||1, cm=CM[cx]||1;
+  const tLo=szM2*r.lo*rm*sm*cm, tHi=szM2*r.hi*rm*sm*cm, mid=s.m*((r.lo+r.hi)/2)*rm*sm*cm;
   const str=mid*0.04, fee=mid*0.08, pln=250, cont=tHi*0.15;
   const pt = gv('eg-pt');
 
@@ -1005,8 +794,8 @@ function resetExt() {
   function submitRenoExtra(e) {
     e.preventDefault();
     const fields = [
+      { id: 'rex-houseno',  type: 'input', label: 'House No/Name' },
       { id: 'rex-postcode', type: 'input', label: 'Postcode' },
-      { id: 'rex-area',    type: 'opts',  label: 'Floor area' },
       { id: 'rex-elec',   type: 'opts',  label: 'Electrical' },
       { id: 'rex-heat',   type: 'opts',  label: 'Heating' },
       { id: 'rex-plumb',  type: 'opts',  label: 'Plumbing' },
@@ -1044,8 +833,8 @@ function resetExt() {
       email: window._renoEmail || '',
       estimateLow: window._renoLow || '',
       estimateHigh: window._renoHigh || '',
+      houseNo:       extra['rex-houseno'],
       postcode:      extra['rex-postcode'],
-      floorArea:     extra['rex-area'],
       electrical:    extra['rex-elec'],
       heating:       extra['rex-heat'],
       plumbing:      extra['rex-plumb'],
@@ -1084,6 +873,8 @@ function resetExt() {
       { id: 'eex-access', type: 'opts', label: 'Site access' },
       { id: 'eex-party',  type: 'opts', label: 'Party wall' },
       { id: 'eex-glaze',  type: 'opts', label: 'Glazing' },
+      { id: 'eex-kt',     type: 'opts', label: 'Kitchen' },
+      { id: 'eex-ba',     type: 'opts', label: 'Bathrooms' },
       { id: 'eex-finish', type: 'opts', label: 'Interior finish' },
     ];
     let ok = true;
@@ -1196,19 +987,14 @@ function resetExt() {
       <div class="eq-section">
         <div class="eq-section-title">🏠 Property Details</div>
         <div class="eq-field">
+          <label class="eq-label">House number or name <span class="eq-req">*</span></label>
+          <input type="text" id="rex-houseno" class="eq-input" placeholder="e.g. 42 or Rosewood Cottage">
+          <span class="eq-err" id="rex-houseno-err">Please enter your house number or name</span>
+        </div>
+        <div class="eq-field">
           <label class="eq-label">Postcode <span class="eq-req">*</span></label>
           <input type="text" id="rex-postcode" class="eq-input" placeholder="e.g. SW1A 1AA" maxlength="8">
           <span class="eq-err" id="rex-postcode-err">Please enter your postcode</span>
-        </div>
-        <div class="eq-field">
-          <label class="eq-label">Approximate total floor area <span class="eq-req">*</span></label>
-          <div class="eq-opts" id="rex-area">
-            <button type="button" class="eq-opt" data-group="rex-area" data-val="<80m²">Under 80m²</button>
-            <button type="button" class="eq-opt" data-group="rex-area" data-val="80–120m²">80–120m²</button>
-            <button type="button" class="eq-opt" data-group="rex-area" data-val="120–160m²">120–160m²</button>
-            <button type="button" class="eq-opt" data-group="rex-area" data-val="160m²+">160m² +</button>
-          </div>
-          <span class="eq-err" id="rex-area-err">Please select a floor area</span>
         </div>
       </div>
 
@@ -1398,6 +1184,27 @@ function resetExt() {
             <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Large glazing / sliding systems">Large glazing</button>
           </div>
           <span class="eq-err" id="eex-glaze-err">Please select an option</span>
+        </div>
+      </div>
+
+      <div class="eq-section">
+        <div class="eq-section-title">🍳 Kitchen &amp; Bathrooms</div>
+        <div class="eq-field">
+          <label class="eq-label">New kitchen planned? <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-kt">
+            <button type="button" class="eq-opt" data-group="eex-kt" data-val="No">No</button>
+            <button type="button" class="eq-opt" data-group="eex-kt" data-val="Yes">Yes</button>
+          </div>
+          <span class="eq-err" id="eex-kt-err">Please select an option</span>
+        </div>
+        <div class="eq-field">
+          <label class="eq-label">New bathrooms? <span class="eq-req">*</span></label>
+          <div class="eq-opts" id="eex-ba">
+            <button type="button" class="eq-opt" data-group="eex-ba" data-val="None">None</button>
+            <button type="button" class="eq-opt" data-group="eex-ba" data-val="1">1</button>
+            <button type="button" class="eq-opt" data-group="eex-ba" data-val="2+">2+</button>
+          </div>
+          <span class="eq-err" id="eex-ba-err">Please select an option</span>
         </div>
       </div>
 
