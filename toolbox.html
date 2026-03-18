@@ -18,7 +18,6 @@
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased;}
-
   nav{background:var(--bg);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;position:sticky;top:0;z-index:100;}
   .nav-logo{display:flex;align-items:center;gap:0.65rem;text-decoration:none;}
   .nav-logo img{width:34px;height:34px;border-radius:50%;}
@@ -27,27 +26,22 @@
   .nav-badge{font-size:0.66rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);border:1px solid var(--border);padding:0.22rem 0.6rem;border-radius:20px;}
   .nav-link{font-size:0.8rem;color:var(--t2);text-decoration:none;transition:color 0.2s;}
   .nav-link:hover{color:var(--teal);}
-
   .hero{padding:3.5rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden;}
   .hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:350px;background:radial-gradient(ellipse,rgba(79,195,195,0.06) 0%,transparent 70%);pointer-events:none;}
   .hero-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(79,195,195,0.28);padding:0.26rem 0.72rem;border-radius:20px;margin-bottom:1.25rem;}
   .hero h1{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:700;line-height:1.15;letter-spacing:-0.025em;color:var(--white);margin-bottom:0.75rem;}
   .hero h1 em{color:var(--teal);font-style:normal;}
   .hero-sub{font-size:0.88rem;color:var(--t2);max-width:440px;margin:0 auto 2.25rem;line-height:1.7;font-weight:300;}
-
   .tool-tabs{display:inline-flex;background:var(--bg-mid);border:1px solid var(--border);border-radius:10px;padding:4px;gap:2px;}
   .tab-btn{padding:0.55rem 1.35rem;border:none;border-radius:7px;background:none;font-family:'Inter',sans-serif;font-size:0.81rem;font-weight:500;color:var(--t2);cursor:pointer;transition:all 0.2s;white-space:nowrap;}
   .tab-btn:hover{color:var(--t1);}
   .tab-btn.active{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(79,195,195,0.22);}
-
   main{max-width:720px;margin:0 auto;padding:2.25rem 1.5rem 5rem;}
-
   .calc-card{background:var(--bg-mid);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:0 2px 32px rgba(0,0,0,0.4);}
   .card-hdr{padding:1.35rem 1.75rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.85rem;}
   .card-icon{width:38px;height:38px;background:var(--teal-dim);border:1px solid rgba(79,195,195,0.22);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
   .card-hdr h2{font-size:0.95rem;font-weight:600;color:var(--white);letter-spacing:-0.01em;}
   .card-hdr p{font-size:0.74rem;color:var(--t2);margin-top:0.1rem;font-weight:300;}
-
   .progress-wrap{padding:1.35rem 1.75rem 0;}
   .step-row{display:flex;align-items:center;margin-bottom:0.4rem;}
   .s-dot{width:25px;height:25px;border-radius:50%;border:1.5px solid var(--border-hi);background:var(--bg-card);color:var(--t3);font-size:0.64rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;z-index:1;}
@@ -56,15 +50,12 @@
   .s-line{flex:1;height:1px;background:var(--border);transition:background 0.25s;}
   .s-line.done{background:rgba(62,207,142,0.35);}
   .step-lbl{font-size:0.68rem;color:var(--t3);margin-bottom:1.35rem;letter-spacing:0.02em;}
-
   .form-body{padding:1.5rem 1.75rem;}
   .sp{display:none;animation:fadeUp 0.22s ease;}
   .sp.active{display:block;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-
   .step-title{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:0.26rem;letter-spacing:-0.01em;}
   .step-sub{font-size:0.78rem;color:var(--t2);margin-bottom:1.5rem;line-height:1.55;font-weight:300;}
-
   .field{margin-bottom:1.3rem;}
   .flabel{display:block;font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--t2);margin-bottom:0.42rem;}
   .finput{width:100%;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.87rem;color:var(--t1);outline:none;transition:border-color 0.2s,background 0.2s;}
@@ -73,9 +64,9 @@
   .finput.error{border-color:rgba(229,115,115,0.7);}
   .field-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
   .field-err.show{display:block;}
-
   .og{margin-bottom:1.3rem;}
   .oglbl{font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--t2);margin-bottom:0.48rem;display:block;}
+  .hint-txt{font-size:0.72rem;color:var(--t3);line-height:1.5;margin-bottom:6px;}
   .ogrid{display:grid;gap:0.42rem;}
   .ogrid.c2{grid-template-columns:1fr 1fr;}
   .ogrid.c3{grid-template-columns:1fr 1fr 1fr;}
@@ -83,10 +74,8 @@
   .ob{padding:0.58rem 0.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:400;color:var(--t2);cursor:pointer;text-align:center;transition:all 0.15s;line-height:1.3;}
   .ob:hover{border-color:var(--border-hi);color:var(--t1);background:var(--bg-card2);}
   .ob.sel{border-color:rgba(79,195,195,0.45);background:var(--teal-dim);color:var(--teal);font-weight:500;}
-  .hint-txt{font-size:0.75rem;color:var(--t3);line-height:1.5;margin-bottom:6px;}
-.og-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
+  .og-err{font-size:0.7rem;color:var(--error);margin-top:0.3rem;display:none;}
   .og-err.show{display:block;}
-
   .fnav{display:flex;justify-content:space-between;align-items:center;padding-top:1.35rem;border-top:1px solid var(--border);margin-top:0.1rem;}
   .btn-back{padding:0.6rem 1.15rem;background:none;border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:500;color:var(--t2);cursor:pointer;transition:all 0.2s;}
   .btn-back:hover{border-color:var(--border-hi);color:var(--t1);}
@@ -95,53 +84,38 @@
   .btn-calc{padding:0.7rem 1.85rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.86rem;font-weight:600;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;}
   .btn-calc:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 4px 16px var(--teal-glow);}
   .btn-calc:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
-
-  /* SUBMISSION TOAST */
   .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--bg-card2);border:1px solid rgba(79,195,195,0.3);border-radius:10px;padding:0.85rem 1.5rem;font-size:0.82rem;color:var(--t1);z-index:999;transition:transform 0.3s ease;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.4);}
   .toast.show{transform:translateX(-50%) translateY(0);}
   .toast.success{border-color:rgba(62,207,142,0.4);}
-  .toast.error-toast{border-color:rgba(229,115,115,0.4);}
-
   .res-panel{display:none;padding:1.75rem;animation:fadeUp 0.3s ease;}
   .res-panel.active{display:block;}
   .res-eye{font-size:0.64rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.32rem;}
   .res-title{font-size:1.08rem;font-weight:600;color:var(--white);margin-bottom:1.35rem;letter-spacing:-0.01em;}
-
   .est-band{background:var(--bg-card);border:1px solid rgba(79,195,195,0.18);border-radius:var(--r);padding:1.35rem 1.5rem;margin-bottom:1rem;position:relative;overflow:hidden;}
   .est-band::after{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:var(--teal-glow);filter:blur(40px);pointer-events:none;}
   .est-lbl{font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--t3);margin-bottom:0.35rem;}
   .est-range{font-size:1.85rem;font-weight:700;color:var(--teal);letter-spacing:-0.03em;line-height:1;margin-bottom:0.35rem;position:relative;z-index:1;}
   .est-note{font-size:0.73rem;color:var(--t2);font-weight:300;}
-
-  /* EMAIL SENT BADGE */
   .email-sent{display:flex;align-items:center;gap:0.5rem;font-size:0.75rem;color:var(--success);background:rgba(62,207,142,0.08);border:1px solid rgba(62,207,142,0.2);border-radius:8px;padding:0.55rem 0.85rem;margin-bottom:1rem;}
-
   .breakdown{display:grid;grid-template-columns:1fr 1fr;gap:0.48rem;margin-bottom:1rem;}
   .bdi{background:var(--bg-card);border:1px solid var(--border);border-radius:9px;padding:0.82rem 0.95rem;}
   .bdl{font-size:0.63rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--t3);margin-bottom:0.25rem;}
   .bdv{font-size:0.88rem;font-weight:600;color:var(--t1);}
   .disc{background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--teal);border-radius:0 8px 8px 0;padding:0.78rem 0.95rem;font-size:0.72rem;color:var(--t2);line-height:1.6;margin-bottom:1.35rem;}
-
-  .up-box{background:var(--bg-card);border:1px solid rgba(79,195,195,0.18);border-radius:var(--r);padding:1.5rem;text-align:center;position:relative;overflow:hidden;}
-  .up-box::before{content:'';position:absolute;bottom:-50px;left:50%;transform:translateX(-50%);width:400px;height:200px;background:radial-gradient(ellipse,rgba(79,195,195,0.05) 0%,transparent 70%);pointer-events:none;}
+  .up-box{background:var(--bg-card);border:1px solid rgba(79,195,195,0.18);border-radius:var(--r);padding:1.5rem;text-align:center;}
   .up-tag{display:inline-block;background:var(--teal-dim);border:1px solid rgba(79,195,195,0.28);color:var(--teal);font-size:0.64rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.62rem;border-radius:20px;margin-bottom:0.85rem;}
   .up-box h3{font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:0.55rem;letter-spacing:-0.01em;line-height:1.3;}
   .up-box p{font-size:0.78rem;color:var(--t2);margin-bottom:1rem;line-height:1.65;font-weight:300;max-width:380px;margin-left:auto;margin-right:auto;}
   .chips{display:flex;flex-wrap:wrap;gap:0.38rem;justify-content:center;margin-bottom:1.25rem;}
   .chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--t2);font-size:0.68rem;padding:0.25rem 0.62rem;border-radius:20px;}
-
   .btn-stripe{display:inline-flex;align-items:center;gap:0.5rem;padding:0.82rem 2.2rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:700;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;text-decoration:none;}
   .btn-stripe:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 6px 22px var(--teal-glow);}
-  .btn-stripe svg{flex-shrink:0;}
   .ptag{opacity:0.65;font-size:0.75rem;margin-left:0.2rem;}
-
   .btn-restart{display:block;text-align:center;margin-top:0.85rem;font-size:0.74rem;color:var(--t3);cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;text-decoration:underline;text-underline-offset:3px;}
   .btn-restart:hover{color:var(--t2);}
-
   .hidden{display:none!important;}
   footer{border-top:1px solid var(--border);padding:1.4rem 2rem;text-align:center;font-size:0.68rem;color:var(--t3);}
   footer a{color:var(--t3);text-decoration:none;} footer a:hover{color:var(--teal);}
-
   @media(max-width:540px){
     .card-hdr,.form-body,.progress-wrap,.res-panel{padding-left:1.1rem;padding-right:1.1rem;}
     .ogrid.c3{grid-template-columns:1fr 1fr;}
@@ -150,114 +124,43 @@
     .tab-btn{padding:0.5rem 0.85rem;font-size:0.74rem;}
     .est-range{font-size:1.55rem;}
   }
-
-  /* ── EXTRA QUESTIONS MODAL ─────────────────────────── */
-  .extra-modal {
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(0,0,0,0.75);
-    display: flex; align-items: flex-start; justify-content: center;
-    padding: 24px 16px; overflow-y: auto;
-    backdrop-filter: blur(4px);
-  }
-  .extra-modal.hidden { display: none; }
-  .extra-panel {
-    background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: 16px; width: 100%; max-width: 640px;
-    padding: 0; overflow: hidden;
-    box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-    margin: auto;
-  }
-  .extra-header {
-    background: var(--bg-card2); padding: 28px 28px 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  .extra-header .extra-tag {
-    display: inline-block; font-size: 0.65rem; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal);
-    background: rgba(79,195,195,0.12); border: 1px solid rgba(79,195,195,0.28);
-    border-radius: 20px; padding: 3px 10px; margin-bottom: 10px;
-  }
-  .extra-header h2 {
-    margin: 0 0 6px; font-size: 1.25rem; font-weight: 700; color: var(--t1);
-  }
-  .extra-header p {
-    margin: 0; font-size: 0.8rem; color: var(--t2); font-weight: 300;
-  }
-  .eq-section {
-    padding: 20px 28px 0;
-  }
-  .eq-section:last-of-type { padding-bottom: 4px; }
-  .eq-section-title {
-    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
-    padding-bottom: 6px; border-bottom: 1px solid var(--border);
-  }
-  .eq-field { margin-bottom: 16px; }
-  .eq-label {
-    display: block; font-size: 0.78rem; font-weight: 500; color: var(--t1);
-    margin-bottom: 8px; letter-spacing: -0.01em;
-  }
-  .eq-req { color: var(--teal); }
-  .eq-input {
-    width: 100%; background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: var(--rb); padding: 0.6rem 0.75rem; color: var(--t1);
-    font-size: 0.82rem; font-family: 'Inter', sans-serif; font-weight: 400;
-    outline: none; transition: border-color 0.2s; box-sizing: border-box;
-  }
-  .eq-input:focus { border-color: var(--teal); }
-  .eq-input.error { border-color: #e05252; }
-  .eq-opts {
-    display: flex; flex-wrap: wrap; gap: 7px;
-  }
-  .eq-opt {
-    padding: 0.58rem 0.75rem; background: var(--bg-card); border: 1px solid var(--border);
-    border-radius: var(--rb); font-family: 'Inter', sans-serif; font-size: 0.78rem;
-    font-weight: 400; color: var(--t2); cursor: pointer; text-align: center;
-    transition: all 0.15s; line-height: 1.3; white-space: nowrap;
-  }
-  .eq-opt:hover { border-color: var(--teal); color: var(--teal); background: var(--bg-card); }
-  .eq-opt.sel {
-    background: rgba(79,195,195,0.12); border-color: var(--teal);
-    color: var(--teal); font-weight: 600;
-  }
-  .eq-opt.err-ring { border-color: #e05252; }
-  .eq-opt:hover.err-ring { border-color: #e05252; color: #e05252; }
-  .eq-err {
-    display: none; font-size: 0.72rem; color: #e05252; margin-top: 5px;
-  }
-  .eq-err.show { display: block; }
-  .eq-actions {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 28px 28px; gap: 12px;
-    border-top: 1px solid var(--bdr); margin-top: 20px;
-  }
-  .eq-back {
-    background: none; border: 1px solid var(--border); border-radius: var(--rb);
-    padding: 0.58rem 1rem; color: var(--t2); font-size: 0.78rem;
-    font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.15s;
-  }
-  .eq-back:hover { border-color: var(--teal); color: var(--teal); }
-  .eq-pay {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--teal); color: #0d1117; border: none;
-    border-radius: var(--rb); padding: 0.65rem 1.5rem; font-size: 0.9rem;
-    font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer;
-    transition: opacity 0.2s; flex: 1; justify-content: center;
-    letter-spacing: -0.01em;
-  }
-  .eq-pay:hover { opacity: 0.9; }
-  .eq-pay:disabled { opacity: 0.6; cursor: not-allowed; }
-
+  /* ── EXTRA QUESTIONS MODAL ── */
+  .extra-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.75);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;backdrop-filter:blur(4px);}
+  .extra-modal.hidden{display:none;}
+  .extra-panel{background:var(--bg-mid);border:1px solid var(--border);border-radius:16px;width:100%;max-width:640px;padding:0;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.5);margin:auto;}
+  .extra-header{background:var(--bg-card);padding:28px 28px 20px;border-bottom:1px solid var(--border);}
+  .extra-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);background:rgba(79,195,195,0.12);border:1px solid rgba(79,195,195,0.28);border-radius:20px;padding:3px 10px;margin-bottom:10px;}
+  .extra-header h2{margin:0 0 6px;font-size:1.25rem;font-weight:700;color:var(--t1);}
+  .extra-header p{margin:0;font-size:0.8rem;color:var(--t2);font-weight:300;}
+  .eq-section{padding:20px 28px 0;}
+  .eq-section:last-of-type{padding-bottom:4px;}
+  .eq-section-title{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--border);}
+  .eq-field{margin-bottom:16px;}
+  .eq-label{display:block;font-size:0.78rem;font-weight:500;color:var(--t1);margin-bottom:8px;letter-spacing:-0.01em;}
+  .eq-req{color:var(--teal);}
+  .eq-input{width:100%;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);padding:0.6rem 0.75rem;color:var(--t1);font-size:0.82rem;font-family:'Inter',sans-serif;font-weight:400;outline:none;transition:border-color 0.2s;box-sizing:border-box;}
+  .eq-input:focus{border-color:var(--teal);}
+  .eq-input.error{border-color:#e05252;}
+  .eq-opts{display:flex;flex-wrap:wrap;gap:7px;}
+  .eq-opt{padding:0.58rem 0.75rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:400;color:var(--t2);cursor:pointer;text-align:center;transition:all 0.15s;white-space:nowrap;}
+  .eq-opt:hover{border-color:var(--teal);color:var(--teal);background:var(--bg-card);}
+  .eq-opt.sel{background:rgba(79,195,195,0.12);border-color:var(--teal);color:var(--teal);font-weight:600;}
+  .eq-opt.err-ring{border-color:#e05252;}
+  .eq-err{display:none;font-size:0.72rem;color:#e05252;margin-top:5px;}
+  .eq-err.show{display:block;}
+  .eq-actions{display:flex;align-items:center;justify-content:space-between;padding:20px 28px 28px;gap:12px;border-top:1px solid var(--border);margin-top:20px;}
+  .eq-back{background:none;border:1px solid var(--border);border-radius:var(--rb);padding:0.58rem 1rem;color:var(--t2);font-size:0.78rem;font-family:'Inter',sans-serif;cursor:pointer;transition:all 0.15s;}
+  .eq-back:hover{border-color:var(--teal);color:var(--teal);}
+  .eq-pay{display:flex;align-items:center;gap:8px;background:var(--teal);color:#0d1117;border:none;border-radius:var(--rb);padding:0.65rem 1.5rem;font-size:0.9rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:opacity 0.2s;flex:1;justify-content:center;letter-spacing:-0.01em;}
+  .eq-pay:hover{opacity:0.9;}
+  .eq-pay:disabled{opacity:0.6;cursor:not-allowed;}
 </style>
 </head>
 <body>
-
-<!-- Toast notification -->
 <div class="toast" id="toast"></div>
-
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="data:image/png;base64,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" alt="UrbanBrief">
+    <img src="UB-mono.png" alt="UrbanBrief">
     <span>UrbanBrief</span>
   </a>
   <div class="nav-right">
@@ -266,7 +169,6 @@
     <a href="index.html" class="nav-link">← Home</a>
   </div>
 </nav>
-
 <section class="hero">
   <div class="hero-tag">Free estimation tools</div>
   <h1>Know your costs<br>before you <em>commit.</em></h1>
@@ -276,7 +178,6 @@
     <button class="tab-btn" onclick="switchTool('ext')">📐 Extension Calculator</button>
   </div>
 </section>
-
 <main>
 
   <!-- RENOVATION CALCULATOR -->
@@ -296,6 +197,7 @@
     </div>
     <div class="form-body" id="rform">
 
+      <!-- STEP 1 -->
       <div class="sp active" id="rs1">
         <div class="step-title">Let's get started</div>
         <div class="step-sub">Enter your email to receive your estimate. Your region helps us apply the right cost multiplier.</div>
@@ -305,8 +207,253 @@
           <div class="field-err" id="r-email-err">Please enter a valid email address — we'll send your estimate here.</div>
         </div>
         <div class="og">
-          <span class="oglbl">Approximate size <span style="color:var(--error)">*</span></span>
-          <div class="hint-txt">Enter total floor area in m² — e.g. a 4m × 5m single-storey rear extension = 20 m². A two-storey version of the same footprint = 40 m².</div>
+          <span class="oglbl">Region <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c3" id="rg-rgn">
+            <button class="ob" data-val="london" onclick="pick(this,'rg-rgn')">London</button>
+            <button class="ob" data-val="south_east" onclick="pick(this,'rg-rgn')">South East</button>
+            <button class="ob" data-val="midlands" onclick="pick(this,'rg-rgn')">Midlands</button>
+            <button class="ob" data-val="north" onclick="pick(this,'rg-rgn')">North England</button>
+            <button class="ob" data-val="scotland" onclick="pick(this,'rg-rgn')">Scotland</button>
+            <button class="ob" data-val="wales" onclick="pick(this,'rg-rgn')">Wales</button>
+          </div>
+          <div class="og-err" id="rg-rgn-err">Please select your region.</div>
+        </div>
+        <div class="fnav"><span></span><button class="btn-next" onclick="rgo(2)">Continue →</button></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="sp" id="rs2">
+        <div class="step-title">Your property</div>
+        <div class="step-sub">Tell us about the property being renovated.</div>
+        <div class="og">
+          <span class="oglbl">Property type <span style="color:var(--error)">*</span></span>
+          <div class="ogrid ca" id="rg-pt">
+            <button class="ob" data-val="flat" onclick="pick(this,'rg-pt')">Flat</button>
+            <button class="ob" data-val="terrace" onclick="pick(this,'rg-pt')">Terrace</button>
+            <button class="ob" data-val="semi" onclick="pick(this,'rg-pt')">Semi-detached</button>
+            <button class="ob" data-val="detached" onclick="pick(this,'rg-pt')">Detached</button>
+            <button class="ob" data-val="bungalow" onclick="pick(this,'rg-pt')">Bungalow</button>
+          </div>
+          <div class="og-err" id="rg-pt-err">Please select a property type.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Estimated floor area — all floors <span style="color:var(--error)">*</span></span>
+          <div class="ogrid ca" id="rg-fa">
+            <button class="ob" data-val="sub80" onclick="pick(this,'rg-fa')">&lt;80 m²</button>
+            <button class="ob" data-val="80_120" onclick="pick(this,'rg-fa')">80–120 m²</button>
+            <button class="ob" data-val="120_160" onclick="pick(this,'rg-fa')">120–160 m²</button>
+            <button class="ob" data-val="160plus" onclick="pick(this,'rg-fa')">160 m²+</button>
+          </div>
+          <div class="og-err" id="rg-fa-err">Please select your approximate floor area.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Number of bedrooms <span style="color:var(--error)">*</span></span>
+          <div class="ogrid ca" id="rg-bd">
+            <button class="ob" data-val="1" onclick="pick(this,'rg-bd')">1 bed</button>
+            <button class="ob" data-val="2" onclick="pick(this,'rg-bd')">2 bed</button>
+            <button class="ob" data-val="3" onclick="pick(this,'rg-bd')">3 bed</button>
+            <button class="ob" data-val="4" onclick="pick(this,'rg-bd')">4 bed</button>
+            <button class="ob" data-val="5" onclick="pick(this,'rg-bd')">5+ bed</button>
+          </div>
+          <div class="og-err" id="rg-bd-err">Please select number of bedrooms.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Property age <span style="color:var(--error)">*</span></span>
+          <div class="ogrid ca" id="rg-ag">
+            <button class="ob" data-val="pre1920" onclick="pick(this,'rg-ag')">Pre-1920</button>
+            <button class="ob" data-val="1920_1960" onclick="pick(this,'rg-ag')">1920–1960</button>
+            <button class="ob" data-val="1960_1990" onclick="pick(this,'rg-ag')">1960–1990</button>
+            <button class="ob" data-val="1990_2010" onclick="pick(this,'rg-ag')">1990–2010</button>
+            <button class="ob" data-val="2010plus" onclick="pick(this,'rg-ag')">2010+</button>
+          </div>
+          <div class="og-err" id="rg-ag-err">Please select property age.</div>
+        </div>
+        <div class="fnav">
+          <button class="btn-back" onclick="rgo(1)">← Back</button>
+          <button class="btn-next" onclick="rgo(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="sp" id="rs3">
+        <div class="step-title">Scope &amp; specification</div>
+        <div class="step-sub">What level of renovation are you planning?</div>
+        <div class="og">
+          <span class="oglbl">Renovation level <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c2" id="rg-lv">
+            <button class="ob" data-val="cosmetic" onclick="pick(this,'rg-lv')">Cosmetic refresh</button>
+            <button class="ob" data-val="full" onclick="pick(this,'rg-lv')">Full renovation</button>
+            <button class="ob" data-val="full_layout" onclick="pick(this,'rg-lv')">Full + layout changes</button>
+            <button class="ob" data-val="full_ext" onclick="pick(this,'rg-lv')">Full + extension</button>
+          </div>
+          <div class="og-err" id="rg-lv-err">Please select a renovation level.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Specification level <span style="color:var(--error)">*</span></span>
+          <div class="ogrid ca" id="rg-sp">
+            <button class="ob" data-val="basic" onclick="pick(this,'rg-sp')">Basic</button>
+            <button class="ob" data-val="midrange" onclick="pick(this,'rg-sp')">Mid-range</button>
+            <button class="ob" data-val="highspec" onclick="pick(this,'rg-sp')">High spec</button>
+            <button class="ob" data-val="luxury" onclick="pick(this,'rg-sp')">Luxury</button>
+          </div>
+          <div class="og-err" id="rg-sp-err">Please select a specification level.</div>
+        </div>
+        <div class="fnav">
+          <button class="btn-back" onclick="rgo(2)">← Back</button>
+          <button class="btn-next" onclick="rgo(4)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="sp" id="rs4">
+        <div class="step-title">Kitchen, bathrooms &amp; extension</div>
+        <div class="step-sub">Final details to sharpen your estimate.</div>
+        <div class="og">
+          <span class="oglbl">Replace kitchen? <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c2" id="rg-kt">
+            <button class="ob" data-val="yes" onclick="pick(this,'rg-kt')">Yes</button>
+            <button class="ob" data-val="no" onclick="pick(this,'rg-kt')">No</button>
+          </div>
+          <div class="og-err" id="rg-kt-err">Please select an option.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Bathrooms to renovate <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c3" id="rg-ba">
+            <button class="ob" data-val="0" onclick="pick(this,'rg-ba')">None</button>
+            <button class="ob" data-val="1" onclick="pick(this,'rg-ba')">1</button>
+            <button class="ob" data-val="2" onclick="pick(this,'rg-ba')">2+</button>
+          </div>
+          <div class="og-err" id="rg-ba-err">Please select an option.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Extension planned? <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c2" id="rg-ex">
+            <button class="ob" data-val="none" onclick="pick(this,'rg-ex')">No extension</button>
+            <button class="ob" data-val="small" onclick="pick(this,'rg-ex')">Small (10–20m²)</button>
+            <button class="ob" data-val="medium" onclick="pick(this,'rg-ex')">Medium (20–40m²)</button>
+            <button class="ob" data-val="large" onclick="pick(this,'rg-ex')">Large (40m²+)</button>
+          </div>
+          <div class="og-err" id="rg-ex-err">Please select an option.</div>
+        </div>
+        <div class="fnav">
+          <button class="btn-back" onclick="rgo(3)">← Back</button>
+          <button class="btn-calc" id="r-calc-btn" onclick="calcReno()">Calculate my estimate →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="res-panel" id="r-res">
+      <p class="res-eye">Your estimate</p>
+      <p class="res-title">Renovation cost estimate</p>
+      <div class="est-band">
+        <div class="est-lbl">Estimated total cost range</div>
+        <div class="est-range" id="r-range">—</div>
+        <div class="est-note" id="r-note"></div>
+      </div>
+      <div class="email-sent" id="r-email-sent" style="display:none">
+        <span>✉️</span><span>Estimate emailed to <strong id="r-sent-addr"></strong></span>
+      </div>
+      <div class="breakdown" id="r-bd"></div>
+      <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Always obtain 3+ quotes before committing.</div>
+      <div class="up-box">
+        <div class="up-tag">Intelligence Report — £19</div>
+        <h3>Get a full Renovation Intelligence Report</h3>
+        <p>Detailed budget breakdown, risk factors, hidden costs, contingency guidance and a realistic project timeline — personalised to your property and address.</p>
+        <div class="chips">
+          <span class="chip">📊 Budget breakdown</span>
+          <span class="chip">⚠️ Risk factors</span>
+          <span class="chip">🕳️ Hidden costs</span>
+          <span class="chip">📅 Timeline</span>
+          <span class="chip">📄 PDF export</span>
+        </div>
+        <button class="btn-stripe" onclick="showRenoExtra()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Refine my report &amp; pay <span class="ptag">£19</span>
+        </button>
+        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.75rem;margin-bottom:0;">Answer a few more questions to personalise your report — then pay securely via Stripe.</p>
+      </div>
+      <button class="btn-restart" onclick="resetReno()">← Start a new calculation</button>
+    </div>
+  </div>
+
+  <!-- EXTENSION CALCULATOR -->
+  <div id="tool-ext" class="calc-card hidden">
+    <div class="card-hdr">
+      <div class="card-icon">📐</div>
+      <div><h2>Extension Cost Calculator UK</h2><p>Rear, side, wraparound, two-storey and loft conversions</p></div>
+    </div>
+    <div class="progress-wrap" id="epw">
+      <div class="step-row">
+        <div class="s-dot active" id="ed1">1</div><div class="s-line" id="el1"></div>
+        <div class="s-dot" id="ed2">2</div><div class="s-line" id="el2"></div>
+        <div class="s-dot" id="ed3">3</div>
+      </div>
+      <p class="step-lbl" id="eslbl">Step 1 of 3 — About you</p>
+    </div>
+    <div class="form-body" id="eform">
+
+      <!-- EXT STEP 1 -->
+      <div class="sp active" id="es1">
+        <div class="step-title">Let's get started</div>
+        <div class="step-sub">Enter your email to receive your estimate.</div>
+        <div class="field">
+          <label class="flabel">Email address <span style="color:var(--error)">*</span></label>
+          <input type="email" class="finput" id="e-email" placeholder="you@example.com">
+          <div class="field-err" id="e-email-err">Please enter a valid email address.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Region <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c3" id="eg-rgn">
+            <button class="ob" data-val="london" onclick="pick(this,'eg-rgn')">London</button>
+            <button class="ob" data-val="south_east" onclick="pick(this,'eg-rgn')">South East</button>
+            <button class="ob" data-val="midlands" onclick="pick(this,'eg-rgn')">Midlands</button>
+            <button class="ob" data-val="north" onclick="pick(this,'eg-rgn')">North England</button>
+            <button class="ob" data-val="scotland" onclick="pick(this,'eg-rgn')">Scotland</button>
+            <button class="ob" data-val="wales" onclick="pick(this,'eg-rgn')">Wales</button>
+          </div>
+          <div class="og-err" id="eg-rgn-err">Please select your region.</div>
+        </div>
+        <div class="fnav"><span></span><button class="btn-next" onclick="ego(2)">Continue →</button></div>
+      </div>
+
+      <!-- EXT STEP 2 -->
+      <div class="sp" id="es2">
+        <div class="step-title">Property &amp; extension type</div>
+        <div class="step-sub">Tell us about the property and the type of extension.</div>
+        <div class="og">
+          <span class="oglbl">Property type <span style="color:var(--error)">*</span></span>
+          <div class="ogrid ca" id="eg-pt">
+            <button class="ob" data-val="terrace" onclick="pick(this,'eg-pt')">Terrace</button>
+            <button class="ob" data-val="semi" onclick="pick(this,'eg-pt')">Semi-detached</button>
+            <button class="ob" data-val="detached" onclick="pick(this,'eg-pt')">Detached</button>
+            <button class="ob" data-val="bungalow" onclick="pick(this,'eg-pt')">Bungalow</button>
+          </div>
+          <div class="og-err" id="eg-pt-err">Please select a property type.</div>
+        </div>
+        <div class="og">
+          <span class="oglbl">Extension type <span style="color:var(--error)">*</span></span>
+          <div class="ogrid c2" id="eg-et">
+            <button class="ob" data-val="rear_single" onclick="pick(this,'eg-et')">Rear — single storey</button>
+            <button class="ob" data-val="rear_two" onclick="pick(this,'eg-et')">Rear — two storey</button>
+            <button class="ob" data-val="sides_single" onclick="pick(this,'eg-et')">Two or more sides — single storey</button>
+            <button class="ob" data-val="sides_two" onclick="pick(this,'eg-et')">Two or more sides — two storey</button>
+            <button class="ob" data-val="loft" onclick="pick(this,'eg-et')">Loft conversion</button>
+          </div>
+          <div class="og-err" id="eg-et-err">Please select an extension type.</div>
+        </div>
+        <div class="fnav">
+          <button class="btn-back" onclick="ego(1)">← Back</button>
+          <button class="btn-next" onclick="ego(3)">Continue →</button>
+        </div>
+      </div>
+
+      <!-- EXT STEP 3 -->
+      <div class="sp" id="es3">
+        <div class="step-title">Size, specification &amp; complexity</div>
+        <div class="step-sub">Enter the approximate floor area of the new extension.</div>
+        <div class="og">
+          <span class="oglbl">Approximate size (m²) <span style="color:var(--error)">*</span></span>
+          <div class="hint-txt">e.g. 4m out × 5m wide = 20 m². A two-storey version of the same footprint = 40 m².</div>
           <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
             <input type="number" class="finput" id="eg-sz-inp" min="5" max="300" placeholder="e.g. 20" style="max-width:140px;" oninput="hideErr('eg-sz-err')">
             <span style="color:var(--t2);font-size:0.82rem;">m²</span>
@@ -348,14 +495,14 @@
         <div class="est-note" id="e-note"></div>
       </div>
       <div class="email-sent" id="e-email-sent" style="display:none">
-        <span>✉️</span> <span>We've emailed a copy of this estimate to <strong id="e-sent-addr"></strong></span>
+        <span>✉️</span><span>Estimate emailed to <strong id="e-sent-addr"></strong></span>
       </div>
       <div class="breakdown" id="e-bd"></div>
-      <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Actual costs vary significantly by contractor, site conditions and specification. Always obtain 3+ quotes before committing.</div>
+      <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Always obtain 3+ quotes before committing.</div>
       <div class="up-box">
         <div class="up-tag">Intelligence Report — £19</div>
         <h3>Get a full Extension Intelligence Report</h3>
-        <p>Accurate analysis including cost breakdown, planning considerations, risk factors, hidden costs and a realistic project timeline.</p>
+        <p>Cost breakdown, planning guidance, risk factors, hidden costs and a realistic project timeline — personalised to your property and address.</p>
         <div class="chips">
           <span class="chip">📊 Cost breakdown</span>
           <span class="chip">🏗️ Planning guidance</span>
@@ -363,7 +510,7 @@
           <span class="chip">📅 Timeline</span>
           <span class="chip">📄 PDF export</span>
         </div>
-        <button class="btn-stripe" onclick="showExtExtra()" id="e-open-extra-btn">
+        <button class="btn-stripe" onclick="showExtExtra()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           Refine my report &amp; pay <span class="ptag">£19</span>
         </button>
@@ -374,611 +521,330 @@
   </div>
 
 </main>
-
 <footer>
   © 2025 <a href="index.html">UrbanBrief</a> — Estimates are indicative and for guidance only. Not financial or professional advice.
   &nbsp;|&nbsp; <a href="https://urbanbrief.co.uk" target="_blank">urbanbrief.co.uk</a>
 </footer>
 
 <script>
-// ═══════════════════════════════════════════════
-// CONFIGURATION — paste your values here
-// ═══════════════════════════════════════════════
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0wkCbyIQ2pF9oN43ZCDGm3xD1rJu0Drqyg8ttqAEyMY-T425QBJRsPeIyU-j7shwT/exec';
-
-// Stripe Payment Links — create these in your Stripe dashboard
-// Products → Add Product → "Renovation Intelligence Report" £19
-// Then Payment Links → Create link → copy URL
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx4-oKr-bri5V0YLxFsplJ06yWRu8w-fCP7dfPM2ebaFXXHKdE-TU8ZnPKziuqRAQQ/exec';
 const STRIPE = {
   renovation: 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04',
   extension:  'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03',
 };
 
-// ═══════════════════════════════════════════════
-// TOAST NOTIFICATIONS
-// ═══════════════════════════════════════════════
-function showToast(msg, type = 'success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + (type === 'success' ? 'success' : 'error-toast');
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
+function showToast(msg,type='success'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type==='success'?'success':'error-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000);}
+function pick(btn,gid){document.querySelectorAll('#'+gid+' .ob').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');const e=document.getElementById(gid+'-err');if(e)e.classList.remove('show');}
+function gv(gid){const s=document.querySelector('#'+gid+' .ob.sel');return s?s.dataset.val:null;}
+function fmt(n){return '£'+Math.round(n).toLocaleString('en-GB');}
+function isEmail(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim());}
+function showErr(id){const el=document.getElementById(id);if(el)el.classList.add('show');}
+function hideErr(id){const el=document.getElementById(id);if(el)el.classList.remove('show');}
+function switchTool(t){
+  document.getElementById('tool-reno').classList.toggle('hidden',t!=='reno');
+  document.getElementById('tool-ext').classList.toggle('hidden',t!=='ext');
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{b.classList.toggle('active',(i===0&&t==='reno')||(i===1&&t==='ext'));});
 }
 
-// ═══════════════════════════════════════════════
-// FORM UTILITIES
-// ═══════════════════════════════════════════════
-function pick(btn, gid) {
-  document.querySelectorAll('#' + gid + ' .ob').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-  const err = document.getElementById(gid + '-err');
-  if (err) err.classList.remove('show');
-}
-
-function gv(gid) {
-  const s = document.querySelector('#' + gid + ' .ob.sel');
-  return s ? s.dataset.val : null;
-}
-
-function fmt(n) { return '£' + Math.round(n).toLocaleString('en-GB'); }
-
-function isEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim()); }
-
-function showErr(id) { const el = document.getElementById(id); if (el) el.classList.add('show'); }
-function hideErr(id) { const el = document.getElementById(id); if (el) el.classList.remove('show'); }
-
-function switchTool(t) {
-  document.getElementById('tool-reno').classList.toggle('hidden', t !== 'reno');
-  document.getElementById('tool-ext').classList.toggle('hidden', t !== 'ext');
-  document.querySelectorAll('.tab-btn').forEach((b, i) => {
-    b.classList.toggle('active', (i === 0 && t === 'reno') || (i === 1 && t === 'ext'));
-  });
-}
-
-// ═══════════════════════════════════════════════
-// SUBMIT TO GOOGLE APPS SCRIPT
-// ═══════════════════════════════════════════════
-function submitEstimate(payload) {
-  // Uses hidden iframe form POST to bypass CORS on static hosting
-  return new Promise((resolve) => {
-    try {
-      const iframe = document.createElement('iframe');
-      iframe.name = 'ub_submit_' + Date.now();
-      iframe.style.display = 'none';
+function submitEstimate(payload){
+  return new Promise((resolve)=>{
+    try{
+      const iframe=document.createElement('iframe');
+      iframe.name='ub_submit_'+Date.now();
+      iframe.style.display='none';
       document.body.appendChild(iframe);
-
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = 'https://script.google.com/macros/s/AKfycbz0wkCbyIQ2pF9oN43ZCDGm3xD1rJu0Drqyg8ttqAEyMY-T425QBJRsPeIyU-j7shwT/exec';
-      form.target = iframe.name;
-      form.style.display = 'none';
-
-      const input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'payload';
-      input.value = JSON.stringify(payload);
+      const form=document.createElement('form');
+      form.method='POST';
+      form.action=APPS_SCRIPT_URL;
+      form.target=iframe.name;
+      form.style.display='none';
+      const input=document.createElement('input');
+      input.type='hidden';input.name='payload';
+      input.value=JSON.stringify(payload);
       form.appendChild(input);
-
       document.body.appendChild(form);
       form.submit();
-
-      // Clean up after 5 seconds
-      setTimeout(() => {
-        try { document.body.removeChild(form); } catch(e) {}
-        try { document.body.removeChild(iframe); } catch(e) {}
-      }, 5000);
-
+      setTimeout(()=>{try{document.body.removeChild(form);}catch(e){}try{document.body.removeChild(iframe);}catch(e){}},5000);
       resolve(true);
-    } catch(err) {
-      console.error('Submit error:', err);
-      resolve(false);
-    }
+    }catch(err){console.error('Submit error:',err);resolve(false);}
   });
 }
 
-// ═══════════════════════════════════════════════
-// RENO STEP NAVIGATION WITH VALIDATION
-// ═══════════════════════════════════════════════
-const RL = ['About you', 'Your property', 'Scope & specification', 'Kitchen & bathrooms'];
-
-function rgo(n) {
-  if (n === 2) {
-    const email = document.getElementById('r-email').value.trim();
-    let ok = true;
-    if (!isEmail(email)) {
-      document.getElementById('r-email').classList.add('error');
-      showErr('r-email-err'); ok = false;
-    } else {
-      document.getElementById('r-email').classList.remove('error');
-      hideErr('r-email-err');
-    }
-    if (!gv('rg-rgn')) { showErr('rg-rgn-err'); ok = false; } else hideErr('rg-rgn-err');
-    if (!ok) return;
+// ── RENO NAVIGATION ──
+const RL=['About you','Your property','Scope & specification','Kitchen & bathrooms'];
+function rgo(n){
+  if(n===2){
+    const email=document.getElementById('r-email').value.trim();let ok=true;
+    if(!isEmail(email)){document.getElementById('r-email').classList.add('error');showErr('r-email-err');ok=false;}
+    else{document.getElementById('r-email').classList.remove('error');hideErr('r-email-err');}
+    if(!gv('rg-rgn')){showErr('rg-rgn-err');ok=false;}else hideErr('rg-rgn-err');
+    if(!ok)return;
   }
-  if (n === 3) {
-    let ok = true;
-    if (!gv('rg-pt')) { showErr('rg-pt-err'); ok = false; } else hideErr('rg-pt-err');
-    if (!gv('rg-bd')) { showErr('rg-bd-err'); ok = false; } else hideErr('rg-bd-err');
-    if (!gv('rg-ag')) { showErr('rg-ag-err'); ok = false; } else hideErr('rg-ag-err');
-    if (!ok) return;
+  if(n===3){
+    let ok=true;
+    if(!gv('rg-pt')){showErr('rg-pt-err');ok=false;}else hideErr('rg-pt-err');
+    if(!gv('rg-fa')){showErr('rg-fa-err');ok=false;}else hideErr('rg-fa-err');
+    if(!gv('rg-bd')){showErr('rg-bd-err');ok=false;}else hideErr('rg-bd-err');
+    if(!gv('rg-ag')){showErr('rg-ag-err');ok=false;}else hideErr('rg-ag-err');
+    if(!ok)return;
   }
-  if (n === 4) {
-    let ok = true;
-    if (!gv('rg-lv')) { showErr('rg-lv-err'); ok = false; } else hideErr('rg-lv-err');
-    if (!gv('rg-sp')) { showErr('rg-sp-err'); ok = false; } else hideErr('rg-sp-err');
-    if (!ok) return;
+  if(n===4){
+    let ok=true;
+    if(!gv('rg-lv')){showErr('rg-lv-err');ok=false;}else hideErr('rg-lv-err');
+    if(!gv('rg-sp')){showErr('rg-sp-err');ok=false;}else hideErr('rg-sp-err');
+    if(!ok)return;
   }
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById('rs' + i).classList.toggle('active', i === n);
-    const d = document.getElementById('rd' + i);
-    d.className = i < n ? 's-dot done' : i === n ? 's-dot active' : 's-dot';
-    d.innerHTML = i < n ? '✓' : i;
-    if (i < 4) document.getElementById('rl' + i).className = i < n ? 's-line done' : 's-line';
+  for(let i=1;i<=4;i++){
+    document.getElementById('rs'+i).classList.toggle('active',i===n);
+    const d=document.getElementById('rd'+i);
+    d.className=i<n?'s-dot done':i===n?'s-dot active':'s-dot';
+    d.innerHTML=i<n?'✓':i;
+    if(i<4)document.getElementById('rl'+i).className=i<n?'s-line done':'s-line';
   }
-  document.getElementById('rslbl').textContent = 'Step ' + n + ' of 4 — ' + RL[n - 1];
+  document.getElementById('rslbl').textContent='Step '+n+' of 4 — '+RL[n-1];
 }
 
-// ═══════════════════════════════════════════════
-// EXT STEP NAVIGATION WITH VALIDATION
-// ═══════════════════════════════════════════════
-const EL = ['About you', 'Property & extension', 'Size, spec & complexity'];
-
-function ego(n) {
-  if (n === 2) {
-    const email = document.getElementById('e-email').value.trim();
-    let ok = true;
-    if (!isEmail(email)) {
-      document.getElementById('e-email').classList.add('error');
-      showErr('e-email-err'); ok = false;
-    } else {
-      document.getElementById('e-email').classList.remove('error');
-      hideErr('e-email-err');
-    }
-    if (!gv('eg-rgn')) { showErr('eg-rgn-err'); ok = false; } else hideErr('eg-rgn-err');
-    if (!ok) return;
+// ── EXT NAVIGATION ──
+const EL=['About you','Property & extension','Size, spec & complexity'];
+function ego(n){
+  if(n===2){
+    const email=document.getElementById('e-email').value.trim();let ok=true;
+    if(!isEmail(email)){document.getElementById('e-email').classList.add('error');showErr('e-email-err');ok=false;}
+    else{document.getElementById('e-email').classList.remove('error');hideErr('e-email-err');}
+    if(!gv('eg-rgn')){showErr('eg-rgn-err');ok=false;}else hideErr('eg-rgn-err');
+    if(!ok)return;
   }
-  if (n === 3) {
-    let ok = true;
-    if (!gv('eg-pt')) { showErr('eg-pt-err'); ok = false; } else hideErr('eg-pt-err');
-    if (!gv('eg-et')) { showErr('eg-et-err'); ok = false; } else hideErr('eg-et-err');
-    if (!ok) return;
+  if(n===3){
+    let ok=true;
+    if(!gv('eg-pt')){showErr('eg-pt-err');ok=false;}else hideErr('eg-pt-err');
+    if(!gv('eg-et')){showErr('eg-et-err');ok=false;}else hideErr('eg-et-err');
+    if(!ok)return;
   }
-  for (let i = 1; i <= 3; i++) {
-    document.getElementById('es' + i).classList.toggle('active', i === n);
-    const d = document.getElementById('ed' + i);
-    d.className = i < n ? 's-dot done' : i === n ? 's-dot active' : 's-dot';
-    d.innerHTML = i < n ? '✓' : i;
-    if (i < 3) document.getElementById('el' + i).className = i < n ? 's-line done' : 's-line';
+  for(let i=1;i<=3;i++){
+    document.getElementById('es'+i).classList.toggle('active',i===n);
+    const d=document.getElementById('ed'+i);
+    d.className=i<n?'s-dot done':i===n?'s-dot active':'s-dot';
+    d.innerHTML=i<n?'✓':i;
+    if(i<3)document.getElementById('el'+i).className=i<n?'s-line done':'s-line';
   }
-  document.getElementById('eslbl').textContent = 'Step ' + n + ' of 3 — ' + EL[n - 1];
+  document.getElementById('eslbl').textContent='Step '+n+' of 3 — '+EL[n-1];
 }
 
-// ═══════════════════════════════════════════════
-// COST DATA
-// ═══════════════════════════════════════════════
-const RBASE = { cosmetic:{lo:250,hi:400}, full:{lo:600,hi:900}, structural:{lo:900,hi:1400}, extension:{lo:900,hi:1400} };
-const RM    = { london:1.25, south_east:1.15, midlands:1.00, north:0.90, scotland:0.95, wales:0.95 };
-const SM    = { basic:0.85, midrange:1.00, highspec:1.20, luxury:1.50 };
-const AREAS = {'1':45,'2':65,'3':85,'4':115,'5':145};
-const KC    = { basic:8000, midrange:12000, highspec:18000, luxury:25000 };
-const BC    = { basic:4000, midrange:6000, highspec:10000, luxury:15000 };
-const EC    = { none:0, small:45000, medium:90000, large:140000 };
-const ERATE = { rear_single:{lo:2000,hi:2800}, rear_two:{lo:1800,hi:2500}, sides_single:{lo:2400,hi:3200}, sides_two:{lo:2200,hi:3000}, loft:{lo:1500,hi:2500} };
-const ESIZ  = { small:{lo:10,hi:20,m:15}, medium:{lo:20,hi:40,m:30}, large:{lo:40,hi:60,m:50}, xlarge:{lo:60,hi:80,m:70} };
-const CM    = { low:1.00, moderate:1.10, high:1.20 };
+// ── COST DATA ──
+const RBASE={cosmetic:{lo:250,hi:400},full:{lo:600,hi:900},full_layout:{lo:900,hi:1400},full_ext:{lo:900,hi:1400}};
+const RM={london:1.25,south_east:1.15,midlands:1.00,north:0.90,scotland:0.95,wales:0.95};
+const SM={basic:0.85,midrange:1.00,highspec:1.20,luxury:1.50};
+const FAM={sub80:70,'80_120':100,'120_160':140,'160plus':175};
+const KC={basic:8000,midrange:12000,highspec:18000,luxury:25000};
+const BC={basic:4000,midrange:6000,highspec:10000,luxury:15000};
+const EC={none:0,small:45000,medium:90000,large:140000};
+const ERATE={rear_single:{lo:2000,hi:2800},rear_two:{lo:1800,hi:2500},sides_single:{lo:2400,hi:3200},sides_two:{lo:2200,hi:3000},loft:{lo:1500,hi:2500}};
+const CM={low:1.00,moderate:1.10,high:1.20};
 
-// ═══════════════════════════════════════════════
-// RENOVATION CALCULATE + SUBMIT
-// ═══════════════════════════════════════════════
-async function calcReno() {
-  let ok = true;
-  if (!gv('rg-rgn')) { showErr('rg-rgn-err'); ok = false; } else hideErr('rg-rgn-err');
-  if (!gv('rg-pt'))  { showErr('rg-pt-err');  ok = false; } else hideErr('rg-pt-err');
-  if (!gv('rg-fa'))  { showErr('rg-fa-err');  ok = false; } else hideErr('rg-fa-err');
-  if (!gv('rg-bd'))  { showErr('rg-bd-err');  ok = false; } else hideErr('rg-bd-err');
-  if (!gv('rg-ag'))  { showErr('rg-ag-err');  ok = false; } else hideErr('rg-ag-err');
-  if (!gv('rg-lv'))  { showErr('rg-lv-err');  ok = false; } else hideErr('rg-lv-err');
-  if (!gv('rg-sp'))  { showErr('rg-sp-err');  ok = false; } else hideErr('rg-sp-err');
-  if (!gv('rg-kt'))  { showErr('rg-kt-err');  ok = false; } else hideErr('rg-kt-err');
-  if (!gv('rg-ba'))  { showErr('rg-ba-err');  ok = false; } else hideErr('rg-ba-err');
-  if (!gv('rg-ex'))  { showErr('rg-ex-err');  ok = false; } else hideErr('rg-ex-err');
-  if (!ok) return;
-
-  const btn = document.getElementById('r-calc-btn');
-  btn.disabled = true;
-  btn.textContent = 'Calculating…';
-
-  const rgn=gv('rg-rgn'), fa=gv('rg-fa'), bd=gv('rg-bd'), ag=gv('rg-ag'), lv=gv('rg-lv'),
-        sp=gv('rg-sp'),   kt=gv('rg-kt'), ba=gv('rg-ba'), ex=gv('rg-ex'), pt=gv('rg-pt');
-  const email = document.getElementById('r-email').value.trim();
-
-  const FAM={'sub80':70,'80_120':100,'120_160':140,'160plus':175};
-  const area = FAM[fa]||100, base=RBASE[lv], rm=RM[rgn]||1, sm=SM[sp]||1;
-  const agM  = ag==='pre1920'?1.12:ag==='1920_1960'?1.08:1.0;
-  const bLo=area*base.lo*rm*sm*agM, bHi=area*base.hi*rm*sm*agM;
-  const kc   = kt==='yes'?(KC[sp]||12000)*rm:0;
-  const bn   = ba==='2'?2:ba==='1'?1:0, bathC=bn*(BC[sp]||6000)*rm;
-  const extC = (EC[ex]||0)*rm;
-  const tLo=bLo+kc+bathC+extC, tHi=bHi+kc+bathC+extC, cont=tHi*0.15;
-
-  const bdRows = [
-    { label: 'Base works',           value: fmt(bLo)+' – '+fmt(bHi) },
-    kt==='yes' ? { label: 'Kitchen', value: fmt(kc) } : null,
-    bn>0       ? { label: 'Bathroom(s)', value: fmt(bathC) } : null,
-    ex!=='none'? { label: 'Extension',   value: fmt(extC)  } : null,
-    { label: 'Contingency (15%)',    value: fmt(cont) },
-    { label: 'Total inc. contingency', value: fmt(tLo+cont)+' – '+fmt(tHi+cont) },
+// ── RENO CALCULATE ──
+async function calcReno(){
+  let ok=true;
+  if(!gv('rg-kt')){showErr('rg-kt-err');ok=false;}else hideErr('rg-kt-err');
+  if(!gv('rg-ba')){showErr('rg-ba-err');ok=false;}else hideErr('rg-ba-err');
+  if(!gv('rg-ex')){showErr('rg-ex-err');ok=false;}else hideErr('rg-ex-err');
+  if(!ok)return;
+  const btn=document.getElementById('r-calc-btn');
+  btn.disabled=true;btn.textContent='Calculating…';
+  const rgn=gv('rg-rgn'),fa=gv('rg-fa'),bd=gv('rg-bd'),ag=gv('rg-ag'),lv=gv('rg-lv'),
+        sp=gv('rg-sp'),kt=gv('rg-kt'),ba=gv('rg-ba'),ex=gv('rg-ex'),pt=gv('rg-pt');
+  const email=document.getElementById('r-email').value.trim();
+  const area=FAM[fa]||100,base=RBASE[lv]||RBASE.full,rm=RM[rgn]||1,sm=SM[sp]||1;
+  const agM=ag==='pre1920'?1.12:ag==='1920_1960'?1.08:1.0;
+  const bLo=area*base.lo*rm*sm*agM,bHi=area*base.hi*rm*sm*agM;
+  const kc=kt==='yes'?(KC[sp]||12000)*rm:0;
+  const bn=ba==='2'?2:ba==='1'?1:0,bathC=bn*(BC[sp]||6000)*rm;
+  const extC=(EC[ex]||0)*rm;
+  const tLo=bLo+kc+bathC+extC,tHi=bHi+kc+bathC+extC,cont=tHi*0.15;
+  const bdRows=[
+    {label:'Base works',value:fmt(bLo)+' – '+fmt(bHi)},
+    kt==='yes'?{label:'Kitchen',value:fmt(kc)}:null,
+    bn>0?{label:'Bathroom(s)',value:fmt(bathC)}:null,
+    ex!=='none'?{label:'Extension',value:fmt(extC)}:null,
+    {label:'Contingency (15%)',value:fmt(cont)},
+    {label:'Total inc. contingency',value:fmt(tLo+cont)+' – '+fmt(tHi+cont)},
   ].filter(Boolean);
-
-  // Update Stripe link with customer email pre-filled
-  const stripeLink = 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04?prefilled_email=' + encodeURIComponent(email);
-
-  // Show results
+  window._renoEmail=email;window._renoLow=fmt(tLo);window._renoHigh=fmt(tHi);window._renoFa=fa;
   document.getElementById('rform').classList.add('hidden');
-  document.getElementById('rpw').style.display = 'none';
-  document.getElementById('r-range').textContent = fmt(tLo) + ' – ' + fmt(tHi);
-  document.getElementById('r-note').textContent = `${area}m² · ${pt||'property'} · ${rgn.replace('_',' ')} · ${lv} · ${sp} spec`;
-
-  const el = document.getElementById('r-bd'); el.innerHTML = '';
-  bdRows.forEach(({label,value}) => {
-    el.innerHTML += `<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;
-  });
+  document.getElementById('rpw').style.display='none';
+  document.getElementById('r-range').textContent=fmt(tLo)+' – '+fmt(tHi);
+  document.getElementById('r-note').textContent=area+'m² · '+(pt||'property')+' · '+rgn.replace('_',' ')+' · '+lv.replace('_',' ')+' · '+sp+' spec';
+  const el=document.getElementById('r-bd');el.innerHTML='';
+  bdRows.forEach(({label,value})=>{el.innerHTML+=`<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;});
   document.getElementById('r-res').classList.add('active');
-
-  // Submit to Apps Script (send estimate email + log to sheet)
-  const submitted = await submitEstimate({
-    type:        'estimate',
-    tool:        'renovation',
-    email,
-    region:       rgn,
-    propertyType: pt,
-    floorArea:    fa,
-    bedrooms:     bd,
-    age:          ag,
-    levelOrType:  lv,
-    spec:         sp,
-    estimateLow:  fmt(tLo),
-    estimateHigh: fmt(tHi),
-    breakdown:    bdRows,
-    stripeLink,
-  });
-
-  if (submitted) {
-    document.getElementById('r-sent-addr').textContent = email;
-    document.getElementById('r-email-sent').style.display = 'flex';
-    showToast('✓ Estimate emailed to ' + email);
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Calculate my estimate →';
+  const submitted=await submitEstimate({type:'estimate',tool:'renovation',email,region:rgn,propertyType:pt,floorArea:fa,bedrooms:bd,age:ag,levelOrType:lv,spec:sp,estimateLow:fmt(tLo),estimateHigh:fmt(tHi),breakdown:bdRows});
+  if(submitted){document.getElementById('r-sent-addr').textContent=email;document.getElementById('r-email-sent').style.display='flex';showToast('✓ Estimate emailed to '+email);}
+  btn.disabled=false;btn.textContent='Calculate my estimate →';
 }
 
-function resetReno() {
+function resetReno(){
   document.getElementById('r-res').classList.remove('active');
   document.getElementById('rform').classList.remove('hidden');
-  document.getElementById('rpw').style.display = 'block';
-  document.getElementById('r-email-sent').style.display = 'none';
-  document.querySelectorAll('#tool-reno .ob').forEach(b => b.classList.remove('sel'));
-  document.querySelectorAll('#tool-reno .finput').forEach(i => { i.value=''; i.classList.remove('error'); });
-  document.querySelectorAll('#tool-reno .field-err, #tool-reno .og-err').forEach(e => e.classList.remove('show'));
+  document.getElementById('rpw').style.display='block';
+  document.getElementById('r-email-sent').style.display='none';
+  document.querySelectorAll('#tool-reno .ob').forEach(b=>b.classList.remove('sel'));
+  document.querySelectorAll('#tool-reno .finput').forEach(i=>{i.value='';i.classList.remove('error');});
+  document.querySelectorAll('#tool-reno .field-err,#tool-reno .og-err').forEach(e=>e.classList.remove('show'));
   rgo(1);
 }
 
-// ═══════════════════════════════════════════════
-// EXTENSION CALCULATE + SUBMIT
-// ═══════════════════════════════════════════════
-async function calcExt() {
-  let ok = true;
-  if (!gv('eg-rgn')) { showErr('eg-rgn-err'); ok = false; } else hideErr('eg-rgn-err');
-  if (!gv('eg-pt'))  { showErr('eg-pt-err');  ok = false; } else hideErr('eg-pt-err');
-  if (!gv('eg-et'))  { showErr('eg-et-err');  ok = false; } else hideErr('eg-et-err');
-  const szRaw = document.getElementById('eg-sz-inp') ? document.getElementById('eg-sz-inp').value : gv('eg-sz');
-  const szNum = parseFloat(szRaw);
-  if (!szRaw || isNaN(szNum) || szNum < 5) { showErr('eg-sz-err'); ok = false; } else hideErr('eg-sz-err');
-  if (!gv('eg-sp')) { showErr('eg-sp-err'); ok = false; } else hideErr('eg-sp-err');
-  if (!gv('eg-cx')) { showErr('eg-cx-err'); ok = false; } else hideErr('eg-cx-err');
-  if (!ok) return;
-
-  const btn = document.getElementById('e-calc-btn');
-  btn.disabled = true;
-  btn.textContent = 'Calculating…';
-
-  const rgn=gv('eg-rgn'), et=gv('eg-et'), sp=gv('eg-sp'), cx=gv('eg-cx');
-  const email = document.getElementById('e-email').value.trim();
-  const szEl = document.getElementById('eg-sz-inp') || document.querySelector('#eg-sz input') || {value: '30'};
-  const szM2 = parseFloat(szEl.value) || parseFloat(gv('eg-sz')) || 30;
-  const r=ERATE[et]||ERATE['rear_single'], rm=RM[rgn]||1, sm=SM[sp]||1, cm=CM[cx]||1;
-  const tLo=szM2*r.lo*rm*sm*cm, tHi=szM2*r.hi*rm*sm*cm, mid=s.m*((r.lo+r.hi)/2)*rm*sm*cm;
-  const str=mid*0.04, fee=mid*0.08, pln=250, cont=tHi*0.15;
-  const pt = gv('eg-pt');
-
-  const bdRows = [
-    { label: 'Build cost (structural)', value: fmt(tLo*0.65)+' – '+fmt(tHi*0.65) },
-    { label: 'Finishes & fit-out',      value: fmt(tLo*0.25)+' – '+fmt(tHi*0.25) },
-    { label: 'Structural engineer',     value: fmt(str) },
-    { label: 'Professional fees (~8%)', value: fmt(fee) },
-    { label: 'Planning application',    value: fmt(pln) },
-    { label: 'Contingency (15%)',       value: fmt(cont) },
-    { label: 'Total inc. contingency',  value: fmt(tLo+cont)+' – '+fmt(tHi+cont) },
+// ── EXT CALCULATE ──
+async function calcExt(){
+  const szRaw=document.getElementById('eg-sz-inp').value;
+  const szNum=parseFloat(szRaw);
+  let ok=true;
+  if(!szRaw||isNaN(szNum)||szNum<5){showErr('eg-sz-err');ok=false;}else hideErr('eg-sz-err');
+  if(!gv('eg-sp')){showErr('eg-sp-err');ok=false;}else hideErr('eg-sp-err');
+  if(!gv('eg-cx')){showErr('eg-cx-err');ok=false;}else hideErr('eg-cx-err');
+  if(!ok)return;
+  const btn=document.getElementById('e-calc-btn');
+  btn.disabled=true;btn.textContent='Calculating…';
+  const rgn=gv('eg-rgn'),et=gv('eg-et'),sp=gv('eg-sp'),cx=gv('eg-cx'),pt=gv('eg-pt');
+  const email=document.getElementById('e-email').value.trim();
+  const r=ERATE[et]||ERATE.rear_single,rm=RM[rgn]||1,sm=SM[sp]||1,cm=CM[cx]||1;
+  const tLo=szNum*r.lo*rm*sm*cm,tHi=szNum*r.hi*rm*sm*cm;
+  const mid=szNum*((r.lo+r.hi)/2)*rm*sm*cm;
+  const str=mid*0.04,fee=mid*0.08,pln=250,cont=tHi*0.15;
+  const bdRows=[
+    {label:'Build cost (structural)',value:fmt(tLo*0.65)+' – '+fmt(tHi*0.65)},
+    {label:'Finishes & fit-out',value:fmt(tLo*0.25)+' – '+fmt(tHi*0.25)},
+    {label:'Structural engineer',value:fmt(str)},
+    {label:'Professional fees (~8%)',value:fmt(fee)},
+    {label:'Planning application',value:fmt(pln)},
+    {label:'Contingency (15%)',value:fmt(cont)},
+    {label:'Total inc. contingency',value:fmt(tLo+cont)+' – '+fmt(tHi+cont)},
   ];
-
-  const stripeLink = 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03?prefilled_email=' + encodeURIComponent(email);
-  // Store for extra questions modal
-  window._extEmail = email;
-  window._extLow   = fmt(tLo);
-  window._extHigh  = fmt(tHi);
-
+  window._extEmail=email;window._extLow=fmt(tLo);window._extHigh=fmt(tHi);
   document.getElementById('eform').classList.add('hidden');
-  document.getElementById('epw').style.display = 'none';
-  document.getElementById('e-range').textContent = fmt(tLo) + ' – ' + fmt(tHi);
-  document.getElementById('e-note').textContent = `${et.replace('_',' ')} · ${sz} · ${rgn.replace('_',' ')} · ${sp} spec · ${cx} complexity`;
-
-  const el = document.getElementById('e-bd'); el.innerHTML = '';
-  bdRows.forEach(({label,value}) => {
-    el.innerHTML += `<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;
-  });
+  document.getElementById('epw').style.display='none';
+  document.getElementById('e-range').textContent=fmt(tLo)+' – '+fmt(tHi);
+  document.getElementById('e-note').textContent=szNum+'m² · '+et.replace('_',' ')+' · '+rgn.replace('_',' ')+' · '+sp+' spec · '+cx+' complexity';
+  const el=document.getElementById('e-bd');el.innerHTML='';
+  bdRows.forEach(({label,value})=>{el.innerHTML+=`<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;});
   document.getElementById('e-res').classList.add('active');
-
-  const submitted = await submitEstimate({
-    type:        'estimate',
-    tool:        'extension',
-    email,
-    region:       rgn,
-    propertyType: pt,
-    levelOrType:  et,
-    spec:         sp,
-    sizeM2:       szM2,
-    complexity:   cx,
-    estimateLow:  fmt(tLo),
-    estimateHigh: fmt(tHi),
-    breakdown:    bdRows,
-    stripeLink,
-  });
-
-  if (submitted) {
-    document.getElementById('e-sent-addr').textContent = email;
-    document.getElementById('e-email-sent').style.display = 'flex';
-    showToast('✓ Estimate emailed to ' + email);
-  }
-
-  btn.disabled = false;
-  btn.textContent = 'Calculate my estimate →';
+  const submitted=await submitEstimate({type:'estimate',tool:'extension',email,region:rgn,propertyType:pt,levelOrType:et,spec:sp,sizeM2:szNum,complexity:cx,estimateLow:fmt(tLo),estimateHigh:fmt(tHi),breakdown:bdRows});
+  if(submitted){document.getElementById('e-sent-addr').textContent=email;document.getElementById('e-email-sent').style.display='flex';showToast('✓ Estimate emailed to '+email);}
+  btn.disabled=false;btn.textContent='Calculate my estimate →';
 }
 
-function resetExt() {
+function resetExt(){
   document.getElementById('e-res').classList.remove('active');
   document.getElementById('eform').classList.remove('hidden');
-  document.getElementById('epw').style.display = 'block';
-  document.getElementById('e-email-sent').style.display = 'none';
-  document.querySelectorAll('#tool-ext .ob').forEach(b => b.classList.remove('sel'));
-  document.querySelectorAll('#tool-ext .finput').forEach(i => { i.value=''; i.classList.remove('error'); });
-  document.querySelectorAll('#tool-ext .field-err, #tool-ext .og-err').forEach(e => e.classList.remove('show'));
+  document.getElementById('epw').style.display='block';
+  document.getElementById('e-email-sent').style.display='none';
+  document.querySelectorAll('#tool-ext .ob').forEach(b=>b.classList.remove('sel'));
+  document.querySelectorAll('#tool-ext .finput').forEach(i=>{i.value='';i.classList.remove('error');});
+  document.querySelectorAll('#tool-ext .field-err,#tool-ext .og-err').forEach(e=>e.classList.remove('show'));
   ego(1);
 }
 
-  // ── EXTRA QUESTIONS: shared helpers ──────────────────
-  function eqGet(groupId) {
-    const sel = document.querySelector(`#${groupId} .eq-opt.sel`);
-    return sel ? sel.dataset.val : null;
-  }
-  function eqErr(id, show) {
-    const el = document.getElementById(id + '-err');
-    if (el) { if (show) el.classList.add('show'); else el.classList.remove('show'); }
-  }
-  function eqRingErr(groupId, show) {
-    document.querySelectorAll(`#${groupId} .eq-opt`).forEach(b => {
-      if (show) b.classList.add('err-ring'); else b.classList.remove('err-ring');
-    });
-  }
+// ── EXTRA QUESTIONS HELPERS ──
+function eqGet(gid){const s=document.querySelector('#'+gid+' .eq-opt.sel');return s?s.dataset.val:null;}
+function eqErr(id,show){const el=document.getElementById(id+'-err');if(el){if(show)el.classList.add('show');else el.classList.remove('show');}}
+function eqRingErr(gid,show){document.querySelectorAll('#'+gid+' .eq-opt').forEach(b=>{if(show)b.classList.add('err-ring');else b.classList.remove('err-ring');});}
+document.addEventListener('click',function(e){
+  if(!e.target.classList.contains('eq-opt'))return;
+  const group=e.target.dataset.group;
+  document.querySelectorAll('#'+group+' .eq-opt').forEach(b=>b.classList.remove('sel','err-ring'));
+  e.target.classList.add('sel');
+  eqErr(group,false);eqRingErr(group,false);
+});
 
-  // Opt button click handler (works for both modals)
-  document.addEventListener('click', function(e) {
-    if (!e.target.classList.contains('eq-opt')) return;
-    const group = e.target.dataset.group;
-    document.querySelectorAll(`#${group} .eq-opt`).forEach(b => {
-      b.classList.remove('sel', 'err-ring');
-    });
-    e.target.classList.add('sel');
-    // Hide error on selection
-    eqErr(group, false);
-    eqRingErr(group, false);
-  });
-
-  // ── RENOVATION EXTRA ──────────────────────────────────
-  function showRenoExtra() {
-    document.getElementById('reno-extra-modal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeRenoExtra() {
-    document.getElementById('reno-extra-modal').classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  function submitRenoExtra(e) {
-    e.preventDefault();
-    const fields = [
-      { id: 'rex-houseno',  type: 'input', label: 'House No/Name' },
-      { id: 'rex-postcode', type: 'input', label: 'Postcode' },
-      { id: 'rex-elec',   type: 'opts',  label: 'Electrical' },
-      { id: 'rex-heat',   type: 'opts',  label: 'Heating' },
-      { id: 'rex-plumb',  type: 'opts',  label: 'Plumbing' },
-      { id: 'rex-win',    type: 'opts',  label: 'Windows' },
-      { id: 'rex-struct', type: 'opts',  label: 'Structural' },
-      { id: 'rex-ext',    type: 'opts',  label: 'External works' },
-    ];
-    let ok = true;
-    const extra = {};
-    fields.forEach(f => {
-      let val;
-      if (f.type === 'input') {
-        val = document.getElementById(f.id).value.trim();
-        const el = document.getElementById(f.id);
-        if (!val) { el.classList.add('error'); eqErr(f.id, true); ok = false; }
-        else { el.classList.remove('error'); eqErr(f.id, false); }
-      } else {
-        val = eqGet(f.id);
-        if (!val) { eqRingErr(f.id, true); eqErr(f.id, true); ok = false; }
-        else { eqRingErr(f.id, false); eqErr(f.id, false); }
-      }
-      extra[f.id] = val;
-    });
-    if (!ok) return;
-
-    // Build payload for sheet logging (even if they don't pay)
-    const btn = document.getElementById('rex-pay-btn');
-    btn.disabled = true;
-    btn.textContent = 'Saving…';
-
-    // Grab base estimate data stored on window
-    const payload = {
-      type: 'extra_questions',
-      tool: 'renovation',
-      email: window._renoEmail || '',
-      estimateLow: window._renoLow || '',
-      estimateHigh: window._renoHigh || '',
-      houseNo:       extra['rex-houseno'],
-      postcode:      extra['rex-postcode'],
-      electrical:    extra['rex-elec'],
-      heating:       extra['rex-heat'],
-      plumbing:      extra['rex-plumb'],
-      windows:       extra['rex-win'],
-      structural:    extra['rex-struct'],
-      externalWorks: extra['rex-ext'],
-      paidIntent:    'pending',
-    };
-
-    submitEstimate(payload).then(() => {
-      // Log done — now redirect to Stripe
-      const stripeUrl = 'https://buy.stripe.com/cNi4gy7ky4dC6g5a0i4ow04?prefilled_email=' + encodeURIComponent(window._renoEmail || '');
-      window.open(stripeUrl, '_blank');
-      btn.disabled = false;
-      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
-      closeRenoExtra();
-    });
-  }
-
-  // ── EXTENSION EXTRA ───────────────────────────────────
-  function showExtExtra() {
-    document.getElementById('ext-extra-modal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeExtExtra() {
-    document.getElementById('ext-extra-modal').classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  function submitExtExtra(e) {
-    e.preventDefault();
-    const fields = [
-      { id: 'eex-age',    type: 'opts', label: 'Property age' },
-      { id: 'eex-ground', type: 'opts', label: 'Ground conditions' },
-      { id: 'eex-plan',   type: 'opts', label: 'Planning' },
-      { id: 'eex-access', type: 'opts', label: 'Site access' },
-      { id: 'eex-party',  type: 'opts', label: 'Party wall' },
-      { id: 'eex-glaze',  type: 'opts', label: 'Glazing' },
-      { id: 'eex-kt',     type: 'opts', label: 'Kitchen' },
-      { id: 'eex-ba',     type: 'opts', label: 'Bathrooms' },
-      { id: 'eex-finish', type: 'opts', label: 'Interior finish' },
-    ];
-    let ok = true;
-    const extra = {};
-    fields.forEach(f => {
-      const val = eqGet(f.id);
-      if (!val) { eqRingErr(f.id, true); eqErr(f.id, true); ok = false; }
-      else { eqRingErr(f.id, false); eqErr(f.id, false); }
-      extra[f.id] = val;
-    });
-    if (!ok) return;
-
-    const btn = document.getElementById('eex-pay-btn');
-    btn.disabled = true;
-    btn.textContent = 'Saving…';
-
-    const payload = {
-      type: 'extra_questions',
-      tool: 'extension',
-      email: window._extEmail || '',
-      estimateLow: window._extLow || '',
-      estimateHigh: window._extHigh || '',
-      propertyAge:    extra['eex-age'],
-      groundConditions: extra['eex-ground'],
-      planningSituation: extra['eex-plan'],
-      siteAccess:     extra['eex-access'],
-      partyWall:      extra['eex-party'],
-      glazingSpec:    extra['eex-glaze'],
-      kitchen:        extra['eex-kt'],
-      bathrooms:      extra['eex-ba'],
-      interiorFinish: extra['eex-finish'],
-      paidIntent:     'pending',
-    };
-
-    submitEstimate(payload).then(() => {
-      const stripeUrl = 'https://buy.stripe.com/14AdR8awKeSggUJb4m4ow03?prefilled_email=' + encodeURIComponent(window._extEmail || '');
-      window.open(stripeUrl, '_blank');
-      btn.disabled = false;
-      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
-      closeExtExtra();
-    });
-  }
-
-
-  // ── RESTORE FROM EMAIL LINK (Option A — URL params) ──────────
-  (function() {
-    const p = new URLSearchParams(window.location.search);
-    if (p.get('ref') !== 'email') return;
-
-    const tool  = p.get('tool')  || '';
-    const email = p.get('email') || '';
-    const lo    = p.get('lo')    || '';
-    const hi    = p.get('hi')    || '';
-    const rgn   = p.get('rgn')   || '';
-    const pt    = p.get('pt')    || '';
-    const lv    = p.get('lv')    || '';
-    const sp    = p.get('sp')    || '';
-
-    if (!tool || !email) return;
-
-    // Store on window for the extra questions modal to use
-    if (tool === 'renovation') {
-      window._renoEmail = email;
-      window._renoLow   = lo;
-      window._renoHigh  = hi;
-    } else {
-      window._extEmail = email;
-      window._extLow   = lo;
-      window._extHigh  = hi;
+// ── RENO EXTRA MODAL ──
+function showRenoExtra(){document.getElementById('reno-extra-modal').classList.remove('hidden');document.body.style.overflow='hidden';}
+function closeRenoExtra(){document.getElementById('reno-extra-modal').classList.add('hidden');document.body.style.overflow='';}
+function submitRenoExtra(e){
+  e.preventDefault();
+  const fields=[
+    {id:'rex-houseno',type:'input',label:'House No/Name'},
+    {id:'rex-postcode',type:'input',label:'Postcode'},
+    {id:'rex-elec',type:'opts',label:'Electrical'},
+    {id:'rex-heat',type:'opts',label:'Heating'},
+    {id:'rex-plumb',type:'opts',label:'Plumbing'},
+    {id:'rex-win',type:'opts',label:'Windows'},
+    {id:'rex-struct',type:'opts',label:'Structural'},
+    {id:'rex-ext',type:'opts',label:'External works'},
+  ];
+  let ok=true;const extra={};
+  fields.forEach(f=>{
+    let val;
+    if(f.type==='input'){
+      val=document.getElementById(f.id).value.trim();
+      const el=document.getElementById(f.id);
+      if(!val){el.classList.add('error');eqErr(f.id,true);ok=false;}
+      else{el.classList.remove('error');eqErr(f.id,false);}
+    }else{
+      val=eqGet(f.id);
+      if(!val){eqRingErr(f.id,true);eqErr(f.id,true);ok=false;}
+      else{eqRingErr(f.id,false);eqErr(f.id,false);}
     }
+    extra[f.id]=val;
+  });
+  if(!ok)return;
+  const btn=document.getElementById('rex-pay-btn');
+  btn.disabled=true;btn.textContent='Saving…';
+  const payload={type:'extra_questions',tool:'renovation',email:window._renoEmail||'',estimateLow:window._renoLow||'',estimateHigh:window._renoHigh||'',houseNo:extra['rex-houseno'],postcode:extra['rex-postcode'],electrical:extra['rex-elec'],heating:extra['rex-heat'],plumbing:extra['rex-plumb'],windows:extra['rex-win'],structural:extra['rex-struct'],externalWorks:extra['rex-ext'],paidIntent:'pending'};
+  submitEstimate(payload).then(()=>{
+    const stripeUrl=STRIPE.renovation+'?prefilled_email='+encodeURIComponent(window._renoEmail||'');
+    window.open(stripeUrl,'_blank');
+    btn.disabled=false;btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
+    closeRenoExtra();
+  });
+}
 
-    // Wait for DOM then open the right modal with a brief summary banner
-    window.addEventListener('DOMContentLoaded', function() {
-      // Small delay so page renders first
-      setTimeout(function() {
+// ── EXT EXTRA MODAL ──
+function showExtExtra(){document.getElementById('ext-extra-modal').classList.remove('hidden');document.body.style.overflow='hidden';}
+function closeExtExtra(){document.getElementById('ext-extra-modal').classList.add('hidden');document.body.style.overflow='';}
+function submitExtExtra(e){
+  e.preventDefault();
+  const fields=[
+    {id:'eex-age',type:'opts'},{id:'eex-ground',type:'opts'},{id:'eex-plan',type:'opts'},
+    {id:'eex-access',type:'opts'},{id:'eex-party',type:'opts'},{id:'eex-glaze',type:'opts'},
+    {id:'eex-kt',type:'opts'},{id:'eex-ba',type:'opts'},{id:'eex-finish',type:'opts'},
+  ];
+  let ok=true;const extra={};
+  fields.forEach(f=>{
+    const val=eqGet(f.id);
+    if(!val){eqRingErr(f.id,true);eqErr(f.id,true);ok=false;}
+    else{eqRingErr(f.id,false);eqErr(f.id,false);}
+    extra[f.id]=val;
+  });
+  if(!ok)return;
+  const btn=document.getElementById('eex-pay-btn');
+  btn.disabled=true;btn.textContent='Saving…';
+  const payload={type:'extra_questions',tool:'extension',email:window._extEmail||'',estimateLow:window._extLow||'',estimateHigh:window._extHigh||'',propertyAge:extra['eex-age'],groundConditions:extra['eex-ground'],planningSituation:extra['eex-plan'],siteAccess:extra['eex-access'],partyWall:extra['eex-party'],glazingSpec:extra['eex-glaze'],kitchen:extra['eex-kt'],bathrooms:extra['eex-ba'],interiorFinish:extra['eex-finish'],paidIntent:'pending'};
+  submitEstimate(payload).then(()=>{
+    const stripeUrl=STRIPE.extension+'?prefilled_email='+encodeURIComponent(window._extEmail||'');
+    window.open(stripeUrl,'_blank');
+    btn.disabled=false;btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
+    closeExtExtra();
+  });
+}
 
-        // Show a "welcome back" toast
-        showToast('Welcome back — your estimate was ' + lo + ' – ' + hi + '. Complete your report details below.');
-
-        // Scroll to the right calculator section
-        const toolEl = document.getElementById(tool === 'renovation' ? 'tool-reno' : 'tool-ext');
-        if (toolEl) toolEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-        // Open the extra questions modal after a short pause
-        setTimeout(function() {
-          if (tool === 'renovation') {
-            showRenoExtra();
-          } else {
-            showExtExtra();
-          }
-        }, 600);
-
-      }, 300);
-    });
-  })();
-
+// ── EMAIL RESTORE ──
+(function(){
+  const p=new URLSearchParams(window.location.search);
+  if(p.get('ref')!=='email')return;
+  const tool=p.get('tool')||'',email=p.get('email')||'',lo=p.get('lo')||'',hi=p.get('hi')||'';
+  if(!tool||!email)return;
+  if(tool==='renovation'){window._renoEmail=email;window._renoLow=lo;window._renoHigh=hi;}
+  else{window._extEmail=email;window._extLow=lo;window._extHigh=hi;}
+  window.addEventListener('DOMContentLoaded',function(){
+    setTimeout(function(){
+      showToast('Welcome back — your estimate was '+lo+' – '+hi);
+      const toolEl=document.getElementById(tool==='renovation'?'tool-reno':'tool-ext');
+      if(toolEl)toolEl.scrollIntoView({behavior:'smooth',block:'start'});
+      setTimeout(function(){if(tool==='renovation')showRenoExtra();else showExtExtra();},600);
+    },300);
+  });
+})();
 </script>
 
-<!-- ═══════════════════════════════════════════════════
-     RENOVATION EXTRA QUESTIONS MODAL
-═══════════════════════════════════════════════════ -->
+<!-- RENOVATION EXTRA QUESTIONS MODAL -->
 <div id="reno-extra-modal" class="extra-modal hidden">
   <div class="extra-panel">
     <div class="extra-header">
@@ -986,11 +852,9 @@ function resetExt() {
       <h2>Refine your Renovation Report</h2>
       <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
     </div>
-
     <form id="reno-extra-form" onsubmit="submitRenoExtra(event)">
-
       <div class="eq-section">
-        <div class="eq-section-title">🏠 Property Details</div>
+        <div class="eq-section-title">🏠 Property Address</div>
         <div class="eq-field">
           <label class="eq-label">House number or name <span class="eq-req">*</span></label>
           <input type="text" id="rex-houseno" class="eq-input" placeholder="e.g. 42 or Rosewood Cottage">
@@ -1002,7 +866,6 @@ function resetExt() {
           <span class="eq-err" id="rex-postcode-err">Please enter your postcode</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">⚡ Electrical</div>
         <div class="eq-field">
@@ -1016,7 +879,6 @@ function resetExt() {
           <span class="eq-err" id="rex-elec-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🔥 Heating</div>
         <div class="eq-field">
@@ -1030,20 +892,18 @@ function resetExt() {
           <span class="eq-err" id="rex-heat-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🚿 Plumbing</div>
         <div class="eq-field">
           <label class="eq-label">Plumbing upgrades required <span class="eq-req">*</span></label>
           <div class="eq-opts" id="rex-plumb">
             <button type="button" class="eq-opt" data-group="rex-plumb" data-val="None">None</button>
-            <button type="button" class="eq-opt" data-group="rex-plumb" data-val="Partial plumbing upgrade">Partial upgrade</button>
+            <button type="button" class="eq-opt" data-group="rex-plumb" data-val="Partial upgrade">Partial upgrade</button>
             <button type="button" class="eq-opt" data-group="rex-plumb" data-val="Full replumbing">Full replumbing</button>
           </div>
           <span class="eq-err" id="rex-plumb-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🪟 Windows</div>
         <div class="eq-field">
@@ -1057,7 +917,6 @@ function resetExt() {
           <span class="eq-err" id="rex-win-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🏗️ Structural</div>
         <div class="eq-field">
@@ -1066,12 +925,11 @@ function resetExt() {
             <button type="button" class="eq-opt" data-group="rex-struct" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-struct" data-val="Internal wall removal">Internal wall removal</button>
             <button type="button" class="eq-opt" data-group="rex-struct" data-val="Steel beams required">Steel beams required</button>
-            <button type="button" class="eq-opt" data-group="rex-struct" data-val="Major structural alterations">Major structural</button>
+            <button type="button" class="eq-opt" data-group="rex-struct" data-val="Major structural">Major structural</button>
           </div>
           <span class="eq-err" id="rex-struct-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🏚️ External Works</div>
         <div class="eq-field">
@@ -1080,12 +938,11 @@ function resetExt() {
             <button type="button" class="eq-opt" data-group="rex-ext" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-ext" data-val="Roof repairs">Roof repairs</button>
             <button type="button" class="eq-opt" data-group="rex-ext" data-val="New roof">New roof</button>
-            <button type="button" class="eq-opt" data-group="rex-ext" data-val="Insulation / façade upgrades">Insulation / façade</button>
+            <button type="button" class="eq-opt" data-group="rex-ext" data-val="Insulation / facade">Insulation / façade</button>
           </div>
           <span class="eq-err" id="rex-ext-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-actions">
         <button type="button" class="eq-back" onclick="closeRenoExtra()">← Back to estimate</button>
         <button type="submit" class="eq-pay" id="rex-pay-btn">
@@ -1097,9 +954,7 @@ function resetExt() {
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     EXTENSION EXTRA QUESTIONS MODAL
-═══════════════════════════════════════════════════ -->
+<!-- EXTENSION EXTRA QUESTIONS MODAL -->
 <div id="ext-extra-modal" class="extra-modal hidden">
   <div class="extra-panel">
     <div class="extra-header">
@@ -1107,67 +962,61 @@ function resetExt() {
       <h2>Refine your Extension Report</h2>
       <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
     </div>
-
     <form id="ext-extra-form" onsubmit="submitExtExtra(event)">
-
       <div class="eq-section">
         <div class="eq-section-title">🏠 Property Age</div>
         <div class="eq-field">
           <label class="eq-label">Property age band <span class="eq-req">*</span></label>
           <div class="eq-opts" id="eex-age">
             <button type="button" class="eq-opt" data-group="eex-age" data-val="Pre-1920">Pre-1920</button>
-            <button type="button" class="eq-opt" data-group="eex-age" data-val="1920–1960">1920–1960</button>
-            <button type="button" class="eq-opt" data-group="eex-age" data-val="1960–1990">1960–1990</button>
-            <button type="button" class="eq-opt" data-group="eex-age" data-val="1990–2010">1990–2010</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="1920-1960">1920–1960</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="1960-1990">1960–1990</button>
+            <button type="button" class="eq-opt" data-group="eex-age" data-val="1990-2010">1990–2010</button>
             <button type="button" class="eq-opt" data-group="eex-age" data-val="2010+">2010+</button>
           </div>
           <span class="eq-err" id="eex-age-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🪨 Ground Conditions</div>
         <div class="eq-field">
-          <label class="eq-label">Ground conditions known <span class="eq-req">*</span></label>
+          <label class="eq-label">Ground conditions <span class="eq-req">*</span></label>
           <div class="eq-opts" id="eex-ground">
             <button type="button" class="eq-opt" data-group="eex-ground" data-val="Unknown">Unknown</button>
             <button type="button" class="eq-opt" data-group="eex-ground" data-val="Clay soil">Clay soil</button>
             <button type="button" class="eq-opt" data-group="eex-ground" data-val="Sandy soil">Sandy soil</button>
-            <button type="button" class="eq-opt" data-group="eex-ground" data-val="Rock / difficult ground">Rock / difficult</button>
+            <button type="button" class="eq-opt" data-group="eex-ground" data-val="Rock / difficult">Rock / difficult</button>
           </div>
           <span class="eq-err" id="eex-ground-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">📋 Planning</div>
         <div class="eq-field">
           <label class="eq-label">Planning situation <span class="eq-req">*</span></label>
           <div class="eq-opts" id="eex-plan">
             <button type="button" class="eq-opt" data-group="eex-plan" data-val="Not checked yet">Not checked yet</button>
-            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Likely permitted development">Likely permitted dev.</button>
-            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Planning permission required">Planning required</button>
+            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Likely permitted dev">Likely permitted dev.</button>
+            <button type="button" class="eq-opt" data-group="eex-plan" data-val="Planning required">Planning required</button>
             <button type="button" class="eq-opt" data-group="eex-plan" data-val="Already approved">Already approved</button>
           </div>
           <span class="eq-err" id="eex-plan-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🚛 Site Access</div>
         <div class="eq-field">
           <label class="eq-label">Construction access <span class="eq-req">*</span></label>
           <div class="eq-opts" id="eex-access">
-            <button type="button" class="eq-opt" data-group="eex-access" data-val="Easy access">Easy access</button>
-            <button type="button" class="eq-opt" data-group="eex-access" data-val="Moderate access">Moderate access</button>
-            <button type="button" class="eq-opt" data-group="eex-access" data-val="Difficult access">Difficult access</button>
+            <button type="button" class="eq-opt" data-group="eex-access" data-val="Easy">Easy access</button>
+            <button type="button" class="eq-opt" data-group="eex-access" data-val="Moderate">Moderate access</button>
+            <button type="button" class="eq-opt" data-group="eex-access" data-val="Difficult">Difficult access</button>
           </div>
           <span class="eq-err" id="eex-access-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
-        <div class="eq-section-title">🧱 Neighbour Constraints</div>
+        <div class="eq-section-title">🧱 Party Wall</div>
         <div class="eq-field">
           <label class="eq-label">Party wall or shared boundary <span class="eq-req">*</span></label>
           <div class="eq-opts" id="eex-party">
@@ -1178,7 +1027,6 @@ function resetExt() {
           <span class="eq-err" id="eex-party-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🪟 Glazing</div>
         <div class="eq-field">
@@ -1186,12 +1034,11 @@ function resetExt() {
           <div class="eq-opts" id="eex-glaze">
             <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Standard patio doors">Standard patio doors</button>
             <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Bi-fold doors">Bi-fold doors</button>
-            <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Large glazing / sliding systems">Large glazing</button>
+            <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Large glazing">Large glazing</button>
           </div>
           <span class="eq-err" id="eex-glaze-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🍳 Kitchen &amp; Bathrooms</div>
         <div class="eq-field">
@@ -1212,7 +1059,6 @@ function resetExt() {
           <span class="eq-err" id="eex-ba-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-section">
         <div class="eq-section-title">🎨 Interior Finish</div>
         <div class="eq-field">
@@ -1220,12 +1066,11 @@ function resetExt() {
           <div class="eq-opts" id="eex-finish">
             <button type="button" class="eq-opt" data-group="eex-finish" data-val="Basic shell">Basic shell</button>
             <button type="button" class="eq-opt" data-group="eex-finish" data-val="Standard finish">Standard finish</button>
-            <button type="button" class="eq-opt" data-group="eex-finish" data-val="High specification finish">High spec finish</button>
+            <button type="button" class="eq-opt" data-group="eex-finish" data-val="High spec finish">High spec finish</button>
           </div>
           <span class="eq-err" id="eex-finish-err">Please select an option</span>
         </div>
       </div>
-
       <div class="eq-actions">
         <button type="button" class="eq-back" onclick="closeExtExtra()">← Back to estimate</button>
         <button type="submit" class="eq-pay" id="eex-pay-btn">
