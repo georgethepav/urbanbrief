@@ -885,12 +885,12 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🏠 Property Address</div>
         <div class="eq-field">
-          <label class="eq-label">House number or name <span class="eq-req">*</span></label>
+          <label class="eq-label">House number or name <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-houseno',event)">?</button><div class="tip-box" id="p-houseno">Used to personalise your report — it will appear on the cover as the address the estimate was prepared for.</div></label>
           <input type="text" id="rex-houseno" class="eq-input" placeholder="e.g. 42 or Rosewood Cottage">
           <span class="eq-err" id="rex-houseno-err">Please enter your house number or name</span>
         </div>
         <div class="eq-field">
-          <label class="eq-label">Postcode <span class="eq-req">*</span></label>
+          <label class="eq-label">Postcode <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-postcode',event)">?</button><div class="tip-box" id="p-postcode">Used for local market analysis in your report — costs and property values vary significantly by postcode.</div></label>
           <input type="text" id="rex-postcode" class="eq-input" placeholder="e.g. SW1A 1AA" maxlength="8">
           <span class="eq-err" id="rex-postcode-err">Please enter your postcode</span>
         </div>
@@ -898,7 +898,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">⚡ Electrical</div>
         <div class="eq-field">
-          <label class="eq-label">Electrical work expected <span class="eq-req">*</span></label>
+          <label class="eq-label">Electrical work expected <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-elec',event)">?</button><div class="tip-box" id="p-elec"><b>None</b> = no electrical works planned. <b>Minor</b> = adding sockets, moving lights. <b>Partial rewire</b> = updating consumer unit and some circuits. <b>Full rewire</b> = entire installation replaced — common in pre-1960 properties.</div></label>
           <div class="eq-opts" id="rex-elec">
             <button type="button" class="eq-opt" data-group="rex-elec" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-elec" data-val="Minor upgrades">Minor upgrades</button>
@@ -911,7 +911,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🔥 Heating</div>
         <div class="eq-field">
-          <label class="eq-label">Heating upgrades planned <span class="eq-req">*</span></label>
+          <label class="eq-label">Heating upgrades planned <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-heat',event)">?</button><div class="tip-box r" id="p-heat"><b>Boiler replacement</b> = swap like-for-like, same pipework. <b>Full heating system</b> = new boiler, radiators and pipework throughout. <b>Underfloor heating</b> = typically ground floor only — adds significant cost but expected at high spec.</div></label>
           <div class="eq-opts" id="rex-heat">
             <button type="button" class="eq-opt" data-group="rex-heat" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-heat" data-val="Boiler replacement">Boiler replacement</button>
@@ -924,7 +924,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🚿 Plumbing</div>
         <div class="eq-field">
-          <label class="eq-label">Plumbing upgrades required <span class="eq-req">*</span></label>
+          <label class="eq-label">Plumbing upgrades required <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-plumb',event)">?</button><div class="tip-box" id="p-plumb"><b>None</b> = kitchens/bathrooms staying in same location. <b>Partial</b> = some pipes moved or replaced. <b>Full replumbing</b> = entire supply and waste replaced — typical in pre-1960 properties where lead or cast-iron pipework remains.</div></label>
           <div class="eq-opts" id="rex-plumb">
             <button type="button" class="eq-opt" data-group="rex-plumb" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-plumb" data-val="Partial upgrade">Partial upgrade</button>
@@ -936,7 +936,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🪟 Windows</div>
         <div class="eq-field">
-          <label class="eq-label">Window replacement planned <span class="eq-req">*</span></label>
+          <label class="eq-label">Window replacement planned <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-win',event)">?</button><div class="tip-box r" id="p-win">Replacing windows is a significant cost item but also a major energy efficiency upgrade. At high spec, consider triple glazing or steel-framed crittall-style windows. Note: listed buildings or conservation areas may restrict replacement.</div></label>
           <div class="eq-opts" id="rex-win">
             <button type="button" class="eq-opt" data-group="rex-win" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-win" data-val="Some windows">Some windows</button>
@@ -949,7 +949,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🏗️ Structural</div>
         <div class="eq-field">
-          <label class="eq-label">Structural alterations expected <span class="eq-req">*</span></label>
+          <label class="eq-label">Structural alterations expected <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-struct',event)">?</button><div class="tip-box" id="p-struct"><b>None</b> = no walls moved. <b>Internal wall removal</b> = typically requires an RSJ steel beam. <b>Steel beams</b> = multiple openings or larger spans. <b>Major structural</b> = changing load paths, removing chimneybreasts, or significant roof alterations.</div></label>
           <div class="eq-opts" id="rex-struct">
             <button type="button" class="eq-opt" data-group="rex-struct" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-struct" data-val="Internal wall removal">Internal wall removal</button>
@@ -962,7 +962,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🏚️ External Works</div>
         <div class="eq-field">
-          <label class="eq-label">External upgrades planned <span class="eq-req">*</span></label>
+          <label class="eq-label">External upgrades planned <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-ext',event)">?</button><div class="tip-box r" id="p-ext"><b>Roof repairs</b> = patching, re-felting valleys, replacing flashings. <b>New roof</b> = full re-roof including battens, felt and tiles. <b>Insulation/façade</b> = external wall insulation, render, or cladding — significant cost but major energy saving.</div></label>
           <div class="eq-opts" id="rex-ext">
             <button type="button" class="eq-opt" data-group="rex-ext" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="rex-ext" data-val="Roof repairs">Roof repairs</button>
@@ -995,7 +995,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🏠 Property Age</div>
         <div class="eq-field">
-          <label class="eq-label">Property age band <span class="eq-req">*</span></label>
+          <label class="eq-label">Property age band <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eage',event)">?</button><div class="tip-box" id="p-eage">Affects structural risk profile. Pre-1920 properties often have shallow brick foundations — check with a structural engineer before designing deep extensions. Post-1990 properties are generally straightforward.</div></label>
           <div class="eq-opts" id="eex-age">
             <button type="button" class="eq-opt" data-group="eex-age" data-val="Pre-1920">Pre-1920</button>
             <button type="button" class="eq-opt" data-group="eex-age" data-val="1920-1960">1920–1960</button>
@@ -1009,7 +1009,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🪨 Ground Conditions</div>
         <div class="eq-field">
-          <label class="eq-label">Ground conditions <span class="eq-req">*</span></label>
+          <label class="eq-label">Ground conditions <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eground',event)">?</button><div class="tip-box r" id="p-eground"><b>Unknown</b> is fine — a ground investigation is recommended before tendering. <b>Clay</b> = deeper foundations likely required. <b>Rock</b> = expensive to excavate but very stable. Unexpected ground conditions are one of the most common causes of budget overrun.</div></label>
           <div class="eq-opts" id="eex-ground">
             <button type="button" class="eq-opt" data-group="eex-ground" data-val="Unknown">Unknown</button>
             <button type="button" class="eq-opt" data-group="eex-ground" data-val="Clay soil">Clay soil</button>
@@ -1022,7 +1022,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">📋 Planning</div>
         <div class="eq-field">
-          <label class="eq-label">Planning situation <span class="eq-req">*</span></label>
+          <label class="eq-label">Planning situation <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eplan',event)">?</button><div class="tip-box" id="p-eplan">Most single-storey rear extensions under 4m (detached) or 3m (semi/terrace) fall under Permitted Development — no planning permission needed. Larger extensions, two-storey, or Conservation Area properties typically need full planning permission (£206 fee, 8-week determination).</div></label>
           <div class="eq-opts" id="eex-plan">
             <button type="button" class="eq-opt" data-group="eex-plan" data-val="Not checked yet">Not checked yet</button>
             <button type="button" class="eq-opt" data-group="eex-plan" data-val="Likely permitted dev">Likely permitted dev.</button>
@@ -1035,7 +1035,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🚛 Site Access</div>
         <div class="eq-field">
-          <label class="eq-label">Construction access <span class="eq-req">*</span></label>
+          <label class="eq-label">Construction access <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eaccess',event)">?</button><div class="tip-box r" id="p-eaccess"><b>Easy</b> = wide side passage or open garden. <b>Moderate</b> = narrow side gate, materials need carrying through. <b>Difficult</b> = no side access, materials must pass through the house — this significantly increases cost and programme.</div></label>
           <div class="eq-opts" id="eex-access">
             <button type="button" class="eq-opt" data-group="eex-access" data-val="Easy">Easy access</button>
             <button type="button" class="eq-opt" data-group="eex-access" data-val="Moderate">Moderate access</button>
@@ -1047,7 +1047,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🧱 Party Wall</div>
         <div class="eq-field">
-          <label class="eq-label">Party wall or shared boundary <span class="eq-req">*</span></label>
+          <label class="eq-label">Party wall or shared boundary <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eparty',event)">?</button><div class="tip-box" id="p-eparty">The Party Wall Act 1996 requires you to serve notice on neighbours before work within 3m of their foundation. Each neighbour needs their own surveyor (£400–£1,200 per side). Budget for this as it's often overlooked.</div></label>
           <div class="eq-opts" id="eex-party">
             <button type="button" class="eq-opt" data-group="eex-party" data-val="No">No</button>
             <button type="button" class="eq-opt" data-group="eex-party" data-val="Possible">Possible</button>
@@ -1059,7 +1059,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🪟 Glazing</div>
         <div class="eq-field">
-          <label class="eq-label">Doors / windows for extension <span class="eq-req">*</span></label>
+          <label class="eq-label">Doors / windows for extension <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eglaze',event)">?</button><div class="tip-box r" id="p-eglaze"><b>Standard patio doors</b> = most cost-effective. <b>Bi-fold doors</b> = popular mid-range choice, 3–6 panel systems. <b>Large glazing</b> = sliding systems, rooflights, or full-width glazing — significantly increases cost but transforms the space.</div></label>
           <div class="eq-opts" id="eex-glaze">
             <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Standard patio doors">Standard patio doors</button>
             <button type="button" class="eq-opt" data-group="eex-glaze" data-val="Bi-fold doors">Bi-fold doors</button>
@@ -1071,7 +1071,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🍳 Kitchen &amp; Bathrooms</div>
         <div class="eq-field">
-          <label class="eq-label">New kitchen planned? <span class="eq-req">*</span></label>
+          <label class="eq-label">New kitchen planned? <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-ekt',event)">?</button><div class="tip-box" id="p-ekt">If you're extending to create an open-plan kitchen-diner, include the kitchen cost here. This covers units, worktops, appliances, splashback and plumbing connections. The extension structure itself is already in your base estimate.</div></label>
           <div class="eq-opts" id="eex-kt">
             <button type="button" class="eq-opt" data-group="eex-kt" data-val="No">No</button>
             <button type="button" class="eq-opt" data-group="eex-kt" data-val="Yes">Yes</button>
@@ -1079,7 +1079,7 @@ function submitExtExtra(e){
           <span class="eq-err" id="eex-kt-err">Please select an option</span>
         </div>
         <div class="eq-field">
-          <label class="eq-label">New bathrooms? <span class="eq-req">*</span></label>
+          <label class="eq-label">New bathrooms? <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-eba',event)">?</button><div class="tip-box r" id="p-eba">Include any new bathrooms or shower rooms being created within the extension space. Full refurbishment includes sanitaryware, all tiling, plumbing and electrical.</div></label>
           <div class="eq-opts" id="eex-ba">
             <button type="button" class="eq-opt" data-group="eex-ba" data-val="None">None</button>
             <button type="button" class="eq-opt" data-group="eex-ba" data-val="1">1</button>
@@ -1091,7 +1091,7 @@ function submitExtExtra(e){
       <div class="eq-section">
         <div class="eq-section-title">🎨 Interior Finish</div>
         <div class="eq-field">
-          <label class="eq-label">Interior finish level <span class="eq-req">*</span></label>
+          <label class="eq-label">Interior finish level <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-efinish',event)">?</button><div class="tip-box" id="p-efinish"><b>Basic shell</b> = plastered and painted, ready for you to fit out. <b>Standard finish</b> = flooring, decent quality finishes, integrated lighting. <b>High spec</b> = bespoke details, premium materials, underfloor heating, architect-quality finish.</div></label>
           <div class="eq-opts" id="eex-finish">
             <button type="button" class="eq-opt" data-group="eex-finish" data-val="Basic shell">Basic shell</button>
             <button type="button" class="eq-opt" data-group="eex-finish" data-val="Standard finish">Standard finish</button>
