@@ -116,10 +116,10 @@
 
   /* ── TOOLTIPS ── */
   .tip-wrap{position:relative;display:inline-flex;align-items:center;}
-  .tip-btn{width:15px;height:15px;border-radius:50%;background:rgba(79,195,195,0.12);border:1px solid rgba(79,195,195,0.3);color:var(--teal);font-size:0.6rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:5px;flex-shrink:0;transition:all 0.15s;vertical-align:middle;line-height:1;}
+  .tip-btn{width:15px;height:15px;border-radius:50%;background:rgba(79,195,195,0.12);border:1px solid rgba(79,195,195,0.3);color:var(--teal);font-size:0.6rem;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-left:5px;flex-shrink:0;transition:all 0.15s;vertical-align:middle;line-height:1;position:relative;}
   .tip-btn:hover{background:rgba(79,195,195,0.25);border-color:var(--teal);}
-  .tip-box{display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:300;background:var(--bg-card2);border:1px solid rgba(79,195,195,0.28);border-radius:10px;padding:0.7rem 0.85rem;width:270px;font-size:0.73rem;color:var(--t2);line-height:1.55;font-weight:400;box-shadow:0 8px 28px rgba(0,0,0,0.5);}
-  .tip-box.r{left:auto;right:0;}
+  .tip-box{display:none;position:fixed;z-index:9999;background:var(--bg-card2);border:1px solid rgba(79,195,195,0.28);border-radius:10px;padding:0.7rem 0.85rem;width:260px;font-size:0.73rem;color:var(--t2);line-height:1.55;font-weight:400;box-shadow:0 8px 28px rgba(0,0,0,0.6);}
+  .tip-box.r{transform:translateX(-85%);}
   .tip-box.show{display:block;animation:fadeUp 0.15s ease;}
   .tip-box b{color:var(--t1);}
   /* ── CTA UPGRADES ── */
@@ -560,7 +560,31 @@ const STRIPE = {
 };
 
 
-function tip(id,e){if(e)e.stopPropagation();const b=document.getElementById(id);if(!b)return;const open=b.classList.contains('show');document.querySelectorAll('.tip-box.show').forEach(x=>x.classList.remove('show'));if(!open)b.classList.add('show');}
+function tip(id,e){
+  if(e)e.stopPropagation();
+  const box=document.getElementById(id);if(!box)return;
+  const open=box.classList.contains('show');
+  document.querySelectorAll('.tip-box.show').forEach(x=>x.classList.remove('show'));
+  if(!open){
+    const btn=e?e.currentTarget:null;
+    if(btn){
+      const r=btn.getBoundingClientRect();
+      const boxW=260;
+      // Appear just below and left-aligned to the ? button
+      let top=r.bottom+5;
+      let left=r.left-8;
+      // Keep within screen horizontally
+      if(left+boxW>window.innerWidth-12) left=window.innerWidth-boxW-12;
+      if(left<8) left=8;
+      // If box would go off bottom, show above button instead
+      const boxH=200; // approximate
+      if(top+boxH>window.innerHeight-10) top=r.top-boxH-5;
+      box.style.top=top+'px';
+      box.style.left=left+'px';
+    }
+    box.classList.add('show');
+  }
+}
 document.addEventListener('click',()=>document.querySelectorAll('.tip-box.show').forEach(b=>b.classList.remove('show')));
 function showToast(msg,type='success'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type==='success'?'success':'error-toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4000);}
 function pick(btn,gid){document.querySelectorAll('#'+gid+' .ob').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');const e=document.getElementById(gid+'-err');if(e)e.classList.remove('show');}
@@ -831,21 +855,30 @@ function closeExtExtra(){document.getElementById('ext-extra-modal').classList.ad
 function submitExtExtra(e){
   e.preventDefault();
   const fields=[
+    {id:'eex-houseno',type:'input'},{id:'eex-postcode',type:'input'},
     {id:'eex-age',type:'opts'},{id:'eex-ground',type:'opts'},{id:'eex-plan',type:'opts'},
     {id:'eex-access',type:'opts'},{id:'eex-party',type:'opts'},{id:'eex-glaze',type:'opts'},
     {id:'eex-kt',type:'opts'},{id:'eex-ba',type:'opts'},{id:'eex-finish',type:'opts'},
   ];
   let ok=true;const extra={};
   fields.forEach(f=>{
-    const val=eqGet(f.id);
-    if(!val){eqRingErr(f.id,true);eqErr(f.id,true);ok=false;}
-    else{eqRingErr(f.id,false);eqErr(f.id,false);}
+    let val;
+    if(f.type==='input'){
+      const el=document.getElementById(f.id);
+      val=el?el.value.trim():'';
+      if(!val){if(el)el.classList.add('error');eqErr(f.id,true);ok=false;}
+      else{if(el)el.classList.remove('error');eqErr(f.id,false);}
+    } else {
+      val=eqGet(f.id);
+      if(!val){eqRingErr(f.id,true);eqErr(f.id,true);ok=false;}
+      else{eqRingErr(f.id,false);eqErr(f.id,false);}
+    }
     extra[f.id]=val;
   });
   if(!ok)return;
   const btn=document.getElementById('eex-pay-btn');
   btn.disabled=true;btn.textContent='Saving…';
-  const payload={type:'extra_questions',tool:'extension',email:window._extEmail||'',estimateLow:window._extLow||'',estimateHigh:window._extHigh||'',propertyAge:extra['eex-age'],groundConditions:extra['eex-ground'],planningSituation:extra['eex-plan'],siteAccess:extra['eex-access'],partyWall:extra['eex-party'],glazingSpec:extra['eex-glaze'],kitchen:extra['eex-kt'],bathrooms:extra['eex-ba'],interiorFinish:extra['eex-finish'],paidIntent:'pending'};
+  const payload={type:'extra_questions',tool:'extension',email:window._extEmail||'',estimateLow:window._extLow||'',estimateHigh:window._extHigh||'',houseNo:extra['eex-houseno'],postcode:extra['eex-postcode'],propertyAge:extra['eex-age'],groundConditions:extra['eex-ground'],planningSituation:extra['eex-plan'],siteAccess:extra['eex-access'],partyWall:extra['eex-party'],glazingSpec:extra['eex-glaze'],kitchen:extra['eex-kt'],bathrooms:extra['eex-ba'],interiorFinish:extra['eex-finish'],paidIntent:'pending'};
   submitEstimate(payload).then(()=>{
     const stripeUrl=STRIPE.extension+'?prefilled_email='+encodeURIComponent(window._extEmail||'');
     window.open(stripeUrl,'_blank');
@@ -992,6 +1025,20 @@ function submitExtExtra(e){
       <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
     </div>
     <form id="ext-extra-form" onsubmit="submitExtExtra(event)">
+      <div class="eq-section">
+        <div class="eq-section-title">🏠 Property Address</div>
+        <div class="eq-field">
+          <label class="eq-label">House number or name <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-ehouseno',event)">?</button><div class="tip-box" id="p-ehouseno">Used to personalise your report — appears on the cover as the address the estimate was prepared for.</div></label>
+          <input type="text" id="eex-houseno" class="eq-input" placeholder="e.g. 42 or Rosewood Cottage">
+          <span class="eq-err" id="eex-houseno-err">Please enter your house number or name</span>
+        </div>
+        <div class="eq-field">
+          <label class="eq-label">Postcode <span class="eq-req">*</span><button class="tip-btn" onclick="tip('p-epostcode',event)">?</button><div class="tip-box" id="p-epostcode">Used for local market analysis — costs and property values vary significantly by postcode.</div></label>
+          <input type="text" id="eex-postcode" class="eq-input" placeholder="e.g. BS8 1AA" maxlength="8">
+          <span class="eq-err" id="eex-postcode-err">Please enter your postcode</span>
+        </div>
+      </div>
+
       <div class="eq-section">
         <div class="eq-section-title">🏠 Property Age</div>
         <div class="eq-field">
