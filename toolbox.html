@@ -746,6 +746,31 @@ async function calcReno(){
   const el=document.getElementById('r-bd');el.innerHTML='';
   bdRows.forEach(({label,value})=>{el.innerHTML+=`<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;});
   document.getElementById('r-res').classList.add('active');
+  // ── META PIXEL: Lead event with demographic data ──
+  if(typeof fbq !== 'undefined'){
+    fbq('track', 'Lead', {
+      content_name: 'renovation_estimate',
+      content_category: (lv||'')+'_'+(sp||''),
+      currency: 'GBP',
+      value: Math.round((tLo+tHi)/2),
+      region: rgn,
+      property_type: pt,
+      floor_area: fa,
+      bedrooms: bd,
+      property_age: ag,
+      renovation_level: lv,
+      specification: sp,
+      has_kitchen: kt,
+      bathrooms: ba,
+      has_extension: ex
+    });
+    fbq('track', 'ViewContent', {
+      content_name: 'renovation_estimate_result',
+      content_category: 'renovation',
+      currency: 'GBP',
+      value: Math.round((tLo+tHi)/2)
+    });
+  }
   const submitted=await submitEstimate({type:'estimate',tool:'renovation',email,region:rgn,propertyType:pt,floorArea:fa,bedrooms:bd,age:ag,levelOrType:lv,spec:sp,estimateLow:fmt(tLo),estimateHigh:fmt(tHi),breakdown:bdRows});
   if(submitted){document.getElementById('r-sent-addr').textContent=email;document.getElementById('r-email-sent').style.display='flex';showToast('✓ Estimate emailed to '+email);}
   btn.disabled=false;btn.textContent='Calculate my estimate →';
@@ -796,6 +821,27 @@ async function calcExt(){
   const el=document.getElementById('e-bd');el.innerHTML='';
   bdRows.forEach(({label,value})=>{el.innerHTML+=`<div class="bdi"><div class="bdl">${label}</div><div class="bdv">${value}</div></div>`;});
   document.getElementById('e-res').classList.add('active');
+  // ── META PIXEL: Lead event with demographic data ──
+  if(typeof fbq !== 'undefined'){
+    fbq('track', 'Lead', {
+      content_name: 'extension_estimate',
+      content_category: (et||'')+'_'+(sp||''),
+      currency: 'GBP',
+      value: Math.round((tLo+tHi)/2),
+      region: rgn,
+      property_type: pt,
+      extension_type: et,
+      size_m2: szNum,
+      specification: sp,
+      complexity: cx
+    });
+    fbq('track', 'ViewContent', {
+      content_name: 'extension_estimate_result',
+      content_category: 'extension',
+      currency: 'GBP',
+      value: Math.round((tLo+tHi)/2)
+    });
+  }
   const submitted=await submitEstimate({type:'estimate',tool:'extension',email,region:rgn,propertyType:pt,levelOrType:et,spec:sp,sizeM2:szNum,complexity:cx,estimateLow:fmt(tLo),estimateHigh:fmt(tHi),breakdown:bdRows});
   if(submitted){document.getElementById('e-sent-addr').textContent=email;document.getElementById('e-email-sent').style.display='flex';showToast('✓ Estimate emailed to '+email);}
   btn.disabled=false;btn.textContent='Calculate my estimate →';
@@ -860,6 +906,16 @@ function submitRenoExtra(e){
   const payload={type:'extra_questions',tool:'renovation',email:window._renoEmail||'',estimateLow:window._renoLow||'',estimateHigh:window._renoHigh||'',houseNo:extra['rex-houseno'],postcode:extra['rex-postcode'],electrical:extra['rex-elec'],heating:extra['rex-heat'],plumbing:extra['rex-plumb'],windows:extra['rex-win'],structural:extra['rex-struct'],externalWorks:extra['rex-ext'],paidIntent:'pending'};
   submitEstimate(payload).then(()=>{
     const stripeUrl=STRIPE.renovation+'?prefilled_email='+encodeURIComponent(window._renoEmail||'');
+  // ── META PIXEL: InitiateCheckout ──
+  if(typeof fbq !== 'undefined'){
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'renovation_intelligence_report',
+      content_category: 'renovation',
+      currency: 'GBP',
+      value: 19,
+      num_items: 1
+    });
+  }
     window.open(stripeUrl,'_blank');
     btn.disabled=false;btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
     closeRenoExtra();
@@ -898,6 +954,16 @@ function submitExtExtra(e){
   const payload={type:'extra_questions',tool:'extension',email:window._extEmail||'',estimateLow:window._extLow||'',estimateHigh:window._extHigh||'',houseNo:extra['eex-houseno'],postcode:extra['eex-postcode'],propertyAge:extra['eex-age'],groundConditions:extra['eex-ground'],planningSituation:extra['eex-plan'],siteAccess:extra['eex-access'],partyWall:extra['eex-party'],glazingSpec:extra['eex-glaze'],kitchen:extra['eex-kt'],bathrooms:extra['eex-ba'],interiorFinish:extra['eex-finish'],paidIntent:'pending'};
   submitEstimate(payload).then(()=>{
     const stripeUrl=STRIPE.extension+'?prefilled_email='+encodeURIComponent(window._extEmail||'');
+  // ── META PIXEL: InitiateCheckout ──
+  if(typeof fbq !== 'undefined'){
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'extension_intelligence_report',
+      content_category: 'extension',
+      currency: 'GBP',
+      value: 19,
+      num_items: 1
+    });
+  }
     window.open(stripeUrl,'_blank');
     btn.disabled=false;btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Pay now · £19';
     closeExtExtra();
