@@ -102,13 +102,23 @@
   .bdl{font-size:0.63rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--t3);margin-bottom:0.25rem;}
   .bdv{font-size:0.88rem;font-weight:600;color:var(--t1);}
   .disc{background:var(--bg-card);border:1px solid var(--border);border-left:2px solid var(--teal);border-radius:0 8px 8px 0;padding:0.78rem 0.95rem;font-size:0.72rem;color:var(--t2);line-height:1.6;margin-bottom:1.35rem;}
-  .up-box{background:var(--bg-card);border:1px solid rgba(79,195,195,0.18);border-radius:var(--r);padding:1.5rem;text-align:center;}
+  .up-box{background:linear-gradient(150deg,var(--bg-card) 0%,rgba(79,195,195,0.04) 100%);border:1px solid rgba(79,195,195,0.28);border-radius:var(--r);padding:1.5rem;text-align:center;}
   .up-tag{display:inline-block;background:var(--teal-dim);border:1px solid rgba(79,195,195,0.28);color:var(--teal);font-size:0.64rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.62rem;border-radius:20px;margin-bottom:0.85rem;}
-  .up-box h3{font-size:1.05rem;font-weight:600;color:var(--white);margin-bottom:0.55rem;letter-spacing:-0.01em;line-height:1.3;}
+  .up-box h3{font-size:1.18rem;font-weight:700;color:var(--white);margin-bottom:0.6rem;letter-spacing:-0.02em;line-height:1.3;}
   .up-box p{font-size:0.78rem;color:var(--t2);margin-bottom:1rem;line-height:1.65;font-weight:300;max-width:380px;margin-left:auto;margin-right:auto;}
+  .up-sub{font-size:0.8rem;color:var(--t2);line-height:1.65;margin-bottom:1.1rem;text-align:left;}
+  .up-sub b{color:var(--white);}
+  .report-contents{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem;text-align:left;}
+  .rc-title{font-size:0.63rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;}
+  .rc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.48rem;}
+  .rc-item{display:flex;align-items:flex-start;gap:0.45rem;font-size:0.74rem;color:var(--t2);line-height:1.4;}
+  .rc-icon{flex-shrink:0;font-size:0.82rem;margin-top:0.05rem;}
+  .cta-sample-lnk{display:inline-flex;align-items:center;gap:0.45rem;font-size:0.77rem;color:var(--teal);text-decoration:none;font-weight:500;margin-bottom:1rem;padding:0.4rem 0.9rem;border:1px solid rgba(79,195,195,0.28);border-radius:20px;background:rgba(79,195,195,0.07);transition:background 0.2s;}
+  .cta-sample-lnk:hover{background:rgba(79,195,195,0.15);}
+  .btn-trust{font-size:0.69rem;color:var(--t3);margin-top:0.6rem;text-align:center;line-height:1.55;}
   .chips{display:flex;flex-wrap:wrap;gap:0.38rem;justify-content:center;margin-bottom:1.25rem;}
   .chip{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--t2);font-size:0.68rem;padding:0.25rem 0.62rem;border-radius:20px;}
-  .btn-stripe{display:inline-flex;align-items:center;gap:0.5rem;padding:0.82rem 2.2rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:700;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;text-decoration:none;}
+  .btn-stripe{display:inline-flex;align-items:center;gap:0.5rem;padding:0.88rem 2.4rem;background:var(--teal);border:none;border-radius:var(--rb);font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:700;color:#0d1117;cursor:pointer;transition:all 0.2s;letter-spacing:-0.01em;text-decoration:none;}
   .btn-stripe:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 6px 22px var(--teal-glow);}
   .ptag{opacity:0.65;font-size:0.75rem;margin-left:0.2rem;}
   .btn-restart{display:block;text-align:center;margin-top:0.85rem;font-size:0.74rem;color:var(--t3);cursor:pointer;background:none;border:none;font-family:'Inter',sans-serif;text-decoration:underline;text-underline-offset:3px;}
@@ -144,6 +154,7 @@
     .hero h1{font-size:1.6rem;}
     .tab-btn{padding:0.5rem 0.85rem;font-size:0.74rem;}
     .est-range{font-size:1.55rem;}
+    .rc-grid{grid-template-columns:1fr;}
   }
   /* ── EXTRA QUESTIONS MODAL ── */
   .extra-modal{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.75);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;backdrop-filter:blur(4px);}
@@ -396,22 +407,33 @@ src="https://www.facebook.com/tr?id=919824814174127&ev=PageView&noscript=1"
       <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Always obtain 3+ quotes before committing.</div>
       <div class="up-box">
         <div class="up-tag">Intelligence Report — £19</div>
-        <h3>What could your £19 report save you?</h3>
+        <h3>Your estimate is a starting point.<br>Your report is what protects you.</h3>
+        <p class="up-sub">Most homeowners uncover <b>£5,000–£20,000 in surprises</b> after committing to a renovation. Your report tells you exactly where those risks are — and gives you the data to negotiate around them.</p>
+        <div class="report-contents">
+          <div class="rc-title">What’s inside your report</div>
+          <div class="rc-grid">
+            <div class="rc-item"><span class="rc-icon">📋</span><span>Full cost breakdown by trade — labour &amp; materials, line by line</span></div>
+            <div class="rc-item"><span class="rc-icon">⚠️</span><span>Hidden risk flags for your property type, age &amp; region</span></div>
+            <div class="rc-item"><span class="rc-icon">📊</span><span>Contractor rate benchmarks for your area</span></div>
+            <div class="rc-item"><span class="rc-icon">🎯</span><span>Spec guidance: where to invest, where to cut</span></div>
+            <div class="rc-item"><span class="rc-icon">📝</span><span>Questions to ask before you sign anything</span></div>
+            <div class="rc-item"><span class="rc-icon">💰</span><span>Contingency guidance — the number most people get wrong</span></div>
+          </div>
+        </div>
         <div class="cta-proof">
           <div class="cta-proof-item"><span class="pi">£</span><span>Undetected asbestos or a rewire requirement could add <b>£1,500–£9,000</b> — your report flags it before you sign anything.</span></div>
           <div class="cta-proof-item"><span class="pi">£</span><span>Over or under-specifying for your market typically costs <b>£8,000–£20,000</b> more than it should — your report benchmarks the right level.</span></div>
           <div class="cta-proof-item"><span class="pi">£</span><span>Walking into contractor negotiations without data costs most buyers <b>£3,000–£10,000</b> — your report gives you the numbers they use.</span></div>
         </div>
         <div class="cta-sources">Built on <span>RICS · BCIS · ONS</span> data — the same sources professional surveyors use. 2025/26 figures.</div>
-        <a href="UrbanBrief_Sample_Report.pdf" target="_blank" class="cta-sample">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          See exactly what you get — view a sample report →
+        <a href="UrbanBrief_Sample_Report.pdf" target="_blank" class="cta-sample-lnk">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View a sample report before you buy →
         </a>
         <button class="btn-stripe" onclick="showRenoExtra()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          Get my full Intelligence Report &nbsp;<span class="ptag">£19</span>
+          Get my full report &nbsp;·&nbsp; £19
         </button>
-        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.65rem;margin-bottom:0;">PDF delivered to your inbox — usually within the hour.</p>
+        <div class="btn-trust">🔒 Secure checkout via Stripe &nbsp;·&nbsp; PDF to your inbox within the hour</div>
       </div>
       <button class="btn-restart" onclick="resetReno()">← Start a new calculation</button>
     </div>
@@ -542,22 +564,33 @@ src="https://www.facebook.com/tr?id=919824814174127&ev=PageView&noscript=1"
       <div class="disc"><strong>Important:</strong> Indicative estimates based on UK market averages. Always obtain 3+ quotes before committing.</div>
       <div class="up-box">
         <div class="up-tag">Intelligence Report — £19</div>
-        <h3>What could your £19 report save you?</h3>
+        <h3>Your estimate is a starting point.<br>Your report is what protects you.</h3>
+        <p class="up-sub">Most homeowners uncover <b>£8,000–£25,000 in surprises</b> after committing to an extension. Your report tells you exactly where those risks are — and gives you the data to negotiate around them.</p>
+        <div class="report-contents">
+          <div class="rc-title">What’s inside your report</div>
+          <div class="rc-grid">
+            <div class="rc-item"><span class="rc-icon">📋</span><span>Full cost breakdown by trade — labour &amp; materials, line by line</span></div>
+            <div class="rc-item"><span class="rc-icon">⚠️</span><span>Ground risk &amp; party wall flags specific to your site</span></div>
+            <div class="rc-item"><span class="rc-icon">📊</span><span>Contractor rate benchmarks for your area</span></div>
+            <div class="rc-item"><span class="rc-icon">🎯</span><span>Glazing &amp; structural spec: where to invest vs cut</span></div>
+            <div class="rc-item"><span class="rc-icon">📝</span><span>Planning &amp; professional fee itemisation</span></div>
+            <div class="rc-item"><span class="rc-icon">💰</span><span>Contingency guidance — the number most people get wrong</span></div>
+          </div>
+        </div>
         <div class="cta-proof">
           <div class="cta-proof-item"><span class="pi">£</span><span>Unexpected ground conditions or party wall issues can add <b>£3,000–£12,000</b> — your report flags the risk before you commit.</span></div>
           <div class="cta-proof-item"><span class="pi">£</span><span>Glazing and structural spec choices without benchmarking typically cost <b>£5,000–£18,000</b> more than necessary.</span></div>
           <div class="cta-proof-item"><span class="pi">£</span><span>Planning and professional fee surprises catch most buyers out — your report itemises every hidden cost with <b>real £ figures</b>.</span></div>
         </div>
         <div class="cta-sources">Built on <span>RICS · BCIS · ONS</span> data — the same sources professional surveyors use. 2025/26 figures.</div>
-        <a href="UrbanBrief_Sample_Report.pdf" target="_blank" class="cta-sample">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          See exactly what you get — view a sample report →
+        <a href="UrbanBrief_Sample_Report.pdf" target="_blank" class="cta-sample-lnk">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          View a sample report before you buy →
         </a>
         <button class="btn-stripe" onclick="showExtExtra()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          Get my full Intelligence Report &nbsp;<span class="ptag">£19</span>
+          Get my full report &nbsp;·&nbsp; £19
         </button>
-        <p style="font-size:0.7rem;color:var(--t3);margin-top:0.65rem;margin-bottom:0;">PDF delivered to your inbox — usually within the hour.</p>
+        <div class="btn-trust">🔒 Secure checkout via Stripe &nbsp;·&nbsp; PDF to your inbox within the hour</div>
       </div>
       <button class="btn-restart" onclick="resetExt()">← Start a new calculation</button>
     </div>
@@ -994,8 +1027,8 @@ function submitExtExtra(e){
   <div class="extra-panel">
     <div class="extra-header">
       <div class="extra-tag">Intelligence Report — £19</div>
-      <h2>Refine your Renovation Report</h2>
-      <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
+      <h2>Personalise your Renovation Report</h2>
+      <p>Two minutes of detail means a report built around your specific property — not a generic template. Answer below, then pay securely via Stripe.</p>
     </div>
     <form id="reno-extra-form" onsubmit="submitRenoExtra(event)">
       <div class="eq-section">
@@ -1104,8 +1137,8 @@ function submitExtExtra(e){
   <div class="extra-panel">
     <div class="extra-header">
       <div class="extra-tag">Intelligence Report — £19</div>
-      <h2>Refine your Extension Report</h2>
-      <p>A few more details help us build a genuinely personalised report — not a generic template.</p>
+      <h2>Personalise your Extension Report</h2>
+      <p>Two minutes of detail means a report built around your specific site — not a generic template. Answer below, then pay securely via Stripe.</p>
     </div>
     <form id="ext-extra-form" onsubmit="submitExtExtra(event)">
       <div class="eq-section">
